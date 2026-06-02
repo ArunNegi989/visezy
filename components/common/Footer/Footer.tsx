@@ -1,146 +1,193 @@
 "use client";
 
 import styles from "./Footer.module.css";
-import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import {
-  FaLinkedinIn,
-  FaInstagram,
-} from "react-icons/fa6";
+import Link from "next/link";
 
-const recentBlogs = [
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaPinterestP,
+  FaTwitter,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+  FaEnvelopeOpenText,
+  FaPaperPlane,
+} from "react-icons/fa";
+
+const blogs = [
   {
-    title: "Top Hiring Trends in 2026",
-    date: "June 2026",
+    title: "Why entrepreneurs need life insurance",
+    date: "March 19, 2023",
+    image:
+      "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg",
+    slug: "/blogs",
   },
   {
-    title: "How AI is Transforming Recruitment",
-    date: "May 2026",
+    title: "How insurance can empower women's",
+    date: "March 19, 2023",
+    image:
+      "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg",
+    slug: "/blogs",
   },
   {
-    title: "Building High-Performance Teams",
-    date: "April 2026",
+    title: "The benefits of mood boarding for your clients",
+    date: "March 19, 2023",
+    image:
+      "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg",
+    slug: "/blogs",
   },
 ];
 
 export const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <div className={styles.container}>
+      <div className={styles.wrapper}>
         
-        {/* Brand Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <div className={styles.logoWrapper}>
+        {/* ================= TOP PREMIUM ROW ================= */}
+        <div className={styles.topRow}>
+          <div className={styles.newsletterSection}>
+            <div className={styles.badge}>Stay Updated</div>
+            <h3 className={styles.newsletterHeading}>Subscribe to our Newsletter</h3>
+            <p className={styles.newsText}>
+              Get the latest news, tips and latest messages, including special offers.
+            </p>
+            <form onSubmit={(e) => e.preventDefault()} className={styles.newsletterForm}>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                required
+                aria-label="Email Address"
+              />
+              <button type="submit" aria-label="Subscribe">
+                <FaPaperPlane />
+              </button>
+            </form>
+          </div>
+
+          <div className={styles.ctaCard}>
+            <div className={styles.ctaIconBox}>
+              <FaEnvelopeOpenText />
+            </div>
+            <div className={styles.ctaContent}>
+              <span className={styles.ctaSub}>Direct Business Channel</span>
+              <h4 className={styles.ctaMainTitle}>Ready to speak with us?</h4>
+              <a href="mailto:sales@visezy.in" className={styles.ctaEmailLink}>
+                sales@visezy.in
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* ================= MAIN CONTENT ROW ================= */}
+        <div className={styles.mainGrid}>
+          
+          {/* Brand Panel */}
+          <div className={styles.brandPanel}>
             <Image
-              src="/visezy-staffing-solutions-footer-logo.png"
-              alt="Visezy Staffing Solutions"
-              width={220}
+              src="/visezy-logo.png"
+              alt="Visezy"
+              width={200}
               height={70}
               priority
+              className={styles.logo}
             />
+            <div className={styles.contactContainer}>
+              <div className={styles.contactRow}>
+                <FaPhoneAlt className={styles.contactIcon} />
+                <a href="tel:+919634556234" className={styles.contactText}>+91 9634556234</a>
+              </div>
+              <div className={styles.contactRow}>
+                <FaMapMarkerAlt className={styles.contactIcon} />
+                <span className={styles.contactText}>
+                  Dehradun, Uttarakhand, India
+                </span>
+              </div>
+              <div className={styles.contactRow}>
+                <FaEnvelopeOpenText className={styles.contactIcon} />
+                <span className={styles.contactText}>
+                  sales@visezy.in<br />
+                  sparsh@visezy.in
+                </span>
+              </div>
+            </div>
+          </div>
+{/* Help & Support Panel */}
+<div className={styles.helpPanel}>
+  <h3 className={styles.sectionHeading}>Help & Support</h3>
+
+  <ul className={styles.servicesMenu}>
+    <li>
+      <Link href="/blogs">Blogs</Link>
+    </li>
+
+    <li>
+      <Link href="/privacy-policy">Privacy Policy</Link>
+    </li>
+
+    <li>
+      <Link href="/terms-and-conditions">
+        Terms & Conditions
+      </Link>
+    </li>
+  </ul>
+</div>
+
+          {/* Dynamic Blogs Panel */}
+          <div className={styles.blogsPanel}>
+            <h3 className={styles.sectionHeading}>Latest Post</h3>
+            <div className={styles.blogStack}>
+              {blogs.map((blog, idx) => (
+                <Link href={blog.slug} key={idx} className={styles.blogRowItem}>
+                  <div className={styles.imageContainer}>
+                    <Image
+                      src={blog.image}
+                      alt={blog.title}
+                      width={64}
+                      height={64}
+                      className={styles.blogImg}
+                    />
+                  </div>
+                  <div className={styles.blogMeta}>
+                    <span className={styles.blogDate}>{blog.date}</span>
+                    <h4 className={styles.blogTitleText}>{blog.title}</h4>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
 
-          <p className={styles.description}>
-            Staffing Solutions focused on connecting businesses with
-            exceptional talent and helping professionals discover
-            meaningful career opportunities.
+          {/* Links Panel */}
+          {/* Services Panel */}
+<div className={styles.linksPanel}>
+  <h3 className={styles.sectionHeading}>Services</h3>
+  <ul className={styles.servicesMenu}>
+    <li><Link href="#">Car Insurance</Link></li>
+    <li><Link href="#">Health Insurance</Link></li>
+    <li><Link href="#">Life Insurance</Link></li>
+  </ul>
+
+  <div className={styles.socialWrapper}>
+    <span className={styles.socialLabel}>Connect With Us</span>
+    <div className={styles.socialIcons}>
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>
+      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><FaTwitter /></a>
+      <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><FaPinterestP /></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
+    </div>
+  </div>
+</div>
+
+
+        </div>
+
+        {/* ================= BOTTOM METRICS BAR ================= */}
+        <div className={styles.bottomSection}>
+          <p className={styles.copyrightText}>
+            © {new Date().getFullYear()} VISEZY | All Rights Reserved
           </p>
+        </div>
 
-          <div className={styles.socials}>
-            <a
-              href="https://www.linkedin.com/company/visezy-staffing-solutions/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-            >
-              <FaLinkedinIn />
-            </a>
-
-            <a
-              href="https://www.instagram.com/visezy_staffing"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-            >
-              <FaInstagram />
-            </a>
-          </div>
-        </motion.div>
-
-        {/* Quick Links */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <h3>Quick Links</h3>
-
-          <ul className={styles.links}>
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-
-            <li>
-              <Link href="/about-us">About Us</Link>
-            </li>
-
-            <li>
-              <Link href="/policies">Privacy Policy</Link>
-            </li>
-          </ul>
-        </motion.div>
-
-        {/* Recent Blogs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h3>Recent Blogs</h3>
-
-          <div className={styles.blogList}>
-            {recentBlogs.map((blog) => (
-              <Link
-                key={blog.title}
-                href="/blog"
-                className={styles.blogLink}
-              >
-                <div className={styles.blogCard}>
-                  <h4>{blog.title}</h4>
-                  <span>{blog.date}</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Contact */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-        >
-          <h3>Contact</h3>
-
-          <ul className={styles.contact}>
-            <li>📞 +91 7453-852-331</li>
-            <li>✉ info@visezy.com</li>
-            <li>📍 Dehradun, Uttarakhand, India</li>
-          </ul>
-        </motion.div>
-      </div>
-
-      <div className={styles.bottomBar}>
-        © {new Date().getFullYear()} Visezy Staffing Solutions. All Rights Reserved.
       </div>
     </footer>
   );
