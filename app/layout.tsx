@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dream Byte Solution",
-  description: "Dream Byte Solution Website",
+  title: "Visezy",
+  description: "Visezy Website",
 };
 
 export default function RootLayout({
