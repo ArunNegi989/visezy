@@ -1,7 +1,7 @@
 import React from 'react'
 
-export const page = () => {
+export default function Policies() {
   return (
-    <div>page</div>
+    <div>Policies</div>
   )
 }
