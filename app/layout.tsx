@@ -4,7 +4,7 @@ import Script from "next/script";
 
 import "./globals.css";
 
-import { Header } from "@/components/common/Header/Header";
+import Header from "@/components/common/Header/Header";
 import { Footer } from "@/components/common/Footer/Footer";
 
 const geistSans = Geist({
