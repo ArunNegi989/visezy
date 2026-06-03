@@ -1,139 +1,317 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
 .section {
-  padding: 120px 24px;
-  background: white;
+  position: relative;
+  background-color: #ffffff;
+  padding: 40px 24px;
+  overflow: hidden;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  border-top: 1px solid #f4f4f5;
+}
+
+.auroraGlow {
+  position: absolute;
+  top: 10%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.015), transparent 60%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .container {
-  max-width: 1400px;
-  margin: auto;
-  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- LEFT PANEL STYLING ---------- */
+.topLayoutGroup {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 80px;
+  margin-bottom: 96px;
+  align-items: center;
 }
 
 .badge {
   display: inline-flex;
-
-  padding: 10px 18px;
-
-  border-radius: 999px;
-
-  background: rgba(0,102,255,.08);
-
-  color: #0066ff;
-
-  font-weight: 600;
-}
-
-.container h2 {
-  margin-top: 24px;
-
-  font-size: clamp(40px,5vw,60px);
-
-  color: #0f172a;
-}
-
-.container > p {
-  max-width: 700px;
-
-  margin: 20px auto 0;
-
-  color: #64748b;
-
-  line-height: 1.8;
-}
-
-.grid {
-  margin-top: 70px;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap: 30px;
-}
-
-.card {
-  text-align: left;
-
-  padding: 32px;
-
-  border-radius: 24px;
-
-  border: 1px solid #e2e8f0;
-
-  background: white;
-
-  transition: .3s ease;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-
-  box-shadow:
-    0 25px 50px rgba(15,23,42,.08);
-}
-
-.stars {
-  display: flex;
-  gap: 4px;
-
-  color: #f59e0b;
-
-  font-size: 20px;
-}
-
-.review {
-  margin-top: 20px;
-
-  color: #475569;
-
-  line-height: 1.9;
-}
-
-.user {
-  margin-top: 24px;
-
-  display: flex;
-
   align-items: center;
+  gap: 8px;
+  background-color: #f4f4f5;
+  border: 1px solid #e4e4e7;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+}
 
+.badgePulse {
+  width: 6px;
+  height: 6px;
+  background-color: #10b981;
+  border-radius: 50%;
+}
+
+.badgeText {
+  font-size: 11px;
+  font-weight: 700;
+  color: #1c1c1e;
+  letter-spacing: 0.5px;
+}
+
+.boldHeading {
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 800;
+  color: #18181b;
+  margin-bottom: 20px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bodyCopy {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: #52525b;
+  margin-bottom: 36px;
+  font-weight: 500;
+}
+
+/* Feature Check Rows */
+.featureGrid {
+  display: flex;
+  flex-direction: column;
   gap: 14px;
 }
 
-.avatar {
-  width: 50px;
-  height: 50px;
-
-  border-radius: 50%;
-
-  background:
-    linear-gradient(
-      135deg,
-      #0066ff,
-      #3b82f6
-    );
-
-  color: white;
-
+.featureItem {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 12px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #1c1c1e;
+}
 
+.checkIcon {
+  font-size: 20px;
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+/* ---------- RIGHT COLUMN TOKEN ARCHITECTURE ---------- */
+.rightCardColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.blueToken {
+  --token-accent: #2563eb;
+  --token-bg: #fafafa;
+}
+
+.greenToken {
+  --token-accent: #10b981;
+  --token-bg: #ffffff;
+}
+
+.premiumBoxCard, .ctaCardBlock {
+  background-color: var(--token-bg);
+  border: 1px solid #e4e4e7;
+  border-radius: 20px;
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premiumBoxCard {
+  background-color: #f8fafc; /* Ultra clean subtle layout fill */
+}
+
+.tokenBar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: var(--token-accent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premiumBoxCard:hover .tokenBar, .ctaCardBlock:hover .tokenBar {
+  transform: scaleY(1);
+}
+
+.premiumBoxCard:hover, .ctaCardBlock:hover {
+  transform: translateX(4px);
+  border-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+}
+
+.boxCardTitle, .ctaTitle {
+  font-size: 18px;
   font-weight: 700;
+  color: #1c1c1e;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
 }
 
-.user h4 {
-  margin: 0;
-  color: #0f172a;
+.boxCardText, .ctaText {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #52525b;
+  font-weight: 500;
 }
 
-.user span {
-  color: #64748b;
+.ctaCardBlock {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
+}
+
+.ctaLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #10b981;
+  cursor: pointer;
+}
+
+.arrowInline {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.ctaCardBlock:hover .arrowInline {
+  transform: translateX(4px);
+}
+
+/* ---------- BOTTOM RATING DISPLAY PANEL ---------- */
+.scoreBarPanel {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scoreDivider {
+  width: 100%;
+  height: 1px;
+  background-color: #e4e4e7;
+  margin-bottom: 48px;
+}
+
+.barLabel {
+  font-size: 11px;
+  font-weight: 700;
+  color: #71717a;
+  letter-spacing: 1.5px;
+  margin-bottom: 16px;
+}
+
+.starsRow {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.starIcon {
+  font-size: 22px;
+  color: #f59e0b;
+}
+
+.metaRatingFlex {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.trustScoreDisplay {
+  font-size: 20px;
+  font-weight: 800;
+  color: #18181b;
+  letter-spacing: -0.02em;
+}
+
+.dotSeparator {
+  color: #d4d4d8;
   font-size: 14px;
+  user-select: none;
 }
 
-@media(max-width:992px){
-  .grid{
-    grid-template-columns:1fr;
+.ratingText {
+  font-size: 14.5px;
+  color: #52525b;
+  font-weight: 500;
+}
+
+.viewReviewsLink {
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: 6px;
+  font-weight: 700;
+  color: #2563eb;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.viewReviewsLink:hover {
+  border-bottom-color: #2563eb;
+}
+
+/* ---------- RESPONSIVE LAYOUT RESPONSIVENESS ---------- */
+@media (max-width: 1024px) {
+  .topLayoutGroup {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 968px) {
+  .topLayoutGroup {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+  .boldHeading {
+    text-align: center;
+  }
+  .badge {
+    margin: 0 auto 24px;
+  }
+  .bodyCopy {
+    text-align: center;
+    max-width: 650px;
+    margin-inline: auto;
+  }
+  .featureGrid {
+    align-items: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 80px 16px;
+  }
+  .metaRatingFlex {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .dotSeparator {
+    display: none;
+  }
+  .premiumBoxCard, .ctaCardBlock {
+    padding: 28px;
   }
 }
