@@ -3,6 +3,7 @@ import Features from "@/components/sections/Features/Features";
 import WhyChooseUs from "@/components/sections/WhyChooseUs/WhyChooseUs";
 import Services from "@/components/sections/Services/Services";
 import Contact from "@/components/sections/Contact/Contact";
+import HowItWorks from "@/components/sections/HowItWorks/HowItWorks";
 import Testimonials from "@/components/sections/Testimonials/Testimonials";
 
 export default function Home() {
@@ -11,8 +12,10 @@ export default function Home() {
       <Hero />
       <Features />
       <WhyChooseUs />
+       <Services />
+      <HowItWorks />
       <Testimonials />
-      <Services />
+     
       <Contact />
     </>
   );

@@ -1,0 +1,299 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+.section {
+  position: relative;
+  background-color: #ffffff;
+  padding: 60px 24px; /* Extends vertical heights to accommodate alternate structural zig-zags safely */
+  overflow: hidden;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  border-top: 1px solid #f4f4f5;
+}
+
+.ambientBlur {
+  position: absolute;
+  top: -10%;
+  left: -5%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.012), transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- HEADER BLOCK SECTION ---------- */
+.headerBlock {
+  text-align: center;
+  margin-bottom: 120px; /* High clearing margin to leave spacious breathing room for step shifts */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badgeLayout {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 18px;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(37,99,235,.12);
+
+  box-shadow:
+    0 10px 30px rgba(15,23,42,.05),
+    0 1px 0 rgba(255,255,255,.9) inset;
+
+  overflow: hidden;
+}
+
+.badgeDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+
+  background: #2563eb;
+
+  position: relative;
+  z-index: 2;
+}
+.badgeSparkle {
+  width: 6px;
+  height: 6px;
+  background-color: #18181b;
+  border-radius: 50%;
+}
+
+.badgeGlow {
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(37,99,235,.18),
+      transparent 70%
+    );
+
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  pointer-events: none;
+}
+
+.subTitle {
+  font-size: 11px;
+  font-weight: 700;
+  color: #1c1c1e;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.mainTitle {
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 800;
+  color: #18181b;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, #18181b 0%, #71717a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.headerDesc {
+  font-size: 16px;
+  color: #52525b;
+  max-width: 540px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* ---------- SYSTEM ACCENT MIXINS ---------- */
+.stepBlue { --accent-rgb: 37, 99, 235; }
+.stepGreen { --accent-rgb: 16, 185, 129; }
+.stepOrange { --accent-rgb: 249, 115, 22; }
+.stepPurple { --accent-rgb: 168, 85, 247; }
+
+/* ---------- INTERACTIVE ZIG-ZAG GRID ENGINE ---------- */
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  position: relative;
+}
+
+/* Pure Dynamic Wave Connector for high-end Desktop monitors */
+.zigZagVectorLine {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  height: 4px;
+  background-image: linear-gradient(90deg, #e4e4e7 50%, transparent 50%);
+  background-size: 24px 4px; /* Premium crisp tech dashed look */
+  z-index: 1;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.stepColumn {
+  background-color: #ffffff;
+  border: 1px solid #e4e4e7;
+  border-radius: 24px;
+  padding: 40px 28px;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Alternate Staggered Logic: Odd steps up, Even steps down */
+.stepColumn:nth-child(odd) {
+  transform: translateY(-30px);
+}
+
+.stepColumn:nth-child(even) {
+  transform: translateY(30px);
+}
+
+/* Interactive micro-hover states taking structural index into account */
+.stepColumn:nth-child(odd):hover {
+  transform: translateY(-40px) scale(1.02);
+  border-color: rgba(var(--accent-rgb), 0.5);
+  box-shadow: 0 30px 60px rgba(var(--accent-rgb), 0.06);
+}
+
+.stepColumn:nth-child(even):hover {
+  transform: translateY(20px) scale(1.02);
+  border-color: rgba(var(--accent-rgb), 0.5);
+  box-shadow: 0 30px 60px rgba(var(--accent-rgb), 0.06);
+}
+
+/* Decorative Token Utilities */
+.ghostCounter {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-size: 38px;
+  font-weight: 800;
+  color: #f4f4f5;
+  line-height: 1;
+  user-select: none;
+  transition: all 0.4s ease;
+}
+
+.stepColumn:hover .ghostCounter {
+  color: rgba(var(--accent-rgb), 0.15);
+}
+
+.stepBadgeWrapper {
+  margin-bottom: 28px;
+}
+
+.badgeText {
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: .12em;
+
+  text-transform: uppercase;
+
+  color: #0f172a;
+
+  position: relative;
+  z-index: 2;
+}
+.stepBadge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #18181b 0%, #27272a 100%);
+  padding: 6px 14px;
+  border-radius: 8px;
+  letter-spacing: 0.5px;
+  transition: all 0.4s ease;
+}
+
+.stepColumn:hover .stepBadge {
+  background: linear-gradient(135deg, rgba(var(--accent-rgb), 1) 0%, rgba(var(--accent-rgb), 0.8) 100%);
+  box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.25);
+}
+
+.stepTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1c1c1e;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.stepDesc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #52525b;
+  font-weight: 500;
+}
+
+/* ---------- RESPONSIVE COLLAPSE ENGINE ---------- */
+@media (max-width: 1100px) {
+  .gridContainer {
+    gap: 20px;
+  }
+  .zigZagVectorLine {
+    display: none; /* Destroys vectors safely on layout compression */
+  }
+}
+
+@media (max-width: 968px) {
+  .section {
+    padding: 100px 24px;
+  }
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  /* Resets alternate translation metrics on tablets */
+  .stepColumn:nth-child(odd), 
+  .stepColumn:nth-child(even) {
+    transform: none;
+  }
+  .stepColumn:nth-child(odd):hover, 
+  .stepColumn:nth-child(even):hover {
+    transform: translateY(-6px);
+  }
+  .headerBlock {
+    margin-bottom: 64px;
+  }
+}
+
+@media (max-width: 560px) {
+  .section {
+    padding: 80px 16px;
+  }
+  .gridContainer {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .stepColumn {
+    padding: 32px 24px;
+  }
+}
