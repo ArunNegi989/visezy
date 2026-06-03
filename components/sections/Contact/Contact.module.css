@@ -1,143 +1,364 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --neon-blue: #2563eb;
+  --slate-deep: #0f172a;
+  --slate-body: #475569;
+  --glass-border: rgba(226, 232, 240, 0.8);
+  --curve-input: 12px;
+  --elastic-bezier: cubic-bezier(0.16, 1, 0.3, 1);
+  --speed-fast: 0.35s;
+}
+
 .section {
-  padding: 120px 24px;
-  background: white;
+  position: relative;
+  padding: 40px 24px;
+  background: radial-gradient(130% 130% at 0% 0%, #fcfdfe 0%, #f8fafc 50%, #f1f5f9 100%);
+  overflow: hidden;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* ---------- STRUCTURAL CANVAS DETAILS ---------- */
+.ambientGlow {
+  position: absolute;
+  width: 900px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.035), transparent 70%);
+  right: -200px;
+  top: -100px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gridCanvas {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(15, 23, 42, 0.012) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(15, 23, 42, 0.012) 1px, transparent 1px);
+  background-size: 45px 45px;
+  mask-image: radial-gradient(circle at 70% 40%, black, transparent 75%);
+  pointer-events: none;
 }
 
 .container {
-  max-width: 1400px;
-
-  margin: auto;
-
+  max-width: 1240px;
+  margin: 0 auto;
   display: grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap: 70px;
-
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
   align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- LEFT METADATA COLUMN ---------- */
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
 .badge {
   display: inline-flex;
-
-  padding: 10px 18px;
-
-  border-radius: 999px;
-
-  background:
-    rgba(0,102,255,.08);
-
-  color: #0066ff;
-
-  font-weight: 600;
-}
-
-.left h2 {
-  margin-top: 24px;
-
-  font-size:
-    clamp(42px,5vw,64px);
-
-  color: #0f172a;
-
-  line-height: 1.1;
-}
-
-.left p {
-  margin-top: 20px;
-
-  color: #64748b;
-
-  line-height: 1.8;
-
-  font-size: 18px;
-}
-
-.info {
-  margin-top: 40px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 20px;
-}
-
-.info div {
-  display: flex;
-
   align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid var(--glass-border);
+  padding: 8px 16px;
+  border-radius: 999px;
+  width: fit-content;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02);
+}
 
-  gap: 14px;
+.badgePulse {
+  width: 6px;
+  height: 6px;
+  background: var(--neon-blue);
+  border-radius: 50%;
+  position: relative;
+}
 
-  color: #0f172a;
+.badgePulse::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.3);
+  animation: pulseKey 2s infinite ease-in-out;
+}
 
+.badgeText {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--slate-deep);
+  letter-spacing: -0.01em;
+}
+
+.title {
+  margin: 24px 0 0;
+  font-size: clamp(38px, 4.5vw, 56px);
+  line-height: 1.12;
+  font-weight: 800;
+  color: var(--slate-deep);
+  letter-spacing: -0.03em;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.description {
+  max-width: 550px;
+  margin: 20px 0 0;
+  color: var(--slate-body);
+  font-size: 16.5px;
+  line-height: 1.75;
   font-weight: 500;
 }
 
-.info svg {
-  color: #0066ff;
-  font-size: 22px;
-}
-
-.right form {
-  background: #f8fafc;
-
-  border: 1px solid #e2e8f0;
-
-  border-radius: 24px;
-
-  padding: 32px;
-
+/* ---------- GLASS CONTACT ROWS ---------- */
+.infoStack {
+  margin-top: 48px;
   display: flex;
-
   flex-direction: column;
-
-  gap: 16px;
+  gap: 20px;
 }
 
-.right input,
-.right textarea {
-  border: 1px solid #e2e8f0;
+.infoRow {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 16px 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  width: fit-content;
+  min-width: 320px;
+  transition: border-color var(--speed-fast) ease, transform var(--speed-fast) var(--elastic-bezier);
+}
 
-  border-radius: 14px;
+.infoRow:hover {
+  border-color: rgba(37, 99, 235, 0.15);
+  transform: translateX(4px);
+  background: #ffffff;
+}
 
-  padding: 16px;
+.iconBox {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid var(--glass-border);
+  color: var(--neon-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.01);
+}
 
+.infoMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.metaLabel {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.metaValue {
   font-size: 15px;
-
-  outline: none;
-}
-
-.right input:focus,
-.right textarea:focus {
-  border-color: #0066ff;
-}
-
-.right button {
-  height: 56px;
-
-  border: none;
-
-  border-radius: 14px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #0066ff,
-      #3b82f6
-    );
-
-  color: white;
-
   font-weight: 600;
-
-  cursor: pointer;
+  color: var(--slate-deep);
 }
 
-@media(max-width:992px){
-  .container{
-    grid-template-columns:1fr;
+/* ---------- PREMIUM RIGHT COLUMN FORM CONTAINER ---------- */
+.formCapsule {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 28px;
+  padding: 44px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.04);
+}
+
+.formHeader h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--slate-deep);
+}
+
+.formHeader p {
+  margin: 6px 0 12px;
+  font-size: 13.5px;
+  color: var(--slate-body);
+  font-weight: 500;
+}
+
+/* ---------- FLOATING COMPONENT INPUT GROUPS ---------- */
+.inputGroup {
+  position: relative;
+  width: 100%;
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  border-radius: var(--curve-input);
+  padding: 18px 16px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--slate-deep);
+  outline: none;
+  transition: border-color 0.3s ease, background 0.3s ease;
+  font-family: inherit;
+  resize: none;
+}
+
+.formInput {
+  height: 56px;
+}
+
+/* Pure CSS Floating Architecture Link rules */
+.floatingLabel {
+  position: absolute;
+  left: 16px;
+  top: 18px;
+  color: #94a3b8;
+  font-size: 14.5px;
+  font-weight: 500;
+  pointer-events: none;
+  transition: transform 0.25s var(--elastic-bezier), font-size 0.25s ease, color 0.25s ease;
+  transform-origin: left top;
+}
+
+/* Triggers when field receives interaction focus or is populated */
+.formInput:focus ~ .floatingLabel,
+.formInput:not(:placeholder-shown) ~ .floatingLabel,
+.formTextarea:focus ~ .floatingLabel,
+.formTextarea:not(:placeholder-shown) ~ .floatingLabel {
+  transform: translateY(-28px) scale(0.85);
+  color: var(--neon-blue);
+  font-weight: 700;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  border-color: #cbd5e1;
+  background: #ffffff;
+}
+
+/* Interactive bottom focus highlights */
+.inputFocusLine {
+  position: absolute;
+  bottom: 0; left: var(--curve-input); right: var(--curve-input);
+  height: 2px;
+  background: var(--neon-blue);
+  transform: scaleX(0);
+  transition: transform var(--speed-fast) var(--elastic-bezier);
+}
+
+.formInput:focus ~ .inputFocusLine,
+.formTextarea:focus ~ .inputFocusLine {
+  transform: scaleX(1);
+}
+
+/* ---------- PREMIUM BUTTON CAPSULES ---------- */
+.submitBtn {
+  margin-top: 8px;
+  height: 56px;
+  border: none;
+  border-radius: var(--curve-input);
+  background: var(--slate-deep);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px 0 24px;
+  cursor: pointer;
+  transition: background var(--speed-fast) ease, transform var(--speed-fast) ease, box-shadow var(--speed-fast) ease;
+}
+
+.btnArrowWrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.4s var(--elastic-bezier);
+}
+
+.btnArrow {
+  font-size: 18px;
+  color: #ffffff;
+}
+
+/* Micro interaction triggers */
+.submitBtn:hover {
+  background: var(--neon-blue);
+  box-shadow: 0 12px 24px -6px rgba(37, 99, 235, 0.3);
+}
+
+.submitBtn:hover .btnArrowWrapper {
+  background: #ffffff;
+  transform: translateX(2px);
+}
+
+.submitBtn:hover .btnArrow {
+  color: var(--neon-blue);
+}
+
+/* ---------- REPAIR FRAMES ---------- */
+@keyframes pulseKey {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(0.9); opacity: 0; }
+}
+
+/* ---------- MEDIA SYSTEM RESPONSIVE LINKS ---------- */
+
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  .leftColumn {
+    align-items: center;
+    text-align: center;
+  }
+  .infoStack {
+    width: 100%;
+    align-items: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 100px 20px;
+  }
+  .title {
+    font-size: 34px;
+  }
+  .formCapsule {
+    padding: 32px 24px;
+  }
+  .infoRow {
+    min-width: 100%;
   }
 }

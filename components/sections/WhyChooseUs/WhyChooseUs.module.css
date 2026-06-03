@@ -1,119 +1,282 @@
-.section {
-  padding: 120px 24px;
-  background: #f8fafc;
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --primary: #18181b;
+  --primary-accent: #2563eb;
+  --text-main: #1c1c1e;
+  --text-muted: #52525b;
+  --border-color: #e4e4e7;
+  --transition-premium: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.whyChooseUs {
+  position: relative;
+  background-color: #ffffff;
+  padding: 40px 24px;
+  overflow: hidden;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  border-top: 1px solid #f4f4f5;
+}
+
+.ambientGlow {
+  position: absolute;
+  top: 30%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.02), transparent 70%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .container {
-  max-width: 1400px;
-  margin: auto;
-
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
+  gap: 90px;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- LEFT PANEL STYLING ---------- */
+.left {
+  display: flex;
+  flex-direction: column;
 }
 
 .badge {
   display: inline-flex;
-  padding: 10px 18px;
-  border-radius: 999px;
-  background: rgba(0,102,255,.08);
-  color: #0066ff;
-  font-weight: 600;
+  align-items: center;
+  width: fit-content;
+  background-color: #f4f4f5;
+  border: 1px solid var(--border-color);
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+  gap: 8px;
 }
 
-.left h2 {
-  margin-top: 24px;
-  font-size: clamp(40px,5vw,64px);
-  line-height: 1.1;
-  color: #0f172a;
+.badgeDot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--primary-accent);
+  border-radius: 50%;
 }
 
-.left p {
-  margin-top: 20px;
-  color: #64748b;
-  line-height: 1.8;
-  font-size: 18px;
+.badgeText {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 0.5px;
 }
 
-.stats {
-  margin-top: 50px;
-
-  display: flex;
-  gap: 50px;
-  flex-wrap: wrap;
+.title {
+  font-size: clamp(34px, 4vw, 46px);
+  line-height: 1.15;
+  color: var(--text-main);
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: -0.03em;
 }
 
-.stats h3 {
-  margin: 0;
-  font-size: 36px;
-  color: #0066ff;
+.gradientText {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.stats span {
-  color: #64748b;
+.description {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  font-weight: 500;
 }
 
-.right {
-  display: grid;
-  gap: 24px;
-}
-
-.card {
-  background: white;
-  border: 1px solid #e2e8f0;
+.imageContainer {
+  position: relative;
+  width: 100%;
   border-radius: 24px;
-
-  padding: 28px;
-
-  display: flex;
-  gap: 20px;
-
-  transition: .3s ease;
+  padding: 8px;
+  background: #fafafa;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.02);
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow:
-    0 25px 50px rgba(15,23,42,.08);
-}
-
-.icon {
-  width: 64px;
-  height: 64px;
-
+.imageWrapper {
+  width: 100%;
+  height: 360px;
+  position: relative;
   border-radius: 18px;
+  overflow: hidden;
+}
 
-  background:
-    linear-gradient(
-      135deg,
-      #0066ff,
-      #3b82f6
-    );
+.familyImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-  color: white;
+.imageContainer:hover .familyImg {
+  transform: scale(1.02);
+}
 
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(24, 24, 27, 0.1), transparent);
+  pointer-events: none;
+}
+
+/* ---------- DYNAMIC COLOR SCHEMES ---------- */
+.greenTheme {
+  --theme-color: #10b981;
+  --theme-bg: #f0fdf4;
+}
+
+.blueTheme {
+  --theme-color: #2563eb;
+  --theme-bg: #eff6ff;
+}
+
+.orangeTheme {
+  --theme-color: #f97316;
+  --theme-bg: #fff7ed;
+}
+
+.purpleTheme {
+  --theme-color: #a855f7;
+  --theme-bg: #faf5ff;
+}
+
+/* ---------- RIGHT PANEL CARD LAYOUT ---------- */
+.right {
+  width: 100%;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Modern Card Architecture with top-border slot ready */
+.infoCard {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-top: 3px solid transparent; /* Becomes visible on hover */
+  border-radius: 0 0 20px 20px; /* Kept smooth corners below border */
+  padding: 28px;
+  position: relative;
+  transition: var(--transition-premium);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+}
+
+/* Image_f51486 Dynamic Border and Elevation Hover System */
+.infoCard:hover {
+  border-top-color: var(--theme-color);
+  border-left-color: rgba(0, 0, 0, 0.03);
+  border-right-color: rgba(0, 0, 0, 0.03);
+  border-bottom-color: rgba(0, 0, 0, 0.03);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+/* Icon nodes defaults to individual light theme palettes */
+.iconNode {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: var(--theme-bg);
+  color: var(--theme-color);
   display: flex;
   align-items: center;
   justify-content: center;
-
-  font-size: 28px;
-
+  font-size: 20px;
+  transition: var(--transition-premium);
   flex-shrink: 0;
 }
 
-.card h3 {
-  margin-bottom: 10px;
-  color: #0f172a;
+/* Inversion animation on hover */
+.infoCard:hover .iconNode {
+  background-color: var(--theme-color);
+  color: #ffffff;
+  transform: scale(1.04);
 }
 
-.card p {
-  color: #64748b;
-  line-height: 1.7;
+.cardTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
 }
 
-@media(max-width:992px){
-  .container{
-    grid-template-columns:1fr;
+.contentField {
+  padding-left: 56px;
+}
+
+.cardDescription {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ---------- RESPONSIVE ARCHITECTURE VIEWPORTS ---------- */
+@media (max-width: 1024px) {
+  .container {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 968px) {
+  .whyChooseUs {
+    padding: 100px 24px;
+  }
+  .container {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+  .title {
+    font-size: 36px;
+    text-align: center;
+  }
+  .badge {
+    margin: 0 auto 24px;
+  }
+  .description {
+    text-align: center;
+    margin-inline: auto;
+    max-width: 600px;
+  }
+  .imageContainer {
+    max-width: 550px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .whyChooseUs {
+    padding: 80px 16px;
+  }
+  .title {
+    font-size: 28px;
+  }
+  .infoCard {
+    padding: 22px;
+  }
+  .contentField {
+    padding-left: 0;
+    margin-top: 10px;
   }
 }
