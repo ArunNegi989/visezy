@@ -129,17 +129,17 @@ export default function Hero() {
               <div className={styles.metrics}>
                 <div className={styles.metricCard}>
                   <div className={styles.metricIconWrapper} style={
-  {
-    '--accent-color': 'rgba(99, 102, 241, 0.15)'
-  } as React.CSSProperties
-}>
+                    {
+                      '--accent-color': 'rgba(99, 102, 241, 0.15)'
+                    } as React.CSSProperties
+                  }>
                     <HiUsers className={styles.metricIcon} style={{ color: '#6366f1' }} />
                   </div>
                   <strong>5.2k+</strong>
                   <span>Active Pools</span>
                 </div>
                 <div className={styles.metricCard}>
-                  <div className={styles.metricIconWrapper} style={{ '--accent-color': 'rgba(245, 158, 11, 0.15)' } as React.CSSProperties }>
+                  <div className={styles.metricIconWrapper} style={{ '--accent-color': 'rgba(245, 158, 11, 0.15)' } as React.CSSProperties}>
                     <HiOutlineStar className={styles.metricIconStar} style={{ color: '#f59e0b' }} />
                   </div>
                   <strong>4.95★</strong>

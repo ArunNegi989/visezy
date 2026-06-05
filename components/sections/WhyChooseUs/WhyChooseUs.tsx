@@ -2,11 +2,11 @@
 
 import React from "react";
 import styles from "./WhyChooseUs.module.css";
-import { 
-  HiOutlineCurrencyDollar, 
-  HiOutlineShieldCheck, 
-  HiOutlineClock, 
-  HiOutlineUserGroup 
+import {
+  HiOutlineCurrencyDollar,
+  HiOutlineShieldCheck,
+  HiOutlineClock,
+  HiOutlineUserGroup
 } from "react-icons/hi";
 
 const items = [
@@ -47,7 +47,7 @@ export default function WhyChooseUs() {
       <div className={styles.ambientGlow} aria-hidden="true"></div>
 
       <div className={styles.container}>
-        
+
         {/* LEFT PANEL */}
         <div className={styles.left}>
           <div className={styles.badge}>
@@ -80,8 +80,8 @@ export default function WhyChooseUs() {
         <div className={styles.right}>
           <div className={styles.cardContainer}>
             {items.map((item) => (
-              <div 
-                key={item.id} 
+              <div
+                key={item.id}
                 className={`${styles.infoCard} ${item.colorClass}`}
               >
                 <div className={styles.cardHeader}>
@@ -90,7 +90,7 @@ export default function WhyChooseUs() {
                   </div>
                   <h3 className={styles.cardTitle}>{item.title}</h3>
                 </div>
-                
+
                 <div className={styles.contentField}>
                   <p className={styles.cardDescription}>{item.description}</p>
                 </div>

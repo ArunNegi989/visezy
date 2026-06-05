@@ -70,7 +70,8 @@
   background: rgba(255, 255, 255, 0.15);
 }
 
-.infoItem, .emailLink {
+.infoItem,
+.emailLink {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -115,16 +116,16 @@
   height: 100%;
   padding: 4px 0;
 }
+.logoWrapper {
+  position: relative;
+  width: 160px;
+  height: 50px;
+}
 
-/* Premium Image Interaction Styles */
 .logoImage {
   object-fit: contain;
   width: auto;
   height: auto;
-  max-height: 52px; /* Keeps your layout perfectly proportioned */
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
-  filter: drop-shadow(0 0 0px rgba(0, 102, 255, 0));
-  will-change: transform, filter;
 }
 
 /* Micro-interaction on hover */
@@ -135,8 +136,9 @@
 
 /* Mobile responsive scaling adjustment for image */
 @media (max-width: 640px) {
-  .logoImage {
-    max-height: 42px; /* Scales down cleanly on smaller breakpoints */
+  .logoWrapper {
+    width: 135px;
+    height: 42px;
   }
 }
 
@@ -389,9 +391,11 @@
   0% {
     box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
   }
+
   70% {
     box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
   }
+
   100% {
     box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
   }
@@ -402,15 +406,19 @@
   .nav {
     display: none;
   }
+
   .quoteBtn {
     display: none;
   }
+
   .mobileBtn {
     display: block;
   }
+
   .container {
     padding: 0 24px;
   }
+
   .topBar {
     padding: 0 24px;
   }
@@ -418,11 +426,15 @@
 
 @media (max-width: 640px) {
   .topBar {
-    display: none; /* Hide secondary navigation bar on smaller touch layouts for cleanliness */
+    display: none;
+    /* Hide secondary navigation bar on smaller touch layouts for cleanliness */
   }
+
   .callPill {
-    display: none; /* Hides raw number widget from central action bar on mobile view */
+    display: none;
+    /* Hides raw number widget from central action bar on mobile view */
   }
+
   .mobileMenu {
     width: 100%;
   }

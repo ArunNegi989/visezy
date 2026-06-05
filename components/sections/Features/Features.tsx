@@ -64,17 +64,17 @@ export default function Features() {
         {/* Updated Modern 4-Column SaaS Grid */}
         <div className={styles.grid}>
           {features.map((feature, index) => (
-           <div
-  key={index}
-  className={styles.card}
-  style={
-    {
-      "--card-index": index,
-    } as React.CSSProperties
-  }
-> {/* Top Accent Line Highlight */}
+            <div
+              key={index}
+              className={styles.card}
+              style={
+                {
+                  "--card-index": index,
+                } as React.CSSProperties
+              }
+            > {/* Top Accent Line Highlight */}
               <div className={styles.cardBorderAccent} aria-hidden="true" />
-              
+
               <div className={`${styles.iconContainer} ${feature.colorClass}`}>
                 {feature.icon}
               </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import styles from "./Contact.module.css";
+import styles from "./contact-us.module.css";
 import {
   HiOutlineMail,
   HiOutlinePhone,
@@ -10,29 +10,29 @@ import {
 } from "react-icons/hi";
 
 export default function Contact() {
- type FormState = {
-  name: string;
-  email: string;
-  phone: string;
-  msg: string;
-};
+  type FormState = {
+    name: string;
+    email: string;
+    phone: string;
+    msg: string;
+  };
 
-const [formState, setFormState] = useState<FormState>({
-  name: "",
-  email: "",
-  phone: "",
-  msg: "",
-});
+  const [formState, setFormState] = useState<FormState>({
+    name: "",
+    email: "",
+    phone: "",
+    msg: "",
+  });
 
-const handleInputChange = (
-  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  field: keyof FormState
-) => {
-  setFormState((prev) => ({
-    ...prev,
-    [field]: e.target.value,
-  }));
-};
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    field: keyof FormState
+  ) => {
+    setFormState((prev) => ({
+      ...prev,
+      [field]: e.target.value,
+    }));
+  };
 
   return (
     <section id="contact" className={styles.section} aria-labelledby="contact-heading">

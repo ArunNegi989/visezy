@@ -56,7 +56,7 @@ export default function BlogsPage() {
             Smarter Coverage <span>Starts With Knowledge</span>
           </h1>
           <p>
-            Demolish the jargon. Explore expert articles, clear policy comparisons, 
+            Demolish the jargon. Explore expert articles, clear policy comparisons,
             and practical financial roadmaps curated by industry professionals.
           </p>
 
@@ -171,8 +171,8 @@ export default function BlogsPage() {
               <FiInbox size={40} />
               <h4>No insights match your criteria</h4>
               <p>Try adjusting your search terms or selecting another category.</p>
-              <button 
-                onClick={() => { setSearch(""); setActiveCategory("All"); }} 
+              <button
+                onClick={() => { setSearch(""); setActiveCategory("All"); }}
                 className={styles.resetButton}
               >
                 Clear Filters

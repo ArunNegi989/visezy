@@ -78,7 +78,7 @@ A thoughtful life insurance strategy can help families maintain stability and fi
       "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200&q=80",
     excerpt:
       "Travel smarter with proper coverage during your trips.",
-   content: `
+    content: `
 Travel insurance is designed to provide protection against unexpected situations that may occur during domestic or international trips.
 
 Coverage may include trip cancellations, medical emergencies, baggage loss, travel delays, and other unforeseen disruptions. Having travel insurance can help reduce financial risks associated with travel.

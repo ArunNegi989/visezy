@@ -5,7 +5,6 @@
   background-color: #ffffff;
   padding: 40px 24px;
   overflow: hidden;
-  font-family: "Plus Jakarta Sans", sans-serif;
   border-top: 1px solid #f4f4f5;
 }
 
@@ -123,7 +122,8 @@
   --token-bg: #ffffff;
 }
 
-.premiumBoxCard, .ctaCardBlock {
+.premiumBoxCard,
+.ctaCardBlock {
   background-color: var(--token-bg);
   border: 1px solid #e4e4e7;
   border-radius: 20px;
@@ -134,7 +134,8 @@
 }
 
 .premiumBoxCard {
-  background-color: #f8fafc; /* Ultra clean subtle layout fill */
+  background-color: #f8fafc;
+  /* Ultra clean subtle layout fill */
 }
 
 .tokenBar {
@@ -149,17 +150,20 @@
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.premiumBoxCard:hover .tokenBar, .ctaCardBlock:hover .tokenBar {
+.premiumBoxCard:hover .tokenBar,
+.ctaCardBlock:hover .tokenBar {
   transform: scaleY(1);
 }
 
-.premiumBoxCard:hover, .ctaCardBlock:hover {
+.premiumBoxCard:hover,
+.ctaCardBlock:hover {
   transform: translateX(4px);
   border-color: rgba(0, 0, 0, 0.05);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
 }
 
-.boxCardTitle, .ctaTitle {
+.boxCardTitle,
+.ctaTitle {
   font-size: 18px;
   font-weight: 700;
   color: #1c1c1e;
@@ -167,7 +171,8 @@
   letter-spacing: -0.01em;
 }
 
-.boxCardText, .ctaText {
+.boxCardText,
+.ctaText {
   font-size: 14.5px;
   line-height: 1.6;
   color: #52525b;
@@ -284,17 +289,21 @@
     grid-template-columns: 1fr;
     gap: 56px;
   }
+
   .boldHeading {
     text-align: center;
   }
+
   .badge {
     margin: 0 auto 24px;
   }
+
   .bodyCopy {
     text-align: center;
     max-width: 650px;
     margin-inline: auto;
   }
+
   .featureGrid {
     align-items: center;
   }
@@ -304,14 +313,18 @@
   .section {
     padding: 80px 16px;
   }
+
   .metaRatingFlex {
     flex-direction: column;
     gap: 6px;
   }
+
   .dotSeparator {
     display: none;
   }
-  .premiumBoxCard, .ctaCardBlock {
+
+  .premiumBoxCard,
+  .ctaCardBlock {
     padding: 28px;
   }
 }

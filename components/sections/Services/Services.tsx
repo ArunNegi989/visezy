@@ -54,14 +54,14 @@ export default function Services() {
             <div key={index} className={`${styles.serviceCard} ${service.colorClass}`}>
               {/* Animated top-bar layout trigger */}
               <div className={styles.topAccentBar}></div>
-              
+
               <div className={styles.iconWrapper}>
                 {service.icon}
               </div>
-              
+
               <h3 className={styles.cardTitle}>{service.title}</h3>
               <p className={styles.cardDescription}>{service.description}</p>
-              
+
               <div className={styles.cardFooterInline}>
                 <span className={styles.learnMoreText}>{service.linkText}</span>
                 <button className={styles.actionArrow} aria-label={`Learn more about ${service.title}`}>
