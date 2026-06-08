@@ -1,0 +1,925 @@
+/* ==========================================================================
+   CSS VARIABLE ARCHITECTURE & INITIALIZATION
+   ========================================================================== */
+:root {
+  --color-brand-primary: #0066ff;
+  --color-brand-hover: #0052cc;
+  --color-brand-light: rgba(0, 102, 255, 0.06);
+  --color-brand-gradient: linear-gradient(135deg, #0066ff, #4f7cff);
+  --color-dark-titanium: #0f172a;
+  --color-slate-gray: #475569;
+  --color-muted-cool: #64748b;
+  --color-border-subtle: #e2e8f0;
+  --color-bg-pure: #ffffff;
+  
+  --transition-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --speed-standard: 0.4s;
+  --speed-fast: 0.25s;
+  --shadow-premium-subtle: 0 4px 30px rgba(15, 23, 42, 0.03);
+  --shadow-premium-elevated: 0 30px 70px rgba(15, 23, 42, 0.08);
+}
+
+/* ==========================================================================
+   GLOBAL CANVAS SETUP & WRAPPERS
+   ========================================================================== */
+.page {
+  position: relative;
+  min-height: 100vh;
+  background: var(--color-bg-pure);
+  overflow: hidden;
+}
+
+/* PREMIUM STRIPE-INSPIRED BACKGROUND AMBIENCE */
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glowOne, .glowTwo, .glowThree {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 1;
+  animation: pulseGlow 12s var(--transition-premium) infinite alternate;
+}
+
+.glowOne {
+  width: 550px;
+  height: 550px;
+  background: var(--color-brand-primary);
+  top: -100px;
+  left: -150px;
+}
+
+.glowTwo {
+  width: 650px;
+  height: 650px;
+  background: #60a5fa;
+  right: -200px;
+  top: 500px;
+  animation-delay: 2s;
+}
+
+.glowThree {
+  width: 400px;
+  height: 400px;
+  background: #818cf8;
+  left: 20%;
+  bottom: -100px;
+  animation-delay: 4s;
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(1) translate(0, 0); opacity: 0.06; }
+  100% { transform: scale(1.15) translate(30px, 20px); opacity: 0.10; }
+}
+
+/* ==========================================================================
+   HERO BLOCK (APPLE LOOK & FEEL)
+   ========================================================================== */
+.hero {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 140px 24px 100px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.badgeContainer {
+  animation: fadeInDown 0.8s var(--transition-premium);
+}
+
+.badge {
+  display: inline-flex;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(0, 102, 255, 0.06);
+  border: 1px solid rgba(0, 102, 255, 0.12);
+  color: var(--color-brand-primary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  margin-top: 28px;
+  font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+  line-height: 1.08;
+  color: var(--color-dark-titanium);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  animation: fadeInUp 0.8s var(--transition-premium) 0.1s both;
+}
+
+.gradientText {
+  background: var(--color-brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroDescription {
+  margin-top: 28px;
+  font-size: 19px;
+  line-height: 1.85;
+  color: var(--color-muted-cool);
+  max-width: 600px;
+  animation: fadeInUp 0.8s var(--transition-premium) 0.2s both;
+}
+
+.heroActions {
+  margin-top: 44px;
+  animation: fadeInUp 0.8s var(--transition-premium) 0.3s both;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 36px;
+  border-radius: 999px;
+  text-decoration: none;
+  background: var(--color-brand-primary);
+  color: var(--color-bg-pure);
+  font-weight: 600;
+  font-size: 16px;
+  transition: all var(--speed-standard) var(--transition-premium);
+  box-shadow: 0 4px 20px rgba(0, 102, 255, 0.15);
+}
+
+.btnIcon {
+  font-size: 18px;
+  transition: transform var(--speed-fast) var(--transition-premium);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-3px);
+  background: var(--color-brand-hover);
+  box-shadow: 0 20px 40px rgba(0, 102, 255, 0.25);
+}
+
+.primaryBtn:hover .btnIcon {
+  transform: translateX(4px);
+}
+
+.heroImageContainer {
+  position: relative;
+  animation: scaleUpImage 1s var(--transition-premium);
+}
+
+.imageInner {
+  position: relative;
+  height: 600px;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 40px 90px rgba(15, 23, 42, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.imageInner img {
+  object-fit: cover;
+  transition: transform 1.2s var(--transition-premium);
+}
+
+.imageInner:hover img {
+  transform: scale(1.04);
+}
+
+/* ==========================================================================
+   COMMON HEADING PATTERNS
+   ========================================================================== */
+.heading {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 80px;
+  padding: 0 24px;
+}
+
+.sectionTag {
+  color: var(--color-brand-primary);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: inline-block;
+  position: relative;
+}
+
+.heading h2 {
+  margin-top: 20px;
+  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
+  color: var(--color-dark-titanium);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.heading p {
+  margin-top: 20px;
+  color: var(--color-muted-cool);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   WHY INSURANCE BLOCK WITH STATS
+   ========================================================================== */
+.whySection {
+  padding: 120px 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.statsGrid {
+  max-width: 1400px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.statCard {
+  background: var(--color-bg-pure);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 32px;
+  padding: 44px;
+  box-shadow: var(--shadow-premium-subtle);
+  transition: all var(--speed-standard) var(--transition-premium);
+}
+
+.statHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.statNumber {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--color-dark-titanium);
+  letter-spacing: -0.02em;
+}
+
+.miniIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: var(--color-brand-light);
+  color: var(--color-brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.statCard h3 {
+  color: var(--color-dark-titanium);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.statCard p {
+  color: var(--color-muted-cool);
+  line-height: 1.75;
+  font-size: 15px;
+}
+
+.statCard:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 102, 255, 0.2);
+  box-shadow: var(--shadow-premium-elevated);
+}
+
+/* ==========================================================================
+   ADVANCED DETAILED FEATURES SECTION
+   ========================================================================== */
+.featureSection {
+  padding: 100px 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.featureGrid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.featureCard {
+  background: var(--color-bg-pure);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 32px;
+  padding: 40px;
+  transition: all var(--speed-standard) var(--transition-premium);
+}
+
+.featureIconWrapper {
+  width: 56px;
+  height: 56px;
+  background: #0f172a;
+  color: #ffffff;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 24px;
+  transition: transform var(--speed-standard) var(--transition-premium);
+}
+
+.featureCard h3 {
+  font-size: 22px;
+  color: var(--color-dark-titanium);
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.featureCard p {
+  color: var(--color-muted-cool);
+  line-height: 1.75;
+  font-size: 15px;
+}
+
+.featureCard:hover {
+  border-color: rgba(15, 23, 42, 0.2);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-premium-elevated);
+}
+
+.featureCard:hover .featureIconWrapper {
+  transform: rotate(-6deg) scale(1.05);
+}
+
+/* ==========================================================================
+   WHO SHOULD BUY (REVERSIBLE ACTIVE STRIPE LAYER HOVER)
+   ========================================================================== */
+.whoSection {
+  padding: 120px 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.whoGrid {
+  max-width: 1400px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.whoCard {
+  position: relative;
+  background: var(--color-bg-pure);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 32px;
+  padding: 40px 36px;
+  overflow: hidden;
+  transition: all var(--speed-standard) var(--transition-premium);
+}
+
+.whoCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-brand-gradient);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.5s var(--transition-premium);
+  z-index: 0;
+}
+
+.whoCard:hover::before {
+  transform: scaleY(1);
+}
+
+.whoCard > * {
+  position: relative;
+  z-index: 2;
+}
+
+.iconBox {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: var(--color-brand-light);
+  color: var(--color-brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  transition: all var(--speed-standard) var(--transition-premium);
+}
+
+.whoCard h3 {
+  margin-top: 24px;
+  font-size: 22px;
+  color: var(--color-dark-titanium);
+  font-weight: 700;
+  transition: color var(--speed-standard);
+}
+
+.whoCard p {
+  margin-top: 14px;
+  color: var(--color-muted-cool);
+  line-height: 1.8;
+  font-size: 15px;
+  transition: color var(--speed-standard);
+}
+
+.whoCard:hover {
+  transform: translateY(-12px);
+  border-color: transparent;
+  box-shadow: 0 30px 70px rgba(0, 102, 255, 0.2);
+}
+
+.whoCard:hover h3,
+.whoCard:hover p {
+  color: var(--color-bg-pure);
+}
+
+.whoCard:hover .iconBox {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--color-bg-pure);
+}
+
+/* ==========================================================================
+   INSURANCE SOLUTION SOLUTIONS (SHIMMER REFLECTION CARD)
+   ========================================================================== */
+.planSection {
+  padding: 120px 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.planGrid {
+  max-width: 1400px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.planCard {
+  position: relative;
+  background: var(--color-bg-pure);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 36px;
+  padding: 50px;
+  overflow: hidden;
+  transition: all var(--speed-standard) var(--transition-premium);
+}
+
+.planCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 102, 255, 0.04),
+    transparent
+  );
+  transition: left 0.8s ease-in-out;
+}
+
+.planCard:hover::before {
+  left: 150%;
+}
+
+.planCard h3 {
+  margin-top: 24px;
+  font-size: 24px;
+  color: var(--color-dark-titanium);
+  font-weight: 700;
+}
+
+.planCard p {
+  margin-top: 16px;
+  color: var(--color-muted-cool);
+  line-height: 1.85;
+  font-size: 16px;
+}
+
+.planCard:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 102, 255, 0.25);
+  box-shadow: var(--shadow-premium-elevated);
+}
+
+/* ==========================================================================
+   DUAL SPLIT ROW GRID (PROVISIONS & ADVANTAGES)
+   ========================================================================== */
+.dualGridSection {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 120px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  position: relative;
+  z-index: 2;
+}
+
+.headingLeft {
+  margin-bottom: 40px;
+}
+
+.headingLeft h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--color-dark-titanium);
+  margin-top: 12px;
+}
+
+.compactBenefitGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.interactiveRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 28px;
+  background: var(--color-bg-pure);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 20px;
+  transition: all var(--speed-fast) var(--transition-premium);
+}
+
+.rowCheck, .rowCheckPrimary {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.rowCheck { color: #10b981; }
+.rowCheckPrimary { color: var(--color-brand-primary); }
+
+.interactiveRow span {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-dark-titanium);
+}
+
+.interactiveRow:hover {
+  transform: translateX(6px);
+  border-color: rgba(15, 23, 42, 0.12);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+
+/* ==========================================================================
+   CHRONOLOGICAL STRATEGY TIMELINE (SIDE LINE INDICATOR)
+   ========================================================================== */
+.timelineSection {
+  padding: 120px 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.timelineGrid {
+  max-width: 1400px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.timelineCard {
+  position: relative;
+  padding: 44px 36px;
+  background: var(--color-bg-pure);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 32px;
+  transition: all var(--speed-standard) var(--transition-premium);
+}
+
+.timelineHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.ageBadge {
+  display: inline-flex;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--color-brand-light);
+  color: var(--color-brand-primary);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.stepCounter {
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(15, 23, 42, 0.2);
+}
+
+.timelineCard::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--color-brand-gradient);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform var(--speed-standard) var(--transition-premium);
+}
+
+.timelineCard:hover::after {
+  transform: scaleY(1);
+}
+
+.timelineCard h4 {
+  color: var(--color-dark-titanium);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.timelineCard p {
+  margin-top: 14px;
+  color: var(--color-muted-cool);
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.timelineCard:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-premium-elevated);
+  border-left-color: transparent;
+}
+
+/* ==========================================================================
+   THE METHODOLOGY PROCESS 
+   ========================================================================== */
+.processSection {
+  padding: 120px 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.processGrid {
+  max-width: 1400px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.processCard {
+  background: var(--color-bg-pure);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 32px;
+  padding: 44px 36px;
+  transition: all var(--speed-standard) var(--transition-premium);
+}
+
+.processMeta {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 24px;
+  color: var(--color-brand-primary);
+}
+
+.processStep {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.processNum {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.processCard h4 {
+  color: var(--color-dark-titanium);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.processCard p {
+  margin-top: 12px;
+  color: var(--color-muted-cool);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.processCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(15, 23, 42, 0.15);
+  box-shadow: var(--shadow-premium-elevated);
+}
+
+/* ==========================================================================
+   FAQ SECTION (THREE COLUMN HOVER LAYOUT)
+   ========================================================================== */
+.faqSection {
+  padding: 120px 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.faqGrid {
+  max-width: 1400px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.faqCard {
+  background: var(--color-bg-pure);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 32px;
+  padding: 40px;
+  transition: all var(--speed-standard) var(--transition-premium);
+}
+
+.faqHeader {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.faqIcon {
+  font-size: 22px;
+  color: var(--color-brand-primary);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.faqCard h4 {
+  color: var(--color-dark-titanium);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.faqCard p {
+  color: var(--color-muted-cool);
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.faqCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(15, 23, 42, 0.15);
+  box-shadow: var(--shadow-premium-elevated);
+}
+
+/* ==========================================================================
+   CTA SEGMENT (DEEP SPACE TITANIUM FINISH)
+   ========================================================================== */
+.ctaSection {
+  padding: 120px 24px 160px;
+  position: relative;
+  z-index: 2;
+}
+
+.ctaCard {
+  max-width: 1400px;
+  margin: auto;
+  background: linear-gradient(135deg, #0b0f19, #1a2333);
+  border-radius: 48px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  box-shadow: 0 50px 100px rgba(15, 23, 42, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.ctaContent {
+  padding: 80px;
+  color: #ffffff;
+}
+
+.ctaIcon {
+  font-size: 40px;
+  color: var(--color-brand-primary);
+  display: inline-flex;
+  margin-bottom: 28px;
+}
+
+.ctaContent h2 {
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.ctaContent p {
+  margin-top: 20px;
+  line-height: 1.85;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ctaBtn {
+  margin-top: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--color-brand-primary);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 18px 36px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all var(--speed-standard) var(--transition-premium);
+}
+
+.ctaBtn:hover {
+  transform: translateY(-3px);
+  background: var(--color-brand-hover);
+  box-shadow: 0 20px 40px rgba(0, 102, 255, 0.3);
+}
+
+.ctaBtn:hover .btnIcon {
+  transform: translateX(4px);
+}
+
+.ctaImage {
+  position: relative;
+  min-height: 520px;
+}
+
+.ctaImage img {
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   ANIMATIONS ARCHITECTURE
+   ========================================================================== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleUpImage {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN SYSTEM / MEDIA QUERY LAYER
+   ========================================================================== */
+@media (max-width: 1280px) {
+  .hero { gap: 40px; }
+  .planGrid, .dualGridSection { grid-template-columns: 1fr; }
+  .statsGrid, .featureGrid, .faqGrid { grid-template-columns: repeat(2, 1fr); }
+  .whoGrid, .timelineGrid, .processGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 992px) {
+  .hero { grid-template-columns: 1fr; padding-top: 100px; text-align: center; }
+  .heroDescription { margin-left: auto; margin-right: auto; }
+  .imageInner { height: 450px; }
+  .ctaCard { grid-template-columns: 1fr; }
+  .ctaImage { min-height: 350px; order: -1; }
+  .ctaContent { padding: 50px; }
+}
+
+@media (max-width: 768px) {
+  .statsGrid, .featureGrid, .whoGrid, .timelineGrid, .processGrid, .faqGrid {
+    grid-template-columns: 1fr;
+  }
+  .statCard, .featureCard, .whoCard, .planCard, .timelineCard, .processCard, .faqCard {
+    padding: 32px;
+  }
+  .dualGridSection { gap: 40px; padding: 60px 24px; }
+  .interactiveRow { padding: 18px 22px; }
+  .ctaContent { padding: 36px 24px; }
+}

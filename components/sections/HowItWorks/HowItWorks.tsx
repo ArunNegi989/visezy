@@ -40,15 +40,15 @@ export default function HowItWorks() {
       <div className={styles.ambientBlur} aria-hidden="true"></div>
 
       <div className={styles.container}>
-        
+
         <div className={styles.headerBlock}>
-         <div className={styles.badgeLayout}>
-  <span className={styles.badgeGlow}></span>
-  <span className={styles.badgeDot}></span>
-  <span className={styles.badgeText}>
-    Insurance Workflow Engine
-  </span>
-</div>
+          <div className={styles.badgeLayout}>
+            <span className={styles.badgeGlow}></span>
+            <span className={styles.badgeDot}></span>
+            <span className={styles.badgeText}>
+              Insurance Workflow Engine
+            </span>
+          </div>
           <h2 className={styles.mainTitle}>
             Our efficient <span className={styles.gradientText}>working method</span>
           </h2>
@@ -65,11 +65,11 @@ export default function HowItWorks() {
           {steps.map((item, idx) => (
             <div key={idx} className={`${styles.stepColumn} ${item.themeClass}`}>
               <div className={styles.ghostCounter}>{item.count}</div>
-              
+
               <div className={styles.stepBadgeWrapper}>
                 <span className={styles.stepBadge}>{item.step}</span>
               </div>
-              
+
               <h3 className={styles.stepTitle}>{item.title}</h3>
               <p className={styles.stepDesc}>{item.description}</p>
             </div>

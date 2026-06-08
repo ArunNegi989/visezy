@@ -16,7 +16,6 @@
   background-color: var(--canvas-bg);
   border-top: 1px solid var(--border-strong);
   padding-top: 60px;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
   color: var(--txt-medium);
 }
 
@@ -404,14 +403,16 @@ a.contactText:hover {
     gap: 40px;
   }
 
-   .topRow {
+  .topRow {
     flex-direction: column;
     align-items: stretch;
     padding: 30px;
   }
+
   .ctaCard {
     max-width: 100%;
   }
+
   .helpPanel {
     grid-column: span 2;
   }
@@ -421,17 +422,21 @@ a.contactText:hover {
   .footer {
     padding-top: 40px;
   }
+
   .topRow {
     padding: 24px;
     gap: 24px;
   }
+
   .newsletterHeading {
     font-size: 20px;
   }
+
   .mainGrid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+
   .bottomSection {
     flex-direction: column-reverse;
     gap: 16px;

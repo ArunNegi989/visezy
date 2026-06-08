@@ -1,0 +1,880 @@
+/* ==========================================================================
+   CSS CORE CONSTANTS & SETTING VARIABLES
+   ========================================================================== */
+:root {
+  --brand-primary: #0066ff;
+  --brand-primary-rgb: 0, 102, 255;
+  --brand-gradient-end: #3b82f6;
+  --color-slate-900: #0f172a;
+  --color-slate-800: #1e293b;
+  --color-slate-600: #475569;
+  --color-slate-400: #94a3b8;
+  --border-light: #e2e8f0;
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --curve-main: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  background: #f8fafc;
+  color: var(--color-slate-900);
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   ANIMATIONS & FLOATING AMBIENT GRAPHICS
+   ========================================================================== */
+@keyframes canvasFadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+@keyframes gridSlide {
+  from { background-position: 0 0; }
+  to { background-position: 40px 40px; }
+}
+
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 1;
+  animation: gridSlide 30s linear infinite;
+}
+
+.glowOne, .glowTwo, .glowThree {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.65;
+}
+
+.glowOne {
+  width: 500px;
+  height: 500px;
+  background: rgba(0, 102, 255, 0.15);
+  top: -100px;
+  left: -150px;
+  animation: slowOrbit 20s infinite alternate var(--curve-main);
+}
+
+.glowTwo {
+  width: 600px;
+  height: 600px;
+  background: rgba(59, 130, 246, 0.12);
+  right: -200px;
+  top: 25%;
+  animation: slowOrbit 25s infinite alternate-reverse linear;
+}
+
+.glowThree {
+  width: 450px;
+  height: 450px;
+  background: rgba(16, 185, 129, 0.08);
+  left: 10%;
+  bottom: 15%;
+}
+
+/* ==========================================================================
+   HERO DISPLAY SECTION
+   ========================================================================== */
+.hero {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 140px 24px 100px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  animation: canvasFadeIn 1.2s var(--curve-main) forwards;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(0, 102, 255, 0.06);
+  border: 1px solid rgba(0, 102, 255, 0.15);
+  color: var(--brand-primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.badgeIcon {
+  font-size: 13px;
+  animation: slowOrbit 3s infinite alternate ease-in-out;
+}
+
+.heroTitle {
+  margin-top: 24px;
+  font-size: clamp(2.75rem, 4.5vw, 4.5rem);
+  line-height: 1.1;
+  color: var(--color-slate-900);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroDescription {
+  margin-top: 24px;
+  max-width: 580px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--color-slate-600);
+}
+
+.heroActions {
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.primaryBtn, .secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 16px 34px;
+  border-radius: 14px;
+  transition: all 0.4s var(--curve-main);
+}
+
+.primaryBtn {
+  background: var(--brand-primary);
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 102, 255, 0.2);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 102, 255, 0.35);
+}
+
+.btnIcon {
+  transition: transform 0.3s ease;
+}
+
+.primaryBtn:hover .btnIcon {
+  transform: translateX(4px);
+}
+
+.secondaryBtn {
+  border: 1px solid var(--border-light);
+  color: var(--color-slate-900);
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+}
+
+.secondaryBtn:hover {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+  background: #ffffff;
+  transform: translateY(-2px);
+}
+
+.heroImageContainer {
+  position: relative;
+  perspective: 1000px;
+}
+
+.imageInner {
+  position: relative;
+  height: 560px;
+  overflow: hidden;
+  border-radius: 30px;
+  box-shadow: 0 30px 70px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  transition: transform 0.6s var(--curve-main);
+}
+
+.imageInner:hover {
+  transform: rotateY(-3deg) rotateX(2deg) translateY(-4px);
+}
+
+.imageInner img {
+  object-fit: cover;
+  transition: transform 1s var(--curve-main);
+}
+
+.imageInner:hover img {
+  transform: scale(1.06);
+}
+
+/* ==========================================================================
+   METRICS / STATS SECTION
+   ========================================================================== */
+.statsSection {
+  padding: 40px 24px 80px;
+  position: relative;
+  z-index: 10;
+}
+
+.statsGrid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.statCard {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.4s var(--curve-main);
+}
+
+.statCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 102, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.05);
+  background: #ffffff;
+}
+
+.statCard h3 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.statCard p {
+  color: var(--color-slate-600);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   SECTION HEADER (COMMON REUSABLE STRUCTURE)
+   ========================================================================== */
+.heading {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+
+.sectionTag {
+  color: var(--brand-primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(0, 102, 255, 0.06);
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+.heading h2 {
+  margin-top: 18px;
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  color: var(--color-slate-900);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.heading p {
+  margin-top: 16px;
+  line-height: 1.75;
+  color: var(--color-slate-600);
+  font-size: 16px;
+}
+
+/* ==========================================================================
+   INFO/VALUE PRESENTATION GRID
+   ========================================================================== */
+.infoSection {
+  padding: 100px 24px;
+  position: relative;
+  z-index: 10;
+}
+
+.infoGrid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.infoCard {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 24px;
+  padding: 40px;
+  transition: all 0.4s var(--curve-main);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.infoIconWrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: rgba(0, 102, 255, 0.06);
+  color: var(--brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  transition: all 0.4s ease;
+}
+
+.infoCard h3 {
+  margin-top: 24px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-slate-900);
+}
+
+.infoCard p {
+  margin-top: 12px;
+  color: var(--color-slate-600);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.infoCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+  border-color: transparent;
+}
+
+.infoCard:hover .infoIconWrapper {
+  background: var(--brand-primary);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   COVERAGE PLANS MODAL DYNAMICS
+   ========================================================================== */
+.coverageSection {
+  padding: 100px 24px;
+  position: relative;
+  z-index: 10;
+}
+
+.coverageGrid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.coverageCard {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid var(--border-light);
+  padding: 36px;
+  transition: all 0.45s var(--curve-main);
+  z-index: 1;
+}
+
+.coverageCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-gradient-end));
+  transform: translateY(101%);
+  transition: transform 0.45s var(--curve-main);
+  z-index: -1;
+  border-radius: 23px;
+}
+
+.coverageCard:hover::before {
+  transform: translateY(0);
+}
+
+.coverageCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 102, 255, 0.2);
+  border-color: transparent;
+}
+
+.iconBox {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: rgba(0, 102, 255, 0.06);
+  color: var(--brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  transition: all 0.35s ease;
+}
+
+.coverageCard h3 {
+  margin-top: 24px;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--color-slate-900);
+  transition: color 0.3s ease;
+}
+
+.coverageCard p {
+  margin-top: 12px;
+  line-height: 1.7;
+  color: var(--color-slate-600);
+  font-size: 14.5px;
+  transition: color 0.3s ease;
+}
+
+.coverageCard:hover h3 { color: #ffffff; }
+.coverageCard:hover p { color: rgba(255, 255, 255, 0.9); }
+.coverageCard:hover .iconBox {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   ADVANTAGES SECTION
+   ========================================================================== */
+.benefitsSection {
+  padding: 100px 24px;
+  position: relative;
+  z-index: 10;
+}
+
+.benefitsGrid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.benefitCard {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: all 0.35s var(--curve-main);
+}
+
+.benefitIcon {
+  color: #10b981;
+  font-size: 22px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.benefitCard span {
+  color: var(--color-slate-800);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.benefitCard:hover {
+  transform: translateY(-4px);
+  border-color: #10b981;
+  box-shadow: 0 15px 35px rgba(16, 185, 129, 0.06);
+}
+
+/* ==========================================================================
+   INCLUSIONS VS EXCLUSIONS COMPARE LAYOUT
+   ========================================================================== */
+.compareSection {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 100px 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  position: relative;
+  z-index: 10;
+}
+
+.compareCard {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 28px;
+  padding: 45px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
+}
+
+.includeTitle, .excludeTitle {
+  font-size: 22px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.includeTitle { color: #10b981; }
+.excludeTitle { color: #ef4444; }
+
+.compareList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 12px;
+  border-radius: 12px;
+  color: var(--color-slate-800);
+  font-size: 15px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.listItem:hover {
+  background-color: #f8fafc;
+}
+
+.checkIcon { color: #10b981; flex-shrink: 0; }
+.alertIcon { color: #ef4444; flex-shrink: 0; }
+
+/* ==========================================================================
+   PROCESS STEPS MAP
+   ========================================================================== */
+.processSection {
+  padding: 100px 24px;
+  position: relative;
+  z-index: 10;
+}
+
+.processGrid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.processCard {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 24px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.35s var(--curve-main);
+  position: relative;
+}
+
+.stepBubble {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(0, 102, 255, 0.06);
+  color: var(--brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  font-weight: 800;
+  font-size: 16px;
+  border: 1px solid rgba(0, 102, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.processCard h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-slate-900);
+}
+
+.processDesc {
+  margin-top: 12px;
+  color: var(--color-slate-600);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.processCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.06);
+  border-color: var(--brand-primary);
+}
+
+.processCard:hover .stepBubble {
+  background: var(--brand-primary);
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+/* ==========================================================================
+   REGULATORY / COMPLIANCE DOCUMENTS PACK
+   ========================================================================== */
+.documentsSection {
+  padding: 100px 24px;
+  position: relative;
+  z-index: 10;
+}
+
+.documentsGrid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.documentCard {
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 24px 30px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #ffffff;
+  transition: all 0.35s var(--curve-main);
+}
+
+.docIconBox {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(0, 102, 255, 0.05);
+  color: var(--brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.documentCard span {
+  font-weight: 600;
+  color: var(--color-slate-800);
+  font-size: 15px;
+}
+
+.documentCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand-primary);
+  box-shadow: 0 15px 35px rgba(0, 102, 255, 0.06);
+}
+
+/* ==========================================================================
+   ACCORDION INQUIRY LAYOUT
+   ========================================================================== */
+.faqSection {
+  padding: 100px 24px;
+  position: relative;
+  z-index: 10;
+}
+
+.faqGrid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.faqCard {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 36px;
+  transition: all 0.35s var(--curve-main);
+}
+
+.faqCard h4 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-slate-900);
+  line-height: 1.4;
+}
+
+.faqCard p {
+  margin-top: 14px;
+  color: var(--color-slate-600);
+  line-height: 1.7;
+  font-size: 14.5px;
+}
+
+.faqCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 102, 255, 0.2);
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.04);
+}
+
+/* ==========================================================================
+   CONVERSION FOCUS CTA ROW
+   ========================================================================== */
+.ctaSection {
+  padding: 100px 24px 140px;
+  position: relative;
+  z-index: 10;
+}
+
+.ctaCard {
+  max-width: 1400px;
+  margin: 0 auto;
+  border-radius: 32px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  background: linear-gradient(135deg, var(--color-slate-900), #1e293b);
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ctaContent {
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ctaIcon {
+  font-size: 40px;
+  color: var(--brand-primary);
+  margin-bottom: 16px;
+}
+
+.ctaContent h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.ctaContent p {
+  margin-top: 20px;
+  color: var(--color-slate-400);
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+.ctaBtn {
+  margin-top: 36px;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  padding: 18px 36px;
+  border-radius: 14px;
+  background: var(--brand-primary);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  transition: all 0.4s var(--curve-main);
+  box-shadow: 0 10px 20px rgba(0, 102, 255, 0.2);
+}
+
+.ctaBtn:hover {
+  transform: translateY(-4px);
+  background: #1d4ed8;
+  box-shadow: 0 20px 40px rgba(0, 102, 255, 0.4);
+}
+
+.ctaImage {
+  position: relative;
+  min-height: 480px;
+}
+
+.ctaImage img {
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   COMPREHENSIVE RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .hero, .ctaCard, .compareSection {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero {
+    padding-top: 100px;
+    gap: 40px;
+  }
+
+  .ctaContent {
+    padding: 60px;
+  }
+
+  .ctaImage {
+    min-height: 360px;
+  }
+
+  .statsGrid, .coverageGrid, .processGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .infoGrid, .benefitsGrid, .documentsGrid, .faqGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 80px 16px 60px;
+  }
+
+  .imageInner {
+    height: 380px;
+  }
+
+  .statsGrid, .coverageGrid, .processGrid, .infoGrid, .benefitsGrid, .documentsGrid, .faqGrid, .compareSection {
+    grid-template-columns: 1fr;
+  }
+
+  .compareCard {
+    padding: 30px 20px;
+  }
+
+  .heroTitle {
+    font-size: 2.25rem;
+  }
+
+  .heroActions {
+    flex-direction: column;
+  }
+
+  .primaryBtn, .secondaryBtn {
+    width: 100%;
+  }
+
+  .ctaContent {
+    padding: 40px 24px;
+  }
+
+  .heading {
+    margin-bottom: 40px;
+  }
+}

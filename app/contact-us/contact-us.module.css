@@ -15,7 +15,6 @@
   padding: 40px 24px;
   background: radial-gradient(130% 130% at 0% 0%, #fcfdfe 0%, #f8fafc 50%, #f1f5f9 100%);
   overflow: hidden;
-  font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 /* ---------- STRUCTURAL CANVAS DETAILS ---------- */
@@ -34,7 +33,7 @@
   position: absolute;
   inset: 0;
   background-image: linear-gradient(rgba(15, 23, 42, 0.012) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(15, 23, 42, 0.012) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(15, 23, 42, 0.012) 1px, transparent 1px);
   background-size: 45px 45px;
   mask-image: radial-gradient(circle at 70% 40%, black, transparent 75%);
   pointer-events: none;
@@ -245,10 +244,10 @@
 }
 
 /* Triggers when field receives interaction focus or is populated */
-.formInput:focus ~ .floatingLabel,
-.formInput:not(:placeholder-shown) ~ .floatingLabel,
-.formTextarea:focus ~ .floatingLabel,
-.formTextarea:not(:placeholder-shown) ~ .floatingLabel {
+.formInput:focus~.floatingLabel,
+.formInput:not(:placeholder-shown)~.floatingLabel,
+.formTextarea:focus~.floatingLabel,
+.formTextarea:not(:placeholder-shown)~.floatingLabel {
   transform: translateY(-28px) scale(0.85);
   color: var(--neon-blue);
   font-weight: 700;
@@ -263,15 +262,17 @@
 /* Interactive bottom focus highlights */
 .inputFocusLine {
   position: absolute;
-  bottom: 0; left: var(--curve-input); right: var(--curve-input);
+  bottom: 0;
+  left: var(--curve-input);
+  right: var(--curve-input);
   height: 2px;
   background: var(--neon-blue);
   transform: scaleX(0);
   transition: transform var(--speed-fast) var(--elastic-bezier);
 }
 
-.formInput:focus ~ .inputFocusLine,
-.formTextarea:focus ~ .inputFocusLine {
+.formInput:focus~.inputFocusLine,
+.formTextarea:focus~.inputFocusLine {
   transform: scaleX(1);
 }
 
@@ -326,9 +327,20 @@
 
 /* ---------- REPAIR FRAMES ---------- */
 @keyframes pulseKey {
-  0% { transform: scale(0.9); opacity: 0.8; }
-  50% { transform: scale(1.6); opacity: 0; }
-  100% { transform: scale(0.9); opacity: 0; }
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
 }
 
 /* ---------- MEDIA SYSTEM RESPONSIVE LINKS ---------- */
@@ -338,10 +350,12 @@
     grid-template-columns: 1fr;
     gap: 60px;
   }
+
   .leftColumn {
     align-items: center;
     text-align: center;
   }
+
   .infoStack {
     width: 100%;
     align-items: center;
@@ -352,12 +366,15 @@
   .section {
     padding: 100px 20px;
   }
+
   .title {
     font-size: 34px;
   }
+
   .formCapsule {
     padding: 32px 24px;
   }
+
   .infoRow {
     min-width: 100%;
   }

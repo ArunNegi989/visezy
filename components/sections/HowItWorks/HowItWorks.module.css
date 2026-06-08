@@ -3,9 +3,9 @@
 .section {
   position: relative;
   background-color: #ffffff;
-  padding: 60px 24px; /* Extends vertical heights to accommodate alternate structural zig-zags safely */
+  padding: 60px 24px;
+  /* Extends vertical heights to accommodate alternate structural zig-zags safely */
   overflow: hidden;
-  font-family: "Plus Jakarta Sans", sans-serif;
   border-top: 1px solid #f4f4f5;
 }
 
@@ -30,7 +30,8 @@
 /* ---------- HEADER BLOCK SECTION ---------- */
 .headerBlock {
   text-align: center;
-  margin-bottom: 120px; /* High clearing margin to leave spacious breathing room for step shifts */
+  margin-bottom: 120px;
+  /* High clearing margin to leave spacious breathing room for step shifts */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,14 +47,14 @@
 
   border-radius: 999px;
 
-  background: rgba(255,255,255,.85);
+  background: rgba(255, 255, 255, .85);
   backdrop-filter: blur(14px);
 
-  border: 1px solid rgba(37,99,235,.12);
+  border: 1px solid rgba(37, 99, 235, .12);
 
   box-shadow:
-    0 10px 30px rgba(15,23,42,.05),
-    0 1px 0 rgba(255,255,255,.9) inset;
+    0 10px 30px rgba(15, 23, 42, .05),
+    0 1px 0 rgba(255, 255, 255, .9) inset;
 
   overflow: hidden;
 }
@@ -68,6 +69,7 @@
   position: relative;
   z-index: 2;
 }
+
 .badgeSparkle {
   width: 6px;
   height: 6px;
@@ -82,11 +84,9 @@
   height: 120px;
 
   background:
-    radial-gradient(
-      circle,
-      rgba(37,99,235,.18),
-      transparent 70%
-    );
+    radial-gradient(circle,
+      rgba(37, 99, 235, .18),
+      transparent 70%);
 
   left: -40px;
   top: 50%;
@@ -126,10 +126,21 @@
 }
 
 /* ---------- SYSTEM ACCENT MIXINS ---------- */
-.stepBlue { --accent-rgb: 37, 99, 235; }
-.stepGreen { --accent-rgb: 16, 185, 129; }
-.stepOrange { --accent-rgb: 249, 115, 22; }
-.stepPurple { --accent-rgb: 168, 85, 247; }
+.stepBlue {
+  --accent-rgb: 37, 99, 235;
+}
+
+.stepGreen {
+  --accent-rgb: 16, 185, 129;
+}
+
+.stepOrange {
+  --accent-rgb: 249, 115, 22;
+}
+
+.stepPurple {
+  --accent-rgb: 168, 85, 247;
+}
 
 /* ---------- INTERACTIVE ZIG-ZAG GRID ENGINE ---------- */
 .gridContainer {
@@ -147,7 +158,8 @@
   right: 10%;
   height: 4px;
   background-image: linear-gradient(90deg, #e4e4e7 50%, transparent 50%);
-  background-size: 24px 4px; /* Premium crisp tech dashed look */
+  background-size: 24px 4px;
+  /* Premium crisp tech dashed look */
   z-index: 1;
   pointer-events: none;
   transform: translateY(-50%);
@@ -221,6 +233,7 @@
   position: relative;
   z-index: 2;
 }
+
 .stepBadge {
   display: inline-block;
   font-size: 11px;
@@ -258,8 +271,10 @@
   .gridContainer {
     gap: 20px;
   }
+
   .zigZagVectorLine {
-    display: none; /* Destroys vectors safely on layout compression */
+    display: none;
+    /* Destroys vectors safely on layout compression */
   }
 }
 
@@ -267,19 +282,23 @@
   .section {
     padding: 100px 24px;
   }
+
   .gridContainer {
     grid-template-columns: repeat(2, 1fr);
     gap: 32px;
   }
+
   /* Resets alternate translation metrics on tablets */
-  .stepColumn:nth-child(odd), 
+  .stepColumn:nth-child(odd),
   .stepColumn:nth-child(even) {
     transform: none;
   }
-  .stepColumn:nth-child(odd):hover, 
+
+  .stepColumn:nth-child(odd):hover,
   .stepColumn:nth-child(even):hover {
     transform: translateY(-6px);
   }
+
   .headerBlock {
     margin-bottom: 64px;
   }
@@ -289,10 +308,12 @@
   .section {
     padding: 80px 16px;
   }
+
   .gridContainer {
     grid-template-columns: 1fr;
     gap: 20px;
   }
+
   .stepColumn {
     padding: 32px 24px;
   }

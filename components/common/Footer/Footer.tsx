@@ -43,7 +43,7 @@ export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.wrapper}>
-        
+
         {/* ================= TOP PREMIUM ROW ================= */}
         <div className={styles.topRow}>
           <div className={styles.newsletterSection}>
@@ -81,7 +81,7 @@ export const Footer = () => {
 
         {/* ================= MAIN CONTENT ROW ================= */}
         <div className={styles.mainGrid}>
-          
+
           {/* Brand Panel */}
           <div className={styles.brandPanel}>
             <Image
@@ -112,26 +112,27 @@ export const Footer = () => {
               </div>
             </div>
           </div>
-{/* Help & Support Panel */}
-<div className={styles.helpPanel}>
-  <h3 className={styles.sectionHeading}>Help & Support</h3>
 
-  <ul className={styles.servicesMenu}>
-    <li>
-      <Link href="/blogs">Blogs</Link>
-    </li>
+          {/* Help & Support Panel */}
+          <div className={styles.helpPanel}>
+            <h3 className={styles.sectionHeading}>Help & Support</h3>
 
-    <li>
-      <Link href="/privacy-policy">Privacy Policy</Link>
-    </li>
+            <ul className={styles.servicesMenu}>
+              <li>
+                <Link href="/blogs">Blogs</Link>
+              </li>
 
-    <li>
-      <Link href="/terms-and-conditions">
-        Terms & Conditions
-      </Link>
-    </li>
-  </ul>
-</div>
+              <li>
+                <Link href="/policies">Privacy Policy</Link>
+              </li>
+
+              <li>
+                <Link href="/terms-and-conditions">
+                  Terms & Conditions
+                </Link>
+              </li>
+            </ul>
+          </div>
 
           {/* Dynamic Blogs Panel */}
           <div className={styles.blogsPanel}>
@@ -159,24 +160,24 @@ export const Footer = () => {
 
           {/* Links Panel */}
           {/* Services Panel */}
-<div className={styles.linksPanel}>
-  <h3 className={styles.sectionHeading}>Services</h3>
-  <ul className={styles.servicesMenu}>
-    <li><Link href="#">Car Insurance</Link></li>
-    <li><Link href="#">Health Insurance</Link></li>
-    <li><Link href="#">Life Insurance</Link></li>
-  </ul>
+          <div className={styles.linksPanel}>
+            <h3 className={styles.sectionHeading}>Services</h3>
+            <ul className={styles.servicesMenu}>
+              <li><Link href="/policies/car-insurance">Car Insurance</Link></li>
+              <li><Link href="/policies/health-insurance">Health Insurance</Link></li>
+              <li><Link href="/policies/life-insurance">Life Insurance</Link></li>
+            </ul>
 
-  <div className={styles.socialWrapper}>
-    <span className={styles.socialLabel}>Connect With Us</span>
-    <div className={styles.socialIcons}>
-      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>
-      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><FaTwitter /></a>
-      <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><FaPinterestP /></a>
-      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
-    </div>
-  </div>
-</div>
+            <div className={styles.socialWrapper}>
+              <span className={styles.socialLabel}>Connect With Us</span>
+              <div className={styles.socialIcons}>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><FaTwitter /></a>
+                <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><FaPinterestP /></a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
+              </div>
+            </div>
+          </div>
 
 
         </div>

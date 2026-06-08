@@ -14,7 +14,6 @@
   background-color: #ffffff;
   padding: 40px 24px;
   overflow: hidden;
-  font-family: "Plus Jakarta Sans", sans-serif;
   border-top: 1px solid #f4f4f5;
 }
 
@@ -167,8 +166,10 @@
 .infoCard {
   background-color: #ffffff;
   border: 1px solid var(--border-color);
-  border-top: 3px solid transparent; /* Becomes visible on hover */
-  border-radius: 0 0 20px 20px; /* Kept smooth corners below border */
+  border-top: 3px solid transparent;
+  /* Becomes visible on hover */
+  border-radius: 0 0 20px 20px;
+  /* Kept smooth corners below border */
   padding: 28px;
   position: relative;
   transition: var(--transition-premium);
@@ -243,22 +244,27 @@
   .whyChooseUs {
     padding: 100px 24px;
   }
+
   .container {
     grid-template-columns: 1fr;
     gap: 56px;
   }
+
   .title {
     font-size: 36px;
     text-align: center;
   }
+
   .badge {
     margin: 0 auto 24px;
   }
+
   .description {
     text-align: center;
     margin-inline: auto;
     max-width: 600px;
   }
+
   .imageContainer {
     max-width: 550px;
     margin: 0 auto;
@@ -269,12 +275,15 @@
   .whyChooseUs {
     padding: 80px 16px;
   }
+
   .title {
     font-size: 28px;
   }
+
   .infoCard {
     padding: 22px;
   }
+
   .contentField {
     padding-left: 0;
     margin-top: 10px;

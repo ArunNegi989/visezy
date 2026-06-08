@@ -37,7 +37,7 @@ export default function Header() {
             <span>Mon - Fri 8:00 - 6:30</span>
           </div>
         </div>
-        
+
         <a href="mailto:sales@visezy.in" className={styles.emailLink}>
           <FaRegEnvelope className={styles.infoIcon} />
           <span>sales@visezy.in</span>
@@ -48,14 +48,16 @@ export default function Header() {
       <div className={styles.container}>
         {/* Dynamic Image Logo Container */}
         <Link href="/" className={styles.logoContainer}>
-          <Image 
-            src="/visezy-logo.png" 
-            alt="Visezy Insurance Broking Company" 
-            width={160} 
-            height={50} 
-            priority
-            className={styles.logoImage}
-          />
+         <div className={styles.logoWrapper}>
+  <Image
+  src="/visezy-logo.png"
+  alt="Visezy Insurance Broking Company"
+  width={160}
+  height={50}
+  priority
+  className={styles.logoImage}
+/>
+</div>
         </Link>
 
         {/* Desktop Navbar */}
@@ -64,7 +66,7 @@ export default function Header() {
           <Link href="/policies" className={styles.navLink}>Policies</Link>
           <Link href="/about-us" className={styles.navLink}>About Us</Link>
           <Link href="/blogs" className={styles.navLink}>Blogs</Link>
-          <Link href="#contact" className={styles.navLink}>Contact Us</Link>
+          <Link href="/contact-us" className={styles.navLink}>Contact Us</Link>
         </nav>
 
         {/* Action Widgets */}
@@ -84,7 +86,7 @@ export default function Header() {
             <HiOutlineSearch />
           </button>
 
-          <Link href="#contact" className={styles.quoteBtn}>
+          <Link href="/contact-us" className={styles.quoteBtn}>
             <span>Get A Quote</span>
           </Link>
 
@@ -103,11 +105,11 @@ export default function Header() {
         <nav className={styles.mobileNavLinks}>
           <Link href="/" onClick={() => setMobileOpen(false)}>Home</Link>
           <Link href="/policies" onClick={() => setMobileOpen(false)}>Policies</Link>
-          <Link href="#why-choose-us" onClick={() => setMobileOpen(false)}>About Us</Link>
-          <Link href="/" onClick={() => setMobileOpen(false)}>Blogs</Link>
-          <Link href="#contact" onClick={() => setMobileOpen(false)}>Contact Us</Link>
+          <Link href="/about-us" onClick={() => setMobileOpen(false)}>About Us</Link>
+          <Link href="/blogs" onClick={() => setMobileOpen(false)}>Blogs</Link>
+          <Link href="/contact-us" onClick={() => setMobileOpen(false)}>Contact Us</Link>
         </nav>
-        
+
         <div className={styles.mobileActions}>
           <a href="tel:+919634556234" className={styles.callPill}>
             <div className={styles.pulseContainer}>

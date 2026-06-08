@@ -68,7 +68,6 @@
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
   padding: 6px 16px;
   border-radius: 999px;
   background: rgba(0, 102, 255, 0.06);
@@ -85,6 +84,7 @@
   font-weight: 800;
   letter-spacing: -0.03em;
   color: #0f172a;
+  max-width: 720px;
 }
 
 .gradientText {
@@ -99,6 +99,7 @@
   font-size: 19px;
   line-height: 1.7;
   color: #475569;
+  max-width: 680px;
 }
 
 .primaryBtn {
@@ -121,8 +122,6 @@
 
 .btnArrow {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  display: flex;
-  align-items: center;
 }
 
 .primaryBtn:hover {
@@ -144,6 +143,7 @@
   border: 1px solid rgba(226, 232, 240, 0.8);
   box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.08);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: floatImage 6s ease-in-out infinite;
 }
 
 .heroImageContainer:hover {
@@ -167,6 +167,18 @@
 
 .heroImageContainer:hover .imageInner img {
   transform: scale(1.05);
+}
+
+@keyframes floatImage {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 /* ==========================================
@@ -203,69 +215,6 @@
 }
 
 /* ==========================================
-   WHY INSURANCE MATTERS
-========================================== */
-.importanceSection {
-  padding: 100px 48px;
-  position: relative;
-  z-index: 2;
-}
-
-.importanceGrid {
-  max-width: 1400px;
-  margin: 60px auto 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-
-.importanceCard {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 24px;
-  padding: 36px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.importanceIcon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 102, 255, 0.06);
-  color: #0066ff;
-  font-size: 20px;
-  margin-bottom: 20px;
-  transition: all 0.3s ease;
-}
-
-.importanceCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 60px -10px rgba(15, 23, 42, 0.08);
-  border-color: rgba(0, 102, 255, 0.2);
-}
-
-.importanceCard:hover .importanceIcon {
-  background: #0066ff;
-  color: #ffffff;
-}
-
-.importanceCard h3 {
-  color: #0f172a;
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-.importanceCard p {
-  color: #475569;
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-/* ==========================================
    POLICY GRID
 ========================================== */
 .categories {
@@ -288,9 +237,9 @@
   padding: 40px;
   border-radius: 24px;
   border: 1px solid #e2e8f0;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
   cursor: pointer;
+  transition: transform .35s cubic-bezier(.16, 1, .3, 1), box-shadow .35s ease, border-color .35s ease;
 }
 
 .cardGlow {
@@ -320,16 +269,30 @@
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 3;
 }
 
 .card:hover::before {
   transform: scaleX(1);
 }
 
+.card::after {
+  content: "";
+  position: absolute;
+  inset: -120%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transform: rotate(25deg);
+  transition: transform .9s ease;
+}
+
+.card:hover::after {
+  transform: translateX(220%) rotate(25deg);
+}
+
 .card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(0, 102, 255, 0.3);
-  box-shadow: 0 30px 60px -10px rgba(15, 23, 42, 0.12);
+  transform: translateY(-10px) scale(1.01);
+  border-color: rgba(0, 102, 255, .18);
+  box-shadow: 0 35px 80px -12px rgba(15, 23, 42, .12);
 }
 
 .iconBox {
@@ -390,6 +353,11 @@
 
 .step {
   position: relative;
+  transition: transform .35s ease;
+}
+
+.step:hover {
+  transform: translateY(-6px);
 }
 
 .stepHeader {
@@ -412,13 +380,13 @@
   align-items: center;
   justify-content: center;
   z-index: 2;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform .35s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .step:hover .stepNumber {
   background: #0066ff;
   color: #ffffff;
-  transform: scale(1.15);
+  transform: scale(1.1);
   box-shadow: 0 0 0 6px rgba(0, 102, 255, 0.15);
 }
 
@@ -455,7 +423,7 @@
 }
 
 /* ==========================================
-   BENEFITS
+   BENEFITS / OBLIGATIONS
 ========================================== */
 .benefits {
   padding: 100px 48px;
@@ -464,14 +432,14 @@
 }
 
 .benefitGrid {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 54px auto 0;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
 
-.benefitCard {
+.benefit {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -479,106 +447,101 @@
   border-radius: 16px;
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform .35s ease, box-shadow .35s ease, border-color 0.3s ease;
 }
 
-.benefitCard:hover {
-  transform: translateY(-5px);
+.benefit:hover {
+  transform: translateY(-6px);
   border-color: rgba(0, 102, 255, 0.25);
-  box-shadow: 0 20px 40px -10px rgba(0, 102, 255, 0.08);
+  box-shadow: 0 20px 45px -12px rgba(15, 23, 42, .08);
 }
 
 .benefitIcon {
   color: #0066ff;
   font-size: 20px;
   display: flex;
-  transition: transform 0.3s ease;
+  transition: transform .35s ease;
 }
 
-.benefitCard:hover .benefitIcon {
-  transform: scale(1.2);
+.benefit:hover .benefitIcon {
+  transform: scale(1.15) rotate(8deg);
 }
 
 .benefitText {
   color: #334155;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   transition: color 0.3s ease;
+  line-height: 1.5;
 }
 
-.benefitCard:hover .benefitText {
+.benefit:hover .benefitText {
   color: #0f172a;
 }
 
 /* ==========================================
-   TRUST & TRANSPARENCY
+   LEGAL DEEP DIVE (RESTRICTIONS)
 ========================================== */
-.trustSection {
+.legalDeepDive {
   padding: 100px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
   position: relative;
   z-index: 2;
 }
 
-.trustGrid {
-  max-width: 1400px;
-  margin: 0 auto;
+.clauseGrid {
+  margin-top: 64px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 70px;
-  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
 }
 
-.trustContent {
-  max-width: 620px;
-}
-
-.trustContent h2 {
-  font-size: 38px;
-  font-weight: 800;
-  line-height: 1.2;
-  color: #0f172a;
-  letter-spacing: -0.02em;
-  margin-top: 8px;
-}
-
-.trustContent p {
-  margin-top: 18px;
-  color: #475569;
-  font-size: 17px;
-  line-height: 1.6;
-}
-
-.trustImageContainer {
-  position: relative;
-  height: 460px;
+.clauseItem {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 40px 36px;
   border-radius: 24px;
-  padding: 12px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(226, 232, 240, 0.5));
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.08);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.trustImageInner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 16px;
-  overflow: hidden;
+.clauseItem:hover {
+  transform: translateY(-6px);
+  border-color: #0066ff;
+  box-shadow: 0 30px 60px -15px rgba(0, 102, 255, 0.08);
 }
 
-.trustImageInner img {
-  object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+.clauseIconBox {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 102, 255, 0.06);
+  color: #0066ff;
+  font-size: 20px;
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
 }
 
-.trustImageContainer:hover {
-  transform: translateY(-4px);
-  border-color: rgba(0, 102, 255, 0.2);
+.clauseItem:hover .clauseIconBox {
+  background: #0066ff;
+  color: #ffffff;
+  transform: scale(1.1);
 }
 
-.trustImageContainer:hover .trustImageInner img {
-  transform: scale(1.05);
+.clauseItem h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.clauseItem p {
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 /* ==========================================
@@ -604,19 +567,35 @@
   border-radius: 20px;
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
 }
 
 .faqCard:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 48px -10px rgba(15, 23, 42, 0.06);
-  border-color: rgba(0, 102, 255, 0.2);
+  transform: translateY(-8px);
+  border-color: rgba(0, 102, 255, .15);
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, .08);
+}
+
+.faqTitleBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.faqQuestionIcon {
+  color: #0066ff;
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .faqCard h4 {
   color: #0f172a;
   font-size: 18px;
   font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
   transition: color 0.3s ease;
 }
 
@@ -625,7 +604,6 @@
 }
 
 .faqCard p {
-  margin-top: 12px;
   color: #475569;
   font-size: 15px;
   line-height: 1.6;
@@ -657,13 +635,13 @@
 .ctaCard::before {
   content: "";
   position: absolute;
-  bottom: -150px;
-  right: -150px;
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
+  top: -120px;
+  right: -120px;
   border-radius: 50%;
-  background: rgba(0, 102, 255, 0.12);
-  filter: blur(80px);
+  background: rgba(255, 255, 255, .08);
+  filter: blur(60px);
   pointer-events: none;
 }
 
@@ -696,15 +674,15 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3);
+  transition: transform .3s ease, box-shadow .3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .ctaBtn:hover {
   background: #ffffff;
   color: #0066ff;
-  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.25);
   transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(255, 255, 255, .18);
 }
 
 .ctaBtn:hover .btnArrow {
@@ -739,10 +717,6 @@
     text-align: center;
   }
 
-  .content {
-    max-width: 100%;
-  }
-
   .heroDescription {
     margin: 24px auto 0;
   }
@@ -760,7 +734,7 @@
   }
 
   .grid,
-  .importanceGrid {
+  .clauseGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -774,24 +748,7 @@
   }
 
   .benefitGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .trustGrid {
     grid-template-columns: 1fr;
-    gap: 40px;
-    text-align: center;
-  }
-
-  .trustContent {
-    max-width: 100%;
-  }
-
-  .trustImageContainer {
-    max-width: 700px;
-    width: 100%;
-    height: 400px;
-    margin: 0 auto;
   }
 
   .faqGrid {
@@ -822,32 +779,34 @@
 @media (max-width: 768px) {
 
   .hero,
-  .importanceSection,
   .categories,
   .process,
   .benefits,
-  .trustSection,
+  .legalDeepDive,
   .faq,
   .ctaSection {
     padding-left: 24px;
     padding-right: 24px;
-    padding-top: 60px;
-    padding-bottom: 60px;
   }
 
   .grid,
-  .importanceGrid,
   .steps,
-  .benefitGrid,
+  .clauseGrid,
   .faqGrid {
     grid-template-columns: 1fr;
-    gap: 20px;
   }
 
   .heading h2,
-  .trustContent h2,
   .ctaContent h2 {
     font-size: 30px;
+  }
+
+  .heroTitle {
+    max-width: 100%;
+  }
+
+  .heroDescription {
+    max-width: 100%;
   }
 }
 
@@ -860,247 +819,5 @@
 
   .ctaCard {
     padding: 32px 24px;
-  }
-}
-
-/* ADD THESE EXTRA SELECTORS TO YOUR EXISTENT CSS FILE OR COMBINE WITH PREVIOUS RULES */
-
-.heroButtonGroup {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-top: 36px;
-}
-
-.secondaryBtn {
-  text-decoration: none;
-  height: 54px;
-  padding: 0 24px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  background: transparent;
-  color: #0f172a;
-  border: 1px solid #e2e8f0;
-  font-weight: 600;
-  font-size: 15px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.secondaryBtn:hover {
-  background: rgba(15, 23, 42, 0.02);
-  border-color: #0f172a;
-  transform: translateY(-2px);
-}
-
-.sectionContext {
-  max-width: 820px !important;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* INSIGHTS CORE WRAPPER */
-.insightsSection {
-  padding: 100px 48px;
-  position: relative;
-  z-index: 2;
-  background: linear-gradient(to top, transparent, #f8fafc, transparent);
-}
-
-.insightGrid {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.insightContent max-width {
-  max-width: 650px;
-}
-
-.insightContent h2 {
-  font-size: 36px;
-  font-weight: 800;
-  color: #0f172a;
-  line-height: 1.2;
-  margin-top: 8px;
-  letter-spacing: -0.02em;
-}
-
-.insightContent>p {
-  margin-top: 16px;
-  color: #475569;
-  font-size: 17px;
-  line-height: 1.6;
-}
-
-.insightItems {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-}
-
-.insightRow {
-  display: flex;
-  gap: 20px;
-}
-
-.insightBullet {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: rgba(0, 102, 255, 0.06);
-  color: #0066ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  flex-shrink: 0;
-}
-
-.insightRow h5 {
-  font-size: 17px;
-  font-weight: 700;
-  color: #0f172a;
-  margin: 0 0 6px 0;
-}
-
-.insightRow p {
-  font-size: 14px;
-  color: #475569;
-  line-height: 1.5;
-  margin: 0;
-}
-
-/* METRIC INTERACTIVE VISUAL CARD */
-.insightVisual {
-  display: flex;
-  justify-content: center;
-}
-
-.visualCard {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 24px;
-  padding: 40px;
-  width: 100%;
-  max-width: 460px;
-  box-shadow: 0 20px 50px -15px rgba(15, 23, 42, 0.06);
-}
-
-.cardHeader {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #0066ff;
-  font-size: 20px;
-}
-
-.cardHeader h4 {
-  font-size: 18px;
-  font-weight: 700;
-  color: #0f172a;
-  margin: 0;
-}
-
-.visualSub {
-  font-size: 13px;
-  color: #94a3b8;
-  margin-top: 4px;
-  margin-bottom: 32px;
-}
-
-.metricRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 0;
-  border-bottom: 1px dashed #e2e8f0;
-}
-
-.metricRow:last-child {
-  border-bottom: none;
-}
-
-.metricRow span {
-  font-size: 15px;
-  color: #475569;
-}
-
-.metricRow strong {
-  font-size: 16px;
-  font-weight: 700;
-  color: #0066ff;
-}
-
-/* TRUST STATS & SUBTEXT LAYOUTS */
-.trustSubtext {
-  margin-top: 16px;
-  color: #64748b;
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-.trustStats {
-  display: flex;
-  gap: 40px;
-  margin-top: 36px;
-  border-top: 1px solid #e2e8f0;
-  padding-top: 32px;
-}
-
-.trustStats h3 {
-  font-size: 32px;
-  font-weight: 800;
-  color: #0066ff;
-  margin: 0 0 4px 0;
-}
-
-.trustStats p {
-  font-size: 14px;
-  color: #475569;
-  margin: 0;
-}
-
-/* FAQ SPECIFIC OVERRIDE */
-.faqIcon {
-  font-size: 24px;
-  color: #0066ff;
-  margin-bottom: 20px;
-}
-
-/* ADDITIONAL MEDIA RESPONSIVENESS OVERRIDES */
-@media (max-width: 1200px) {
-  .heroButtonGroup {
-    justify-content: center;
-  }
-
-  .insightGrid {
-    grid-template-columns: 1fr;
-    gap: 50px;
-  }
-
-  .insightContent {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .heroButtonGroup {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .secondaryBtn {
-    width: 100%;
-  }
-
-  .trustStats {
-    flex-direction: column;
-    gap: 20px;
   }
 }
