@@ -163,9 +163,9 @@ export const Footer = () => {
           <div className={styles.linksPanel}>
             <h3 className={styles.sectionHeading}>Services</h3>
             <ul className={styles.servicesMenu}>
-              <li><Link href="#">Car Insurance</Link></li>
-              <li><Link href="#">Health Insurance</Link></li>
-              <li><Link href="#">Life Insurance</Link></li>
+              <li><Link href="/policies/car-insurance">Car Insurance</Link></li>
+              <li><Link href="/policies/health-insurance">Health Insurance</Link></li>
+              <li><Link href="/policies/life-insurance">Life Insurance</Link></li>
             </ul>
 
             <div className={styles.socialWrapper}>
