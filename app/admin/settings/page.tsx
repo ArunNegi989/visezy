@@ -51,7 +51,7 @@ export default function SettingsPage() {
             <label>Website URL</label>
 
             <input
-              defaultValue="https://visezy.com"
+              defaultValue="https://visezy.in"
             />
           </div>
 
@@ -76,7 +76,7 @@ export default function SettingsPage() {
 
             <textarea
               rows={4}
-              defaultValue="Ahmedabad, Gujarat, India"
+              defaultValue="H.No-84, Chandar Nagar, Dehradun City, Dehradun, Uttarakhand, India, 248001"
             />
           </div>
 
@@ -92,7 +92,7 @@ export default function SettingsPage() {
           <div className={styles.infoCard}>
             <div className={styles.infoRow}>
               <FaGlobe />
-              <span>visezy.com</span>
+              <span>visezy.in</span>
             </div>
 
             <div className={styles.infoRow}>
@@ -112,7 +112,7 @@ export default function SettingsPage() {
             <div className={styles.infoRow}>
               <FaMapMarkerAlt />
               <span>
-                Ahmedabad, Gujarat
+                Dehradun, Uttarakhand
               </span>
             </div>
           </div>
