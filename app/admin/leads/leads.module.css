@@ -1,0 +1,291 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.hero {
+  padding: 36px;
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #4f46e5
+    );
+
+  color: white;
+}
+
+.badge {
+  display: inline-block;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255,255,255,.15);
+
+  margin-bottom: 14px;
+
+  font-size: 13px;
+}
+
+.hero h1 {
+  font-size: 38px;
+  font-weight: 800;
+}
+
+.hero p {
+  margin-top: 10px;
+  opacity: .9;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap: 20px;
+}
+
+.statCard {
+  background: white;
+
+  border-radius: 24px;
+
+  padding: 24px;
+
+  border: 1px solid #eef2f7;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  transition: .3s;
+
+  box-shadow:
+    0 10px 30px rgba(15,23,42,.04);
+}
+
+.statCard:hover {
+  transform: translateY(-5px);
+}
+
+.statCard svg {
+  width: 56px;
+  height: 56px;
+
+  padding: 16px;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #4f46e5
+    );
+
+  color: white;
+}
+
+.statCard span {
+  color: #64748b;
+}
+
+.statCard h2 {
+  margin-top: 6px;
+  font-size: 30px;
+}
+
+.tableCard {
+  background: white;
+
+  border-radius: 28px;
+
+  border: 1px solid #eef2f7;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 10px 30px rgba(15,23,42,.04);
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 24px;
+}
+
+.search {
+  width: 340px;
+  height: 50px;
+
+  border-radius: 14px;
+
+  border: 1px solid #e5e7eb;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 0 16px;
+}
+
+.search input {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.tableHeader select {
+  height: 50px;
+
+  border-radius: 14px;
+
+  border: 1px solid #e5e7eb;
+
+  padding: 0 18px;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+.tableWrapper table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableWrapper thead {
+  background: #f8fafc;
+}
+
+.tableWrapper th {
+  padding: 18px;
+  text-align: left;
+
+  color: #64748b;
+
+  text-transform: uppercase;
+
+  font-size: 13px;
+}
+
+.tableWrapper td {
+  padding: 18px;
+
+  border-top: 1px solid #f1f5f9;
+}
+.tableWrapper tbody tr {
+  transition: background-color .3s ease;
+}
+
+.tableWrapper tbody tr:hover {
+  background: #e5e8ec;
+}
+.userCell {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #4f46e5
+    );
+
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+}
+
+.userCell h4 {
+  color: #0f172a;
+}
+
+.userCell p {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.insurance {
+  background: #eef4ff;
+
+  color: #2563eb;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  font-size: 13px;
+}
+
+.new {
+  background: #dbeafe;
+  color: #2563eb;
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+.contacted {
+  background: #fef3c7;
+  color: #d97706;
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+.converted {
+  background: #dcfce7;
+  color: #16a34a;
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.actions button {
+  width: 40px;
+  height: 40px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #f8fafc;
+
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+.actions button:hover {
+  background: #2563eb;
+  color: white;
+}
+
+@media (max-width: 992px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}
