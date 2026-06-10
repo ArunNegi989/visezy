@@ -1,0 +1,28 @@
+.chartCard {
+  background: white;
+
+  border-radius: 28px;
+
+  padding: 28px;
+
+  border: 1px solid #eef2f7;
+
+  box-shadow:
+  0 10px 30px rgba(15,23,42,.04);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+.header h3 {
+  font-size: 20px;
+  color: #0f172a;
+}
+
+.header span {
+  color: #64748b;
+}

@@ -29,3 +29,13 @@ body {
   color: #000000;
   font-family: var(--font-geist-sans);
 }
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+svg {
+  flex-shrink: 0;
+}

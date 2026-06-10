@@ -1,0 +1,252 @@
+.wrapper {
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  background: #ffffff;
+}
+
+.leftPanel {
+  position: relative;
+  overflow: hidden;
+}
+
+.bgImage {
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.leftPanel:hover .bgImage {
+  transform: scale(1.05);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+
+  z-index: 2;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 34, 68, 0.82),
+      rgba(37, 99, 235, 0.65)
+    );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 50px;
+}
+
+.brandContent {
+  max-width: 500px;
+  color: white;
+}
+
+.brandContent h2 {
+  margin-top: 30px;
+
+  font-size: 3rem;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.brandContent p {
+  margin-top: 18px;
+
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.rightPanel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 50px;
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 500px;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #64748b;
+  text-decoration: none;
+
+  margin-bottom: 35px;
+
+  transition: 0.3s;
+}
+
+.backLink:hover {
+  color: #2563eb;
+}
+
+.formContainer h1 {
+  font-size: 2.5rem;
+  color: #0f172a;
+
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #64748b;
+
+  margin-bottom: 35px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.field label {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.field input {
+  height: 58px;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 16px;
+
+  padding: 0 18px;
+
+  outline: none;
+
+  transition: all 0.3s ease;
+}
+
+.field input:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 4px
+    rgba(37, 99, 235, 0.1);
+}
+
+.passwordWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.passwordWrapper input {
+  width: 100%;
+}
+
+.passwordWrapper button {
+  position: absolute;
+
+  top: 50%;
+  right: 18px;
+
+  transform: translateY(-50%);
+
+  border: none;
+  background: none;
+
+  cursor: pointer;
+
+  color: #64748b;
+}
+
+.formOptions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.formOptions a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.loginButton {
+  height: 58px;
+
+  border: none;
+
+  border-radius: 16px;
+
+  background: #2563eb;
+
+  color: white;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.loginButton:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 15px 35px
+    rgba(37, 99, 235, 0.3);
+}
+
+.signupText {
+  margin-top: 28px;
+
+  text-align: center;
+
+  color: #64748b;
+}
+
+.signupText a {
+  margin-left: 6px;
+
+  color: #2563eb;
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+@media (max-width: 992px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .leftPanel {
+    min-height: 350px;
+  }
+
+  .brandContent h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .rightPanel {
+    padding: 30px 20px;
+  }
+
+  .formContainer h1 {
+    font-size: 2rem;
+  }
+
+  .brandContent h2 {
+    font-size: 1.8rem;
+  }
+}
