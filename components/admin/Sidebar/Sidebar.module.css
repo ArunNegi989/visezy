@@ -1,8 +1,6 @@
 .sidebar {
   width: 290px;
-
   background: #ffffff;
-
   border-right: 1px solid #eef2f7;
 
   display: flex;
@@ -16,55 +14,31 @@
   padding: 24px 18px;
 
   overflow-y: auto;
+  flex-shrink: 0;
 }
 
 .logoSection {
   display: flex;
+  justify-content: center;
   align-items: center;
 
-  gap: 14px;
-
-  padding-bottom: 28px;
+  padding-bottom: 24px;
 
   border-bottom: 1px solid #f1f5f9;
 }
 
-.logo {
-  width: 56px;
-  height: 56px;
-
-  border-radius: 18px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #2563eb,
-      #7c3aed
-    );
-
+.logoWrapper {
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-
-  color: white;
-
-  font-size: 24px;
-  font-weight: 700;
-
-  box-shadow:
-    0 15px 35px
-    rgba(37, 99, 235, 0.25);
 }
 
-.logoSection h2 {
-  color: #0f172a;
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.logoSection p {
-  color: #64748b;
-  font-size: 13px;
+.logoImage {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .menuWrapper {
@@ -124,28 +98,60 @@
 
 .link:hover {
   background: #f8fbff;
-
   color: #2563eb;
 }
 
 .active {
-  background:
-    linear-gradient(
-      135deg,
-      #2563eb,
-      #4f46e5
-    );
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
 
   color: white;
 
   box-shadow:
-    0 12px 30px
-    rgba(37,99,235,.25);
+    0 12px 30px rgba(37,99,235,.25);
 }
 
+.overlay {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 260px;
+  }
+
+  .logoImage {
+    max-width: 160px;
+  }
+}
 
 @media (max-width: 992px) {
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 9998;
+  }
+
   .sidebar {
-    display: none;
+    position: fixed;
+
+    top: 0;
+    left: -300px;
+
+    width: 280px;
+    height: 100vh;
+
+    z-index: 9999;
+
+    transition: left .3s ease;
+  }
+
+  .open {
+    left: 0;
   }
 }

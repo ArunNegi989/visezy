@@ -127,8 +127,13 @@
 
 .primaryBtn:hover {
   background: #0066ff;
+  color: #ffffff;
   box-shadow: 0 12px 30px rgba(0, 102, 255, 0.3);
   transform: translateY(-3px);
+}
+
+.primaryBtn:hover svg {
+  color: #ffffff;
 }
 
 .primaryBtn:hover .btnArrow {
@@ -872,6 +877,8 @@
   margin-top: 36px;
 }
 
+
+
 .secondaryBtn {
   text-decoration: none;
   height: 54px;
@@ -885,6 +892,7 @@
   border: 1px solid #e2e8f0;
   font-weight: 600;
   font-size: 15px;
+  margin-top: 36px;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 

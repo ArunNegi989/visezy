@@ -263,7 +263,13 @@
   font-weight: 700;
 }
 
-
+.ctaBtn:hover{
+  
+  background: #0066ff;
+  color: #ffffff;
+  box-shadow: 0 12px 30px rgba(0, 102, 255, 0.3);
+  transform: translateY(-3px);
+}
 /* RELATED */
 
 .related {

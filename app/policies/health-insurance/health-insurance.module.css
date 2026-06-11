@@ -145,9 +145,11 @@
 }
 
 .primaryBtn:hover {
+
+  background: #0066ff;
+  color: #ffffff;
+  box-shadow: 0 12px 30px rgba(0, 102, 255, 0.3);
   transform: translateY(-3px);
-  background: #0052cc;
-  box-shadow: 0 20px 40px rgba(0,102,255,0.22);
 }
 
 .primaryBtn svg {
@@ -658,9 +660,11 @@
 }
 
 .ctaBtn:hover {
+
+  background: #ffffff;
+  color: #0066ff;
+  box-shadow: 0 12px 30px rgba(0, 102, 255, 0.3);
   transform: translateY(-3px);
-  background: #0052cc;
-  box-shadow: 0 20px 40px rgba(0,102,255,0.3);
 }
 
 .ctaImage {

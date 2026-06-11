@@ -59,7 +59,7 @@ export default function SettingsPage() {
             <label>Admin Email</label>
 
             <input
-              defaultValue="admin@visezy.com"
+              defaultValue="admin@visezy.in"
             />
           </div>
 
@@ -98,7 +98,7 @@ export default function SettingsPage() {
             <div className={styles.infoRow}>
               <FaEnvelope />
               <span>
-                admin@visezy.com
+                admin@visezy.in
               </span>
             </div>
 
