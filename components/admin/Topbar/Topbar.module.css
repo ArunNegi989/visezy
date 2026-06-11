@@ -4,7 +4,7 @@
 
   z-index: 100;
 
-  height: 88px;
+  min-height: 88px;
 
   background:
     rgba(255,255,255,.9);
@@ -100,7 +100,30 @@
     0 12px 25px
     rgba(15,23,42,.08);
 }
+.viewSiteBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 18px;
+  border-radius: 12px;
+  background: #111827;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
 
+.viewSiteBtn:hover {
+  background: #1f2937;
+  transform: translateY(-2px);
+}
+
+.viewSiteBtn svg {
+  font-size: 13px;
+}
 .badge {
   position: absolute;
 
@@ -161,19 +184,6 @@
   font-size: 12px;
 }
 
-@media (max-width: 768px) {
-  .search {
-    display: none;
-  }
-
-  .profile div:last-child {
-    display: none;
-  }
-
-  .topbar {
-    padding: 0 16px;
-  }
-}
 
 .profileWrapper {
   position: relative;
@@ -258,4 +268,140 @@
 .dropdownItem:hover {
   background: #f8fafc;
   color: #2563eb;
+}
+@media (max-width: 768px) {
+  .topbar {
+    min-height: auto;
+    padding: 16px;
+    align-items: flex-start;
+  }
+
+  .topbar h1 {
+    font-size: 22px;
+  }
+
+  .topbar p {
+    font-size: 14px;
+  }
+
+  .right {
+    gap: 10px;
+  }
+}
+@media (max-width: 576px) {
+  .viewSiteBtn span {
+    display: none;
+  }
+
+  .viewSiteBtn {
+    width: 48px;
+    padding: 0;
+    justify-content: center;
+  }
+}
+
+.headingSection {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.menuBtn {
+  display: none;
+
+  width: 46px;
+  height: 46px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: white;
+
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 4px 12px rgba(15,23,42,.06);
+
+  transition: all .3s ease;
+}
+
+.menuBtn:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 992px) {
+  .menuBtn {
+    display: flex;
+  }
+
+  .search {
+    width: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    min-height: auto;
+
+    padding: 16px;
+
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .topbar h1 {
+    font-size: 22px;
+  }
+
+  .topbar p {
+    font-size: 13px;
+  }
+
+  .search {
+    display: none;
+  }
+
+  .right {
+    gap: 8px;
+  }
+
+  .viewSiteBtn span {
+    display: none;
+  }
+
+  .viewSiteBtn {
+    width: 48px;
+    padding: 0;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .topbar {
+    flex-wrap: wrap;
+  }
+
+  .headingSection {
+    width: 100%;
+  }
+
+  .right {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .iconBtn,
+  .avatar,
+  .viewSiteBtn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .dropdown {
+    right: 0;
+    width: 200px;
+  }
 }

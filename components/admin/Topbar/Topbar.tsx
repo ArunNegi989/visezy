@@ -4,19 +4,29 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import {
+  FaExternalLinkAlt,
   FaBell,
   FaSearch,
   FaMoon,
   FaUser,
   FaKey,
   FaSignOutAlt,
+  FaBars,
 } from "react-icons/fa";
 
 import styles from "./Topbar.module.css";
 
-export default function Topbar() {
+interface TopbarProps {
+  onMenuClick: () => void;
+}
+
+export default function Topbar({
+  onMenuClick,
+}: TopbarProps) {
   const [open, setOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const dropdownRef =
+    useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (
@@ -57,16 +67,35 @@ export default function Topbar() {
         y: 0,
       }}
     >
-      <div>
-        <h1>Dashboard</h1>
+      <div className={styles.headingSection}>
+        <button
+          className={styles.menuBtn}
+          onClick={onMenuClick}
+        >
+          <FaBars />
+        </button>
 
-        <p>
-          Welcome back, manage your
-          website efficiently.
-        </p>
+        <div>
+          <h1>Dashboard</h1>
+
+          <p>
+            Welcome back, manage your
+            website efficiently.
+          </p>
+        </div>
       </div>
 
       <div className={styles.right}>
+        <a
+          href="https://visezy.in"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.viewSiteBtn}
+        >
+          <FaExternalLinkAlt />
+          <span>View Site</span>
+        </a>
+
         <div className={styles.search}>
           <FaSearch />
 
@@ -101,9 +130,7 @@ export default function Topbar() {
           </button>
 
           {open && (
-            <div
-              className={styles.dropdown}
-            >
+            <div className={styles.dropdown}>
               <button
                 className={
                   styles.dropdownItem

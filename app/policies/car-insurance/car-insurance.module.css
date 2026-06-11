@@ -170,8 +170,11 @@
 }
 
 .primaryBtn:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 102, 255, 0.35);
+
+  background: #0066ff;
+  color: #ffffff;
+  box-shadow: 0 12px 30px rgba(0, 102, 255, 0.3);
+  transform: translateY(-3px);
 }
 
 .btnIcon {
@@ -797,9 +800,10 @@
 }
 
 .ctaBtn:hover {
-  transform: translateY(-4px);
-  background: #1d4ed8;
-  box-shadow: 0 20px 40px rgba(0, 102, 255, 0.4);
+  background: #ffffff;
+  color: #0066ff;
+  box-shadow: 0 12px 30px rgba(0, 102, 255, 0.3);
+  transform: translateY(-3px);
 }
 
 .ctaImage {
