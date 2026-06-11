@@ -1,4 +1,5 @@
 import Hero from "@/components/sections/Hero/Hero";
+import CashbackPopup from "@/components/sections/CashbackPopup/CashbackPopup";
 import Features from "@/components/sections/Features/Features";
 import WhyChooseUs from "@/components/sections/WhyChooseUs/WhyChooseUs";
 import Services from "@/components/sections/Services/Services";
@@ -8,6 +9,7 @@ import Testimonials from "@/components/sections/Testimonials/Testimonials";
 export default function Home() {
   return (
     <>
+      <CashbackPopup />
       <Hero />
       <Features />
       <WhyChooseUs />

@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+
 import Header from "@/components/common/Header/Header";
 import { Footer } from "@/components/common/Footer/Footer";
 
@@ -19,6 +20,7 @@ export default function LayoutWrapper({
   return (
     <>
       {!hideLayout && <Header />}
+
 
       <main className="flex-grow">
         {children}

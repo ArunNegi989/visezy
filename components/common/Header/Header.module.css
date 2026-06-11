@@ -5,7 +5,6 @@
   --text-muted: #64748b;
   --border-light: rgba(226, 232, 240, 0.8);
   --bg-glass: rgba(255, 255, 255, 0.85);
-  --font-sans: 'Inter', system-ui, sans-serif;
 }
 
 .header {
@@ -89,7 +88,8 @@
 
 /* Main Navbar Layout */
 .container {
-  max-width: 1440px;
+  width: 100%;
+  max-width: none;
   margin: auto;
   height: 88px;
   padding: 0 48px;
@@ -303,7 +303,8 @@
 }
 
 .quoteBtn:hover {
-  background: var(--primary);
+  background: #0052ccd3;
+  color: #f1f5f9;
   box-shadow: 0 6px 20px rgba(0, 102, 255, 0.3);
   transform: translateY(-2px);
 }
