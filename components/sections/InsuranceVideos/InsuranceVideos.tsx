@@ -55,39 +55,20 @@ export default function InsuranceVideos() {
           </p>
         </div>
 
-        <div className={styles.grid}>
-          {videos.map((video) => (
-            <div key={video.id} className={styles.card}>
-              <div
-                className={styles.thumbnail}
-                style={{
-                  backgroundImage: `url(${video.thumbnail})`,
-                }}
-              >
-                <button className={styles.playBtn}>
-                  <HiOutlinePlay />
-                </button>
-
-                <div className={styles.duration}>
-                  <HiOutlineClock />
-                  {video.duration}
-                </div>
-              </div>
-
-              <div className={styles.content}>
-                <span className={styles.category}>
-                  {video.category}
-                </span>
-
-                <h3>{video.title}</h3>
-
-                <button className={styles.watchBtn}>
-                  Watch Video
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+        <div className={styles.videoWrapper}>
+  <video
+    className={styles.video}
+    autoPlay
+    muted
+    loop
+    playsInline
+  >
+    <source
+      src="/video/insuranceVideo.mp4"
+      type="video/mp4"
+    />
+  </video>
+</div>
       </div>
     </section>
   );

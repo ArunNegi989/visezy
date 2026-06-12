@@ -21,8 +21,11 @@ export default function LayoutWrapper({
     <>
       {!hideLayout && <Header />}
 
-
-      <main className="flex-grow">
+      <main
+        className={`flex-grow ${
+          !hideLayout ? "siteContent" : ""
+        }`}
+      >
         {children}
       </main>
 
