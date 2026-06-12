@@ -125,29 +125,34 @@ export default function Sidebar({
               </span>
 
               <nav className={styles.nav}>
-                {section.items.map((item) => (
-                  <motion.div
-                    key={item.title}
-                    whileHover={{ x: 5 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <Link
-                      href={item.href}
-                      onClick={onClose}
-                      className={`${styles.link} ${
-                        pathname === item.href
-                          ? styles.active
-                          : ""
-                      }`}
-                    >
-                      <span className={styles.icon}>
-                        {item.icon}
-                      </span>
+                {section.items.map((item) => {
+  const isActive =
+    pathname === item.href ||
+    (item.href !== "/admin" &&
+      pathname.startsWith(item.href + "/"));
 
-                      <span>{item.title}</span>
-                    </Link>
-                  </motion.div>
-                ))}
+  return (
+    <motion.div
+      key={item.title}
+      whileHover={{ x: 5 }}
+      whileTap={{ scale: 0.98 }}
+    >
+      <Link
+        href={item.href}
+        onClick={onClose}
+        className={`${styles.link} ${
+          isActive ? styles.active : ""
+        }`}
+      >
+        <span className={styles.icon}>
+          {item.icon}
+        </span>
+
+        <span>{item.title}</span>
+      </Link>
+    </motion.div>
+  );
+})}
               </nav>
             </div>
           ))}

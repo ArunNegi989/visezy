@@ -3,9 +3,7 @@
   top: 0;
 
   z-index: 100;
-
-  min-height: 88px;
-
+  min-height: 72px;
   background:
     rgba(255,255,255,.9);
 
@@ -29,7 +27,6 @@
 
 .topbar p {
   color: #64748b;
-  margin-top: 4px;
 }
 
 .right {

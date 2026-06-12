@@ -1,8 +1,25 @@
 @import "tailwindcss";
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 140px;
+}
+
+.siteContent {
+  padding-top: 132px;
 }
 
 :root {
