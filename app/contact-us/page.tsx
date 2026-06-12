@@ -1,5 +1,5 @@
 "use client";
-
+import CustomerTestimonials from "@/components/sections/CustomerTestimonials/CustomerTestimonials";
 import React, { useState } from "react";
 import styles from "./contact-us.module.css";
 import {
@@ -33,9 +33,13 @@ export default function Contact() {
       [field]: e.target.value,
     }));
   };
-
-  return (
-    <section id="contact" className={styles.section} aria-labelledby="contact-heading">
+return (
+  <>
+    <section
+      id="contact"
+      className={styles.section}
+      aria-labelledby="contact-heading"
+    >
       {/* Dynamic structural background layers */}
       <div className={styles.ambientGlow} aria-hidden="true" />
       <div className={styles.gridCanvas} aria-hidden="true" />
@@ -54,7 +58,9 @@ export default function Contact() {
           </h2>
 
           <p className={styles.description}>
-            Skip the generic support queues. Drop your configuration parameters below and connect directly with an underwriting strategist certified for your specific risk category.
+            Skip the generic support queues. Drop your configuration
+            parameters below and connect directly with an underwriting
+            strategist certified for your specific risk category.
           </p>
 
           <div className={styles.infoStack}>
@@ -63,8 +69,12 @@ export default function Contact() {
                 <HiOutlinePhone />
               </div>
               <div className={styles.infoMeta}>
-                <span className={styles.metaLabel}>Direct Routing Line</span>
-                <span className={styles.metaValue}>+91 96345 56234</span>
+                <span className={styles.metaLabel}>
+                  Direct Routing Line
+                </span>
+                <span className={styles.metaValue}>
+                  +91 96345 56234
+                </span>
               </div>
             </div>
 
@@ -73,8 +83,12 @@ export default function Contact() {
                 <HiOutlineMail />
               </div>
               <div className={styles.infoMeta}>
-                <span className={styles.metaLabel}>Enterprise Delivery</span>
-                <span className={styles.metaValue}>sales@visezy.in</span>
+                <span className={styles.metaLabel}>
+                  Enterprise Delivery
+                </span>
+                <span className={styles.metaValue}>
+                  sales@visezy.in
+                </span>
               </div>
             </div>
 
@@ -83,8 +97,12 @@ export default function Contact() {
                 <HiOutlineLocationMarker />
               </div>
               <div className={styles.infoMeta}>
-                <span className={styles.metaLabel}>HQ Operations Matrix</span>
-                <span className={styles.metaValue}>Dehradun, Uttarakhand, India</span>
+                <span className={styles.metaLabel}>
+                  HQ Operations Matrix
+                </span>
+                <span className={styles.metaValue}>
+                  Dehradun, Uttarakhand, India
+                </span>
               </div>
             </div>
           </div>
@@ -92,7 +110,10 @@ export default function Contact() {
 
         {/* Right Side: High-Tier Glass Form Capsule */}
         <div className={styles.rightColumn}>
-          <form className={styles.formCapsule} onSubmit={(e) => e.preventDefault()}>
+          <form
+            className={styles.formCapsule}
+            onSubmit={(e) => e.preventDefault()}
+          >
             <div className={styles.formHeader}>
               <h3>Initialize Callback</h3>
               <p>Average queue response speed: 4 minutes.</p>
@@ -107,7 +128,9 @@ export default function Contact() {
                 onChange={(e) => handleInputChange(e, "name")}
                 className={styles.formInput}
               />
-              <label className={styles.floatingLabel}>Full Name</label>
+              <label className={styles.floatingLabel}>
+                Full Name
+              </label>
               <div className={styles.inputFocusLine} />
             </div>
 
@@ -120,7 +143,9 @@ export default function Contact() {
                 onChange={(e) => handleInputChange(e, "email")}
                 className={styles.formInput}
               />
-              <label className={styles.floatingLabel}>Email Address</label>
+              <label className={styles.floatingLabel}>
+                Email Address
+              </label>
               <div className={styles.inputFocusLine} />
             </div>
 
@@ -133,7 +158,9 @@ export default function Contact() {
                 onChange={(e) => handleInputChange(e, "phone")}
                 className={styles.formInput}
               />
-              <label className={styles.floatingLabel}>Phone Number</label>
+              <label className={styles.floatingLabel}>
+                Phone Number
+              </label>
               <div className={styles.inputFocusLine} />
             </div>
 
@@ -146,12 +173,17 @@ export default function Contact() {
                 onChange={(e) => handleInputChange(e, "msg")}
                 className={styles.formTextarea}
               />
-              <label className={styles.floatingLabel}>Coverage Parameters & Notes</label>
+              <label className={styles.floatingLabel}>
+                Coverage Parameters & Notes
+              </label>
               <div className={styles.inputFocusLine} />
             </div>
 
             <button type="submit" className={styles.submitBtn}>
-              <span className={styles.btnText}>Dispatch Secure Request</span>
+              <span className={styles.btnText}>
+                Dispatch Secure Request
+              </span>
+
               <div className={styles.btnArrowWrapper}>
                 <HiChevronRight className={styles.btnArrow} />
               </div>
@@ -160,5 +192,9 @@ export default function Contact() {
         </div>
       </div>
     </section>
-  );
+
+    {/* NEW TESTIMONIAL SECTION */}
+    <CustomerTestimonials />
+  </>
+);
 }

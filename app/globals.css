@@ -17,7 +17,9 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 140px;
 }
-
+body {
+  padding-top: 132px;
+}
 :root {
   --background: #ffffff;
   --foreground: #171717;

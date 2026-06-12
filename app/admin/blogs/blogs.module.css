@@ -25,23 +25,18 @@
   position: relative;
   overflow: hidden;
 }
-
 .hero::before {
   content: "";
-
   position: absolute;
-
   width: 380px;
   height: 380px;
-
   border-radius: 50%;
-
   background: rgba(255, 255, 255, 0.08);
-
   right: -120px;
   top: -120px;
-}
 
+  pointer-events: none;
+}
 .badge {
   display: inline-flex;
   align-items: center;
@@ -401,4 +396,364 @@
   .hero h1 {
     font-size: 30px;
   }
+}
+
+/* ===========================
+HIDE BLOG FEATURE
+=========================== */
+
+.hiddenCard {
+opacity: 0.45;
+
+filter: grayscale(0.3);
+
+transition: all 0.3s ease;
+}
+
+.hiddenCard:hover {
+opacity: 0.75;
+}
+
+.hiddenBadge {
+display: inline-flex;
+
+padding: 6px 12px;
+
+border-radius: 999px;
+
+background: #fee2e2;
+
+color: #dc2626;
+
+font-size: 12px;
+
+font-weight: 700;
+
+margin-bottom: 12px;
+}
+
+/* ===========================
+DELETE MODAL
+=========================== */
+
+.modalOverlay {
+position: fixed;
+
+inset: 0;
+
+background: rgba(15, 23, 42, 0.55);
+
+backdrop-filter: blur(6px);
+
+display: flex;
+
+align-items: center;
+justify-content: center;
+
+padding: 20px;
+
+z-index: 99999;
+
+animation: overlayFade 0.25s ease;
+}
+
+.modal {
+width: 100%;
+max-width: 500px;
+
+background: white;
+
+border-radius: 28px;
+
+padding: 32px;
+
+border: 1px solid #eef2f7;
+
+box-shadow:
+0 30px 80px rgba(15, 23, 42, 0.2);
+
+animation: modalPop 0.25s ease;
+}
+
+.modal h3 {
+font-size: 28px;
+
+font-weight: 800;
+
+color: #0f172a;
+
+margin-bottom: 12px;
+}
+
+.modal p {
+color: #64748b;
+
+line-height: 1.7;
+
+font-size: 15px;
+}
+
+.modalActions {
+display: flex;
+
+justify-content: flex-end;
+
+gap: 12px;
+
+margin-top: 28px;
+}
+
+.cancelBtn,
+.deleteBtn {
+height: 50px;
+
+padding: 0 22px;
+
+border: none;
+
+border-radius: 14px;
+
+font-weight: 700;
+
+cursor: pointer;
+
+transition: all 0.3s ease;
+}
+
+.cancelBtn {
+background: #f1f5f9;
+
+color: #334155;
+}
+
+.cancelBtn:hover {
+background: #e2e8f0;
+
+transform: translateY(-2px);
+}
+
+.deleteBtn {
+background: linear-gradient(
+135deg,
+#ef4444,
+#dc2626
+);
+
+color: white;
+
+box-shadow:
+0 12px 25px rgba(239, 68, 68, 0.25);
+}
+
+.deleteBtn:hover {
+transform: translateY(-3px);
+
+box-shadow:
+0 18px 35px rgba(239, 68, 68, 0.35);
+}
+
+/* ===========================
+SEARCH ENHANCEMENTS
+=========================== */
+
+.search {
+width: 380px;
+height: 54px;
+
+border-radius: 16px;
+
+border: 1px solid #e5e7eb;
+
+display: flex;
+align-items: center;
+gap: 12px;
+
+padding: 0 18px;
+
+background: white;
+
+transition: all 0.3s ease;
+}
+
+.search svg {
+color: #64748b;
+}
+
+.search:focus-within {
+border-color: #2563eb;
+
+box-shadow:
+0 0 0 4px
+rgba(37, 99, 235, 0.08);
+}
+
+.search input {
+width: 100%;
+
+border: none;
+
+outline: none;
+
+background: transparent;
+
+font-size: 15px;
+}
+
+/* ===========================
+FILTER ENHANCEMENTS
+=========================== */
+
+.filter {
+height: 54px;
+
+padding: 0 18px;
+
+border-radius: 16px;
+
+border: 1px solid #e5e7eb;
+
+outline: none;
+
+min-width: 190px;
+
+background: white;
+
+cursor: pointer;
+
+transition: all 0.3s ease;
+}
+
+.filter:hover {
+border-color: #cbd5e1;
+}
+
+.filter:focus {
+border-color: #2563eb;
+
+box-shadow:
+0 0 0 4px
+rgba(37, 99, 235, 0.08);
+}
+
+/* ===========================
+ACTION BUTTON COLORS
+=========================== */
+
+.actions button:nth-child(1):hover {
+background: #f59e0b;
+color: white;
+}
+
+.actions button:nth-child(2):hover {
+background: #2563eb;
+color: white;
+}
+
+.actions button:nth-child(3):hover {
+background: #ef4444;
+color: white;
+}
+
+/* ===========================
+CARD IMPROVEMENTS
+=========================== */
+
+.blogCard {
+position: relative;
+
+width: 100%;
+height: 100%;
+
+background: white;
+
+border: 1px solid #eef2f7;
+
+border-radius: 24px;
+
+overflow: hidden;
+
+transition: all 0.35s ease;
+
+box-shadow:
+0 10px 30px
+rgba(15, 23, 42, 0.04);
+}
+
+.blogCard:hover {
+transform: translateY(-6px);
+
+box-shadow:
+0 20px 50px
+rgba(15, 23, 42, 0.08);
+}
+
+.blogImage {
+width: 100%;
+
+height: 190px;
+
+object-fit: cover;
+
+transition: transform 0.4s ease;
+}
+
+.blogCard:hover .blogImage {
+transform: scale(1.04);
+}
+
+/* ===========================
+ANIMATIONS
+=========================== */
+
+@keyframes modalPop {
+from {
+opacity: 0;
+
+ 
+transform:
+  translateY(10px)
+  scale(0.95);
+ 
+
+}
+
+to {
+opacity: 1;
+
+ 
+transform:
+  translateY(0)
+  scale(1);
+ 
+
+}
+}
+
+@keyframes overlayFade {
+from {
+opacity: 0;
+}
+
+to {
+opacity: 1;
+}
+}
+
+/* ===========================
+RESPONSIVE
+=========================== */
+
+@media (max-width: 768px) {
+.modal {
+padding: 24px;
+}
+
+.modalActions {
+flex-direction: column;
+}
+
+.cancelBtn,
+.deleteBtn {
+width: 100%;
+}
 }

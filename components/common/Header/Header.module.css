@@ -8,12 +8,17 @@
 }
 
 .header {
-  position: sticky;
+  position: fixed;
+
   top: 0;
   left: 0;
+
   width: 100%;
-  z-index: 1000;
+
+  z-index: 9999;
+
   background: transparent;
+
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 

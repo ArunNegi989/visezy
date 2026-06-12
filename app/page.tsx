@@ -5,6 +5,8 @@ import WhyChooseUs from "@/components/sections/WhyChooseUs/WhyChooseUs";
 import Services from "@/components/sections/Services/Services";
 import HowItWorks from "@/components/sections/HowItWorks/HowItWorks";
 import Testimonials from "@/components/sections/Testimonials/Testimonials";
+import CustomerTestimonials from "@/components/sections/CustomerTestimonials/CustomerTestimonials";
+import InsuranceVideos from "@/components/sections/InsuranceVideos/InsuranceVideos";
 
 export default function Home() {
   return (
@@ -15,6 +17,9 @@ export default function Home() {
       <WhyChooseUs />
       <Services />
       <HowItWorks />
+      <InsuranceVideos />
+      <CustomerTestimonials />
+
       <Testimonials />
     </>
   );

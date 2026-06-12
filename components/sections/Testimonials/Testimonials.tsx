@@ -84,10 +84,10 @@ export default function Testimonials() {
           </div>
 
           <div className={styles.metaRatingFlex}>
-            <h4 className={styles.trustScoreDisplay}>Trust Score rated 4.3/5</h4>
+            <h4 className={styles.trustScoreDisplay}>Average Score rated 4.9/5</h4>
             <span className={styles.dotSeparator}>•</span>
             <p className={styles.ratingText}>
-              Trusted by over 1200+ customers
+              Trusted by over 5000+ customers
               <span className={styles.viewReviewsLink}>View all Reviews</span>
             </p>
           </div>
