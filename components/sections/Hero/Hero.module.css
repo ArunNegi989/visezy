@@ -17,10 +17,12 @@
 
 .hero {
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   background: radial-gradient(120% 120% at 50% 0%, #fcfdfe 0%, #f4f7fc 50%, #eff3fa 100%);
   padding: 14px 24px;
-  min-height: 100vh;
+  min-height: auto !important;
+  overflow: hidden;
   display: flex;
   align-items: center;
 }
@@ -96,7 +98,8 @@
 .badge {
   display: inline-flex;
   align-items: center;
-  width: fit-content;
+  width: 100%;
+  max-width: 100%;
   gap: 10px;
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(8px);
@@ -116,6 +119,8 @@
 .badgeText {
   font-size: 13px;
   font-weight: 700;
+   text-align: center;
+  white-space: normal;
   color: var(--dark-surface);
   letter-spacing: -0.01em;
 }
@@ -156,11 +161,14 @@
 
 .description {
   margin: 24px 0 0;
-  max-width: 560px;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
   font-size: 17px;
   line-height: 1.7;
   color: var(--text);
   font-weight: 500;
+
 }
 
 /* ---------- BUTTONS ---------- */
@@ -791,7 +799,7 @@
   .hero {
     padding: 100px 24px;
   }
-  
+
 
   .container {
     grid-template-columns: 1fr;
@@ -817,14 +825,18 @@
 }
 
 @media (max-width: 576px) {
-  .hero {
-    padding: 80px 16px;
+ .hero {
+    min-height: auto;
+    padding: 32px 16px 60px;
+    align-items: flex-start;
   }
 
   .title {
     font-size: 36px;
   }
-
+.right {
+    display: none;
+  }
   .buttons {
     flex-direction: column;
     width: 100%;
@@ -877,48 +889,50 @@
   .metricCard strong {
     font-size: 14px;
   }
+
   .container {
-  width: 100%;
-  overflow: hidden;
-}
+    width: 100%;
+    overflow: hidden;
+    gap: 32px;
+  }
 
-.left {
-  width: 100%;
-}
+  .left {
+    width: 100%;
+  }
 
-.title {
-  font-size: 2.2rem;
-  line-height: 1.15;
-  overflow-wrap: break-word;
-}
+  .title {
+    font-size: 2.2rem;
+    line-height: 1.15;
+    overflow-wrap: break-word;
+  }
 
-.description {
+  .description {
+    max-width: 100%;
+    font-size: 15px;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .badge {
+    width: 100%;
   max-width: 100%;
-  font-size: 15px;
-}
-
-.badge {
-  width: 100%;
   justify-content: center;
-  text-align: center;
-}
+  }
 
-.badgeText {
-  font-size: 12px;
-}
+  .badgeText {
+    font-size: 12px;
+  }
 
-.statsGrid {
-  grid-template-columns: 1fr;
-}
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
 
-.statCard {
-  width: 100%;
-}
+  .statCard {
+    width: 100%;
+  }
 
-.hero {
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
+
 }
 
 @media (max-width: 390px) {
