@@ -62,6 +62,7 @@ export default function InsuranceVideos() {
     muted
     loop
     playsInline
+    
   >
     <source
       src="/video/insuranceVideo.mp4"
