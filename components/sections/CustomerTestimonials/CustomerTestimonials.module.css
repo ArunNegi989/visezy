@@ -79,11 +79,11 @@
    GRID
 =========================== */
 
-.grid {
+/* .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
-}
+} */
 
 /* ===========================
    CARD
@@ -96,7 +96,7 @@
 
   border: 1px solid #e2e8f0;
   border-radius: 28px;
-
+  height: 100%;
   padding: 32px;
 
   overflow: hidden;
@@ -362,4 +362,22 @@
   .review {
     font-size: 14px;
   }
+}
+.swiper {
+  padding: 10px 10px 60px;
+}
+
+.swiper :global(.swiper-pagination-bullet) {
+  width: 10px;
+  height: 10px;
+  background: #cbd5e1;
+  opacity: 1;
+}
+
+.swiper :global(.swiper-pagination-bullet-active) {
+  background: #2563eb;
+}
+
+.swiper-slide {
+  height: auto;
 }

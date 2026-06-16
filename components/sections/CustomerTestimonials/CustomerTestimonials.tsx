@@ -7,6 +7,12 @@ import {
   HiOutlineChatAlt2,
 } from "react-icons/hi";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+
 const testimonials = [
   {
     id: 1,
@@ -35,7 +41,6 @@ export default function CustomerTestimonials() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        {/* Header */}
         <div className={styles.header}>
           <div className={styles.badge}>
             <span className={styles.badgeDot}></span>
@@ -55,40 +60,63 @@ export default function CustomerTestimonials() {
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className={styles.grid}>
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          spaceBetween={28}
+          slidesPerView={3}
+          autoplay={{
+            delay: 3500,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1200: {
+              slidesPerView: 3,
+            },
+          }}
+          className={styles.swiper}
+        >
           {testimonials.map((item) => (
-            <div key={item.id} className={styles.card}>
-              <div className={styles.quoteIcon}>
-                <HiOutlineChatAlt2 />
-              </div>
-
-              <div className={styles.stars}>
-                {[...Array(5)].map((_, i) => (
-                  <HiStar key={i} className={styles.star} />
-                ))}
-              </div>
-
-              <p className={styles.review}>
-                "{item.review}"
-              </p>
-
-              <div className={styles.footer}>
-                <div className={styles.userInfo}>
-                  <span className={styles.name}>{item.name}</span>
-                  <span className={styles.policy}>{item.policy}</span>
+            <SwiperSlide key={item.id}>
+              <div className={styles.card}>
+                <div className={styles.quoteIcon}>
+                  <HiOutlineChatAlt2 />
                 </div>
 
-                <div className={styles.verified}>
-                  <HiBadgeCheck className={styles.verifiedIcon} />
-                  <span>Verified</span>
+                <div className={styles.stars}>
+                  {[...Array(5)].map((_, i) => (
+                    <HiStar key={i} className={styles.star} />
+                  ))}
+                </div>
+
+                <p className={styles.review}>
+                  "{item.review}"
+                </p>
+
+                <div className={styles.footer}>
+                  <div className={styles.userInfo}>
+                    <span className={styles.name}>{item.name}</span>
+                    <span className={styles.policy}>{item.policy}</span>
+                  </div>
+
+                  <div className={styles.verified}>
+                    <HiBadgeCheck className={styles.verifiedIcon} />
+                    <span>Verified</span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
 
-        {/* Trust Stats */}
         <div className={styles.bottomStats}>
           <div className={styles.statCard}>
             <div className={styles.statValue}>5000+</div>

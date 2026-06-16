@@ -18,13 +18,14 @@ html {
   scroll-padding-top: 140px;
 }
 
-.siteContent {
-  padding-top: 132px;
-}
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --header-height: 132px;
+}
+
+.siteContent {
+  padding-top: var(--header-height);
 }
 
 @theme inline {

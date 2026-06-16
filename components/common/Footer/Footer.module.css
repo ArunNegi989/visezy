@@ -418,9 +418,29 @@ a.contactText:hover {
   }
 }
 
+
 @media (max-width: 640px) {
-  .footer {
-    padding-top: 40px;
+
+  .linksPanel,
+  .blogsPanel,
+  .helpPanel,
+  .brandPanel {
+    width: 100%;
+  }
+
+  .socialWrapper {
+    margin-top: 24px;
+    padding-top: 24px;
+  }
+
+  .socialIcons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .socialIcons a {
+    flex-shrink: 0;
   }
 
   .topRow {
@@ -435,6 +455,7 @@ a.contactText:hover {
   .mainGrid {
     grid-template-columns: 1fr;
     gap: 40px;
+    overflow: visible;
   }
 
   .bottomSection {
@@ -442,5 +463,9 @@ a.contactText:hover {
     gap: 16px;
     text-align: center;
     align-items: center;
+  }
+
+  .footer {
+    overflow: visible;
   }
 }
