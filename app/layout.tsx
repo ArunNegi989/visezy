@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
+import { Toaster } from "sonner";
+
+import LayoutWrapper from "@/components/LayoutWrapper";
 
 import "./globals.css";
-import LayoutWrapper from "@/components/LayoutWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,9 +24,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html
       lang="en"
@@ -43,6 +45,13 @@ export default function RootLayout({
         <LayoutWrapper>
           {children}
         </LayoutWrapper>
+
+        <Toaster
+          position="top-right"
+          richColors
+          closeButton
+          duration={3000}
+        />
 
         <Script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

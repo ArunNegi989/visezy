@@ -757,3 +757,21 @@ flex-direction: column;
 width: 100%;
 }
 }
+
+.editorWrapper {
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.editorWrapper :global(.jodit-container) {
+  border: none !important;
+}
+
+.editorWrapper :global(.jodit-toolbar__box) {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.editorWrapper :global(.jodit-wysiwyg) {
+  min-height: 420px;
+}

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import styles from "./Footer.module.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,33 +15,23 @@ import {
   FaEnvelopeOpenText,
   FaPaperPlane,
 } from "react-icons/fa";
+import { getLatestFooterBlogs } from "@/app/src/lib/blogService";
 
-const blogs = [
-  {
-    title: "Why entrepreneurs need life insurance",
-    date: "March 19, 2023",
-    image:
-      "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg",
-    slug: "/blogs",
-  },
-  {
-    title: "How insurance can empower women's",
-    date: "March 19, 2023",
-    image:
-      "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg",
-    slug: "/blogs",
-  },
-  {
-    title: "The benefits of mood boarding for your clients",
-    date: "March 19, 2023",
-    image:
-      "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg",
-    slug: "/blogs",
-  },
-];
 
 export const Footer = () => {
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    const loadBlogs = async () => {
+      const data = await getLatestFooterBlogs();
+      setBlogs(data);
+    };
+
+    loadBlogs();
+  }, []);
+  
   return (
+
     <footer className={styles.footer}>
       <div className={styles.wrapper}>
 
@@ -138,20 +129,37 @@ export const Footer = () => {
           <div className={styles.blogsPanel}>
             <h3 className={styles.sectionHeading}>Latest Post</h3>
             <div className={styles.blogStack}>
-              {blogs.map((blog, idx) => (
-                <Link href={blog.slug} key={idx} className={styles.blogRowItem}>
+              {blogs.map((blog: any) => (
+                <Link
+                  href={`/blogs/${blog.slug}`}
+                  key={blog._id}
+                  className={styles.blogRowItem}
+                >
                   <div className={styles.imageContainer}>
-                    <Image
-                      src={blog.image}
+                    <img
+                      src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${blog.image}`}
                       alt={blog.title}
                       width={64}
                       height={64}
                       className={styles.blogImg}
                     />
                   </div>
+
                   <div className={styles.blogMeta}>
-                    <span className={styles.blogDate}>{blog.date}</span>
-                    <h4 className={styles.blogTitleText}>{blog.title}</h4>
+                    <span className={styles.blogDate}>
+                      {new Date(blog.publishedAt).toLocaleDateString(
+                        "en-US",
+                        {
+                          month: "short",
+                          day: "numeric",
+                          year: "numeric",
+                        }
+                      )}
+                    </span>
+
+                    <h4 className={styles.blogTitleText}>
+                      {blog.title}
+                    </h4>
                   </div>
                 </Link>
               ))}
