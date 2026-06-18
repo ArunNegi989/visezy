@@ -14,6 +14,8 @@ import {
   FaCog,
   FaChartLine,
   FaSearch,
+  FaImages,
+  FaHeadset
 } from "react-icons/fa";
 
 import styles from "./Sidebar.module.css";
@@ -43,6 +45,11 @@ const menuSections = [
     title: "CONTENT",
     items: [
       {
+        title: "Banners",
+        icon: <FaImages />,
+        href: "/admin/banners",
+      },
+      {
         title: "Blogs",
         icon: <FaBlog />,
         href: "/admin/blogs",
@@ -66,6 +73,11 @@ const menuSections = [
         title: "Leads",
         icon: <FaEnvelope />,
         href: "/admin/leads",
+      },
+      {
+        title: "Inquiries",
+        icon: <FaHeadset />,
+        href: "/admin/inquiries",
       },
       {
         title: "SEO",
@@ -97,9 +109,8 @@ export default function Sidebar({
       )}
 
       <aside
-        className={`${styles.sidebar} ${
-          isOpen ? styles.open : ""
-        }`}
+        className={`${styles.sidebar} ${isOpen ? styles.open : ""
+          }`}
       >
         <div className={styles.logoSection}>
           <div className={styles.logoWrapper}>
@@ -126,33 +137,32 @@ export default function Sidebar({
 
               <nav className={styles.nav}>
                 {section.items.map((item) => {
-  const isActive =
-    pathname === item.href ||
-    (item.href !== "/admin" &&
-      pathname.startsWith(item.href + "/"));
+                  const isActive =
+                    pathname === item.href ||
+                    (item.href !== "/admin" &&
+                      pathname.startsWith(item.href + "/"));
 
-  return (
-    <motion.div
-      key={item.title}
-      whileHover={{ x: 5 }}
-      whileTap={{ scale: 0.98 }}
-    >
-      <Link
-        href={item.href}
-        onClick={onClose}
-        className={`${styles.link} ${
-          isActive ? styles.active : ""
-        }`}
-      >
-        <span className={styles.icon}>
-          {item.icon}
-        </span>
+                  return (
+                    <motion.div
+                      key={item.title}
+                      whileHover={{ x: 5 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Link
+                        href={item.href}
+                        onClick={onClose}
+                        className={`${styles.link} ${isActive ? styles.active : ""
+                          }`}
+                      >
+                        <span className={styles.icon}>
+                          {item.icon}
+                        </span>
 
-        <span>{item.title}</span>
-      </Link>
-    </motion.div>
-  );
-})}
+                        <span>{item.title}</span>
+                      </Link>
+                    </motion.div>
+                  );
+                })}
               </nav>
             </div>
           ))}

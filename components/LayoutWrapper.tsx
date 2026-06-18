@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 
 import Header from "@/components/common/Header/Header";
 import { Footer } from "@/components/common/Footer/Footer";
+import WhatsAppButton from "@/components/common/WhatsappButton/WhatsAppButton";
 
 export default function LayoutWrapper({
   children,
@@ -19,7 +20,11 @@ export default function LayoutWrapper({
 
   return (
     <>
-      {!hideLayout && <Header />}
+      {!hideLayout && (
+        <>
+          <Header />
+        </>
+      )}
 
       <main
         className={`flex-grow ${
@@ -29,7 +34,12 @@ export default function LayoutWrapper({
         {children}
       </main>
 
-      {!hideLayout && <Footer />}
+      {!hideLayout && (
+        <>
+          <Footer />
+          <WhatsAppButton />
+        </>
+      )}
     </>
   );
 }

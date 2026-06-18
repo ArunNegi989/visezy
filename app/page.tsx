@@ -8,18 +8,45 @@ import Testimonials from "@/components/sections/Testimonials/Testimonials";
 import CustomerTestimonials from "@/components/sections/CustomerTestimonials/CustomerTestimonials";
 import InsuranceVideos from "@/components/sections/InsuranceVideos/InsuranceVideos";
 
-export default function Home() {
+async function getBanners() {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/banners`,
+      {
+        cache: "no-store",
+      }
+    );
+
+    const result = await response.json();
+
+    return result.data
+      ?.filter(
+        (banner: any) => banner.isActive
+      )
+      ?.sort(
+        (a: any, b: any) =>
+          a.displayOrder - b.displayOrder
+      );
+  } catch {
+    return [];
+  }
+}
+
+export default async function Home() {
+  const banners = await getBanners();
+
   return (
     <>
       <CashbackPopup />
-      <Hero />
+
+      <Hero banners={banners} />
+
       <Features />
       <WhyChooseUs />
       <Services />
       <HowItWorks />
       <InsuranceVideos />
       <CustomerTestimonials />
-
       <Testimonials />
     </>
   );

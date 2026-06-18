@@ -1,0 +1,131 @@
+.floatingContainer {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  animation: float 3s ease-in-out infinite;
+}
+
+.socialSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.socialIcon {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  color: #ffffff;
+
+  font-size: 22px;
+  text-decoration: none;
+
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.socialIcon:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.25);
+}
+
+/* Brand Colors */
+
+.instagram {
+  background: radial-gradient(
+      circle at 30% 107%,
+      #fdf497 0%,
+      #fdf497 5%,
+      #fd5949 45%,
+      #d6249f 60%,
+      #285aeb 90%
+    );
+}
+
+.facebook {
+  background: #1877f2;
+}
+
+.linkedin {
+  background: #0a66c2;
+}
+
+.twitter {
+  background: #000000;
+}
+
+.whatsapp {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #25d366;
+  color: #ffffff;
+
+  font-size: 30px;
+  text-decoration: none;
+
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.35);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.whatsapp:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 16px 36px rgba(37, 211, 102, 0.45);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .floatingContainer {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .socialIcon {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+
+  .whatsapp {
+    width: 56px;
+    height: 56px;
+    font-size: 30px;
+  }
+}
