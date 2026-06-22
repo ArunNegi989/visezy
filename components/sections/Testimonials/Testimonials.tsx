@@ -88,7 +88,7 @@ export default function Testimonials() {
             <span className={styles.dotSeparator}>•</span>
             <p className={styles.ratingText}>
               Trusted by over 5000+ customers
-              <span className={styles.viewReviewsLink}>View all Reviews</span>
+              {/* <span className={styles.viewReviewsLink}>View all Reviews</span> */}
             </p>
           </div>
         </div>

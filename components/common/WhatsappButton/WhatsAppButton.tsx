@@ -13,7 +13,7 @@ import styles from "./WhatsAppButton.module.css";
 const socialLinks = [
   {
     icon: <FaInstagram />,
-    url: "https://instagram.com/yourprofile",
+    url: "https://www.instagram.com/visezy.insurance/",
     label: "Instagram",
     className: styles.instagram,
   },
@@ -50,7 +50,7 @@ export default function WhatsAppButton() {
       </div>
 
       <a
-        href="https://wa.me/919634556234"
+        href="https://wa.me/9027883898"
         target="_blank"
         rel="noopener noreferrer"
         className={styles.whatsapp}
