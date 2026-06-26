@@ -2,6 +2,8 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { useAuthContext } from "@/app/src/context/authContext";
 
 import {
   FaExternalLinkAlt,
@@ -15,7 +17,8 @@ import {
 } from "react-icons/fa";
 
 import styles from "./Topbar.module.css";
-
+import LogoutModal from "@/components/auth/LogoutModal";
+import { useRouter } from "next/navigation";
 interface TopbarProps {
   onMenuClick: () => void;
 }
@@ -24,10 +27,26 @@ export default function Topbar({
   onMenuClick,
 }: TopbarProps) {
   const [open, setOpen] = useState(false);
+const [logoutLoading, setLogoutLoading] = useState(false);
+const router = useRouter();
 
+const { logoutAdmin } = useAuthContext();
+const handleLogout = async () => {
+    try {
+        setLogoutLoading(true);
+
+        await logoutAdmin();
+
+        router.replace("/admin/login");
+        router.refresh();
+    } finally {
+        setLogoutLoading(false);
+        setLogoutOpen(false);
+    }
+};
   const dropdownRef =
     useRef<HTMLDivElement>(null);
-
+  const [logoutOpen, setLogoutOpen] = useState(false);
   useEffect(() => {
     const handleClickOutside = (
       event: MouseEvent
@@ -56,6 +75,7 @@ export default function Topbar({
   }, []);
 
   return (
+    <>
     <motion.header
       className={styles.topbar}
       initial={{
@@ -131,30 +151,30 @@ export default function Topbar({
 
           {open && (
             <div className={styles.dropdown}>
-              <button
-                className={
-                  styles.dropdownItem
-                }
+              <Link
+                href="/admin/profile"
+                className={styles.dropdownItem}
+                onClick={() => setOpen(false)}
               >
                 <FaUser />
                 <span>Profile</span>
-              </button>
+              </Link>
 
-              <button
-                className={
-                  styles.dropdownItem
-                }
+              <Link
+                href="/admin/change-password"
+                className={styles.dropdownItem}
+                onClick={() => setOpen(false)}
               >
                 <FaKey />
-                <span>
-                  Change Password
-                </span>
-              </button>
+                <span>Change Password</span>
+              </Link>
 
               <button
-                className={
-                  styles.dropdownItem
-                }
+                className={styles.dropdownItem}
+                onClick={() => {
+                  setOpen(false);
+                  setLogoutOpen(true);
+                }}
               >
                 <FaSignOutAlt />
                 <span>Logout</span>
@@ -164,5 +184,12 @@ export default function Topbar({
         </div>
       </div>
     </motion.header>
-  );
+   <LogoutModal
+  open={logoutOpen}
+  onClose={() => setLogoutOpen(false)}
+  onConfirm={handleLogout}
+  loading={logoutLoading}
+/>
+  
+  </>);
 }
