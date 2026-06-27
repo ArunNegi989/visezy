@@ -4,7 +4,7 @@ import ActivityFeed from "@/components/admin/ActivityFeed/ActivityFeed";
 import RecentLeads from "@/components/admin/RecentLeads/RecentLeads";
 import QuickActions from "@/components/admin/QuickActions/QuickActions";
 
-import { stats } from "../src/lib/dashboardData";
+import { stats } from "../../src/lib/dashboardData";
 
 import styles from "./dashboard.module.css";
 

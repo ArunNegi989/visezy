@@ -8,6 +8,8 @@ import Testimonials from "@/components/sections/Testimonials/Testimonials";
 import CustomerTestimonials from "@/components/sections/CustomerTestimonials/CustomerTestimonials";
 import InsuranceVideos from "@/components/sections/InsuranceVideos/InsuranceVideos";
 
+import FadeUp from "@/components/animations/FadeUp";
+
 async function getBanners() {
   try {
     const response = await fetch(
@@ -20,9 +22,7 @@ async function getBanners() {
     const result = await response.json();
 
     return result.data
-      ?.filter(
-        (banner: any) => banner.isActive
-      )
+      ?.filter((banner: any) => banner.isActive)
       ?.sort(
         (a: any, b: any) =>
           a.displayOrder - b.displayOrder
@@ -41,13 +41,33 @@ export default async function Home() {
 
       <Hero banners={banners} />
 
-      <Features />
-      <WhyChooseUs />
-      <Services />
-      <HowItWorks />
-      <InsuranceVideos />
-      <CustomerTestimonials />
-      <Testimonials />
+      <FadeUp>
+        <Features />
+      </FadeUp>
+
+      <FadeUp delay={0.1}>
+        <WhyChooseUs />
+      </FadeUp>
+
+      <FadeUp delay={0.15}>
+        <Services />
+      </FadeUp>
+
+      <FadeUp delay={0.2}>
+        <HowItWorks />
+      </FadeUp>
+
+      <FadeUp delay={0.25}>
+        <InsuranceVideos />
+      </FadeUp>
+
+      <FadeUp delay={0.3}>
+        <CustomerTestimonials />
+      </FadeUp>
+
+      <FadeUp delay={0.35}>
+        <Testimonials />
+      </FadeUp>
     </>
   );
 }

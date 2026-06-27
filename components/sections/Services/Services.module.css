@@ -122,7 +122,10 @@
   flex-direction: column;
   align-items: flex-start;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  color: inherit;
 }
+
 
 /* Linear slide bar top profile */
 .topAccentBar {
@@ -247,6 +250,8 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
+    justify-content: center;
+  text-decoration: none;
   box-shadow: 0 4px 14px rgba(24, 24, 27, 0.1);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -258,6 +263,7 @@
 
 .primaryDiscoverBtn:hover {
   background-color: #2563eb;
+    color: #ffffff;
   box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2);
   transform: translateY(-2px);
 }

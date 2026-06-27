@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import Sidebar from "@/components/admin/Sidebar/Sidebar";
 import Topbar from "@/components/admin/Topbar/Topbar";
-
+import ProtectedRoute from "@/components/auth/ProtectedRoute";
 import styles from "./adminLayout.module.css";
 
 interface AdminLayoutProps {
@@ -26,21 +26,24 @@ export default function AdminLayout({
   };
 
   return (
-    <div className={styles.wrapper}>
-      <Sidebar
-        isOpen={sidebarOpen}
-        onClose={closeSidebar}
-      />
-
-      <main className={styles.main}>
-        <Topbar
-          onMenuClick={openSidebar}
+    <ProtectedRoute>
+      <div className={styles.wrapper}>
+        <Sidebar
+          isOpen={sidebarOpen}
+          onClose={closeSidebar}
         />
 
-        <div className={styles.content}>
-          {children}
-        </div>
-      </main>
-    </div>
+        <main className={styles.main}>
+          <Topbar
+            onMenuClick={openSidebar}
+          />
+
+          <div className={styles.content}>
+            {children}
+          </div>
+
+        </main>
+      </div>
+    </ProtectedRoute>
   );
 }

@@ -1,0 +1,706 @@
+/* ==========================================================
+   CHANGE PASSWORD
+   PART 1A
+   Layout • Wrapper • Card • Header • Form Base
+   ========================================================== */
+
+.wrapper {
+    position: relative;
+
+    width: 100%;
+    min-height: calc(100vh - 90px);
+
+    padding: 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+
+/* ===================================
+   Card
+=================================== */
+
+.card{
+
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    max-width:940px;
+
+    background:rgba(255,255,255,.96);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:28px;
+
+    border:1px solid rgba(255,255,255,.65);
+
+    box-shadow:
+        0 25px 70px rgba(15,23,42,.08);
+
+    padding:16px 42px;
+
+    animation:fadeUp .45s ease;
+}
+
+/* ===================================
+   Header
+=================================== */
+
+.header{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    text-align:center;
+
+    margin-bottom:10px;
+}
+
+/* ===================================
+   Back Button
+=================================== */
+
+.backButton{
+
+    align-self:flex-start;
+
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:0;
+
+    border:none;
+    background:none;
+
+    color:#2563eb;
+
+    font-size:.95rem;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.backButton:hover{
+
+    color:#1d4ed8;
+
+    transform:translateX(-4px);
+}
+
+/* ===================================
+   Icon
+=================================== */
+
+.icon{
+
+    width:60px;
+    height:60px;
+    margin-bottom: 30px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:50%;
+
+    color:#fff;
+
+    font-size:30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #3b82f6
+        );
+
+    box-shadow:
+        0 18px 40px rgba(37,99,235,.25);
+}
+
+/* ===================================
+   Title
+=================================== */
+
+.header h1{
+
+    margin:0;
+margin-top:-20px;
+    color:#0f172a;
+
+    font-size:2.45rem;
+    font-weight:800;
+
+    line-height:1.15;
+}
+
+.header p{
+
+    width:100%;
+    max-width:560px;
+
+    margin-top:12px;
+
+    color:#64748b;
+
+    font-size:1rem;
+
+    line-height:1.7;
+}
+
+/* ===================================
+   Form
+=================================== */
+
+.form{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    column-gap:24px;
+    row-gap:22px;
+
+    align-items:start;
+}
+
+/* ===================================
+   Fields
+=================================== */
+
+.field{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:10px;
+}
+
+.field label{
+
+    color:#0f172a;
+
+    font-size:.95rem;
+    font-weight:700;
+}
+
+/* ===================================
+   Utilities
+=================================== */
+
+.fullWidth{
+
+    grid-column:1/-1;
+}
+
+/* ===================================
+   Animation
+=================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(22px);
+    }
+
+    to{
+
+        opacity:1;
+        transform:none;
+    }
+}
+
+@keyframes blobLeft{
+
+    from{
+
+        transform:scale(1);
+    }
+
+    to{
+
+        transform:
+            scale(1.18)
+            translate(45px,35px);
+    }
+}
+
+@keyframes blobRight{
+
+    from{
+
+        transform:scale(1);
+    }
+
+    to{
+
+        transform:
+            scale(1.15)
+            translate(-45px,-30px);
+    }
+}
+
+/* ===================================
+   Tablet
+=================================== */
+
+@media (max-width:992px){
+
+    .wrapper{
+
+        padding:20px;
+    }
+
+    .card{
+
+        max-width:100%;
+        padding:32px;
+    }
+
+}
+
+/* ===================================
+   Mobile
+=================================== */
+
+@media (max-width:768px){
+
+    .wrapper{
+
+        padding:16px;
+    }
+
+    .card{
+
+        padding:24px;
+        border-radius:22px;
+    }
+
+    .form{
+
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+    .header h1{
+
+        font-size:2rem;
+    }
+
+    .header p{
+
+        font-size:.95rem;
+    }
+
+    .fullWidth{
+
+        grid-column:auto;
+    }
+
+}
+
+/* ==========================================================
+   CHANGE PASSWORD
+   PART 1B
+   Inputs • Password • Requirement Card • Buttons
+   ========================================================== */
+
+/* ===================================
+   Input
+=================================== */
+
+.field input {
+    width: 100%;
+    height: 56px;
+
+    padding: 0 18px;
+
+    border: 1px solid #d9e2ef;
+    border-radius: 16px;
+
+    background: #ffffff;
+
+    color: #0f172a;
+
+    font-size: .96rem;
+    font-weight: 500;
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease,
+        background .25s ease;
+}
+
+.field input::placeholder {
+    color: #94a3b8;
+}
+
+.field input:hover {
+    border-color: #bfdbfe;
+    transform: translateY(-2px);
+}
+
+.field input:focus {
+    outline: none;
+
+    border-color: #2563eb;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 4px rgba(37,99,235,.10),
+        0 10px 24px rgba(37,99,235,.10);
+}
+
+/* ===================================
+   Password Wrapper
+=================================== */
+
+.passwordWrapper {
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+}
+
+.passwordWrapper input {
+
+    padding-right: 62px;
+}
+
+/* ===================================
+   Eye Button
+=================================== */
+
+.eyeButton {
+
+    position: absolute;
+
+    right: 8px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    outline: none;
+
+    border-radius: 12px;
+
+    background: transparent;
+
+    color: #64748b;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+.eyeButton:hover {
+
+    background: rgba(37,99,235,.08);
+
+    color: #2563eb;
+
+    transform: scale(1.05);
+}
+
+/* ===================================
+   Requirement Card
+=================================== */
+
+.requirements {
+
+    grid-column: 1/-1;
+
+    display: grid;
+
+    grid-template-columns: repeat(2,minmax(0,1fr));
+
+    gap: 14px 22px;
+
+    margin-top: 6px;
+
+    padding: 26px 28px;
+
+    border-radius: 22px;
+
+    border: 1px solid #dbeafe;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fbfdff,
+            #f5f9ff
+        );
+}
+
+.requirements h3 {
+
+    grid-column: 1/-1;
+
+    margin: 0 0 6px;
+
+    color: #0f172a;
+
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+/* ===================================
+   Rule
+=================================== */
+
+.rule {
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.rule p {
+
+    margin: 0;
+
+    color: #475569;
+
+    font-size: .93rem;
+    font-weight: 500;
+}
+
+/* ===================================
+   Validation Icon
+=================================== */
+
+.valid,
+.invalid {
+
+    width: 26px;
+    height: 26px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    font-size: .82rem;
+    font-weight: 700;
+
+    transition: .25s;
+}
+
+.valid {
+
+    color: #ffffff;
+
+    background: #10b981;
+
+    box-shadow:
+        0 8px 18px rgba(16,185,129,.25);
+}
+
+.invalid {
+
+    color: #94a3b8;
+
+    background: #e2e8f0;
+}
+
+/* ===================================
+   Buttons
+=================================== */
+
+.actions {
+
+    grid-column: 1/-1;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 16px;
+
+    margin-top: 4px;
+}
+
+/* Cancel */
+
+.cancelBtn {
+
+    min-width: 150px;
+    height: 54px;
+
+    border-radius: 14px;
+
+    border: 1px solid #d7dee8;
+
+    background: #ffffff;
+
+    color: #475569;
+
+    font-size: .95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.cancelBtn:hover {
+
+    background: #f8fafc;
+
+    transform: translateY(-2px);
+
+    border-color: #cbd5e1;
+}
+
+/* Save */
+
+.saveBtn {
+
+    min-width: 220px;
+    height: 54px;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #3b82f6
+        );
+
+    color: #ffffff;
+
+    font-size: .95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.saveBtn:hover:not(:disabled) {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 18px 36px rgba(37,99,235,.28);
+}
+
+.saveBtn:disabled {
+
+    opacity: .65;
+
+    cursor: not-allowed;
+}
+
+/* ===================================
+   Loader
+=================================== */
+
+.loader {
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    border: 2px solid rgba(255,255,255,.35);
+    border-top-color: #ffffff;
+
+    animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+
+    to {
+
+        transform: rotate(360deg);
+    }
+}
+
+/* ===================================
+   Tablet
+=================================== */
+
+@media (max-width:992px){
+
+    .requirements{
+
+        grid-template-columns:1fr;
+    }
+
+}
+
+/* ===================================
+   Mobile
+=================================== */
+
+@media (max-width:768px){
+
+    .field input{
+
+        height:54px;
+    }
+
+    .requirements{
+
+        grid-template-columns:1fr;
+
+        padding:22px;
+    }
+
+    .rule{
+
+        gap:10px;
+    }
+
+    .rule p{
+
+        font-size:.88rem;
+    }
+
+    .actions{
+
+        flex-direction:column;
+    }
+
+    .cancelBtn,
+    .saveBtn{
+
+        width:100%;
+    }
+
+}

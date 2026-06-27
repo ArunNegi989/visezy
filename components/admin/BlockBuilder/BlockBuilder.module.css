@@ -481,7 +481,7 @@
 /* CARDS ARCHITECTURE */
 .blocksContainer {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   gap: 16px;
   margin-top: 8px;
 }

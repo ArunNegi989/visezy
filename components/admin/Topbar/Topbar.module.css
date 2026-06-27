@@ -216,7 +216,10 @@
 .avatar:hover {
   transform: scale(1.05);
 }
-
+.dropdownItem {
+  text-decoration: none;
+  align-items: center;
+}
 .dropdown {
   position: absolute;
 
