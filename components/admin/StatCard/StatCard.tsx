@@ -1,13 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+
 import {
   FaArrowTrendUp,
   FaBlog,
-  FaUsers,
-  FaEnvelope,
-  FaChartLine,
+  FaImage,
 } from "react-icons/fa6";
+
+import { MdEmail } from "react-icons/md";
 
 import styles from "./StatCard.module.css";
 
@@ -22,44 +23,55 @@ export default function StatCard({
   value,
   growth,
 }: Props) {
+
   const getIcon = () => {
+
     switch (title) {
+
       case "Total Blogs":
         return <FaBlog />;
-      case "Users":
-        return <FaUsers />;
+
+      case "Hero Banners":
+        return <FaImage />;
+
       case "Leads":
-        return <FaEnvelope />;
+        return <MdEmail />;
+
       default:
-        return <FaChartLine />;
+        return <FaImage />;
     }
+
   };
 
   return (
+
     <motion.div
       className={styles.card}
       whileHover={{
-        y: -8,
-        scale: 1.02,
-      }}
-      transition={{
-        duration: 0.25,
+        y:-8,
+        scale:1.02,
       }}
     >
+
       <div className={styles.top}>
+
         <div className={styles.icon}>
           {getIcon()}
         </div>
 
         <div className={styles.growth}>
-          <FaArrowTrendUp />
+          <FaArrowTrendUp/>
           {growth}
         </div>
+
       </div>
 
       <h2>{value}</h2>
 
       <p>{title}</p>
+
     </motion.div>
+
   );
+
 }

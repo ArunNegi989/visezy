@@ -34,11 +34,6 @@ const menuSections = [
         icon: <FaChartPie />,
         href: "/admin",
       },
-      {
-        title: "Analytics",
-        icon: <FaChartLine />,
-        href: "/admin/analytics",
-      },
     ],
   },
   {
@@ -54,40 +49,15 @@ const menuSections = [
         icon: <FaBlog />,
         href: "/admin/blogs",
       },
-      {
-        title: "Categories",
-        icon: <FaLayerGroup />,
-        href: "/admin/categories",
-      },
     ],
   },
   {
     title: "SYSTEM",
     items: [
       {
-        title: "Users",
-        icon: <FaUsers />,
-        href: "/admin/users",
-      },
-      {
-        title: "Leads",
-        icon: <FaEnvelope />,
-        href: "/admin/leads",
-      },
-      {
         title: "Inquiries",
         icon: <FaHeadset />,
         href: "/admin/inquiries",
-      },
-      {
-        title: "SEO",
-        icon: <FaSearch />,
-        href: "/admin/seo",
-      },
-      {
-        title: "Settings",
-        icon: <FaCog />,
-        href: "/admin/settings",
       },
     ],
   },

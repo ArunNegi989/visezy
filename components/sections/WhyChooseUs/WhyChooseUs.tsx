@@ -1,6 +1,5 @@
 "use client";
-
-import React from "react";
+import { motion, type Variants } from "framer-motion";
 import styles from "./WhyChooseUs.module.css";
 import {
   HiOutlineCurrencyDollar,
@@ -41,15 +40,69 @@ const items = [
 ];
 
 export default function WhyChooseUs() {
+
+  const containerVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.18,
+        delayChildren: 0.15,
+      },
+    },
+  };
+
+  const fadeLeft: Variants = {
+    hidden: {
+      opacity: 0,
+      x: -70,
+      filter: "blur(10px)",
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const fadeUp: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 45,
+      filter: "blur(0px)",
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <section id="why-choose-us" className={styles.whyChooseUs}>
       {/* Background Ambient Glow Layer */}
       <div className={styles.ambientGlow} aria-hidden="true"></div>
 
-      <div className={styles.container}>
+      <motion.div
+        className={styles.container}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.25 }}
+      >
 
         {/* LEFT PANEL */}
-        <div className={styles.left}>
+        <motion.div
+          className={styles.left}
+          variants={fadeLeft}
+        >
           <div className={styles.badge}>
             <span className={styles.badgeDot}></span>
             <span className={styles.badgeText}>WHY CHOOSE VISEZY</span>
@@ -74,15 +127,25 @@ export default function WhyChooseUs() {
               <div className={styles.imageOverlay}></div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* RIGHT PANEL - MULTI-COLOR ACCENTS */}
         <div className={styles.right}>
           <div className={styles.cardContainer}>
             {items.map((item) => (
-              <div
+              <motion.div
                 key={item.id}
                 className={`${styles.infoCard} ${item.colorClass}`}
+                variants={fadeUp}
+                whileHover={{
+                  y: -10,
+                  scale: 1.02,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 20,
+                }}
               >
                 <div className={styles.cardHeader}>
                   <div className={styles.iconNode}>
@@ -94,12 +157,12 @@ export default function WhyChooseUs() {
                 <div className={styles.contentField}>
                   <p className={styles.cardDescription}>{item.description}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
 
-      </div>
+      </motion.div>
     </section>
   );
 }

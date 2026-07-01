@@ -136,7 +136,7 @@
   transition: transform var(--anim-speed) var(--ease-elastic),
     box-shadow var(--anim-speed) var(--ease-elastic),
     border-color var(--anim-speed) var(--ease-elastic);
-   box-shadow:
+  box-shadow:
     0 8px 24px rgba(15, 23, 42, 0.06),
     0 2px 8px rgba(15, 23, 42, 0.04);
 }
@@ -157,7 +157,7 @@
 
 .card:hover {
   border-color: rgba(37, 99, 235, 0.15);
- transform: translateY(-8px);
+  transform: translateY(-8px);
 
   box-shadow:
     0 24px 60px rgba(15, 23, 42, 0.12),
@@ -319,4 +319,248 @@
   .card {
     padding: 28px;
   }
+}
+
+.topLightGlow {
+
+  animation: floatGlow 10s ease-in-out infinite;
+
+}
+
+@keyframes floatGlow {
+
+  0% {
+    transform: translateX(-50%) translateY(0px);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-35px);
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+
+}
+
+.gridPattern {
+
+  animation: gridMove 16s linear infinite;
+
+}
+
+@keyframes gridMove {
+
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 60px;
+  }
+
+}
+
+.card {
+
+  overflow: hidden;
+
+}
+
+.card::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: -150%;
+
+  width: 70%;
+
+  height: 100%;
+
+  background:
+
+    linear-gradient(90deg,
+
+      transparent,
+
+      rgba(255, 255, 255, .75),
+
+      transparent);
+
+  transform: skewX(-22deg);
+
+  transition: 1s;
+
+}
+
+.card:hover::before {
+
+  left: 170%;
+
+}
+
+.card::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: 0;
+
+  width: 0;
+
+  height: 2px;
+
+  background: #2563eb;
+
+  transition: .45s;
+
+}
+
+.card:hover::after {
+
+  width: 100%;
+
+}
+
+.card:hover .iconContainer {
+
+  animation: iconFloat .6s;
+
+}
+
+@keyframes iconFloat {
+
+  0% {
+
+    transform: scale(1);
+
+  }
+
+  35% {
+
+    transform: scale(1.18) rotate(-6deg);
+
+  }
+
+  70% {
+
+    transform: scale(.95);
+
+  }
+
+  100% {
+
+    transform: scale(1.05);
+
+  }
+
+}
+
+.card:hover {
+
+  background:
+
+    linear-gradient(180deg,
+
+      #ffffff,
+
+      #f8fbff);
+
+}
+
+.actionFooter {
+
+  transition: .35s;
+
+}
+
+.card:hover .actionFooter {
+
+  transform: translateX(6px);
+
+}
+
+.gradientText {
+
+  background-size: 220% auto;
+
+  animation: gradientMove 6s linear infinite;
+
+}
+
+@keyframes gradientMove {
+
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 220%;
+  }
+
+}
+
+.badge {
+
+  transition: .4s;
+
+}
+
+.badge:hover {
+
+  transform: translateY(-4px);
+
+  box-shadow:
+
+    0 12px 30px rgba(37, 99, 235, .08);
+
+}
+
+.badgePulse {
+
+  animation: pulseDot 2s infinite;
+
+}
+
+@keyframes pulseDot {
+
+  0% {
+
+    transform: scale(1);
+
+  }
+
+  50% {
+
+    transform: scale(1.25);
+
+  }
+
+  100% {
+
+    transform: scale(1);
+
+  }
+
+}
+
+.card {
+
+  transition:
+
+    transform .45s cubic-bezier(.22, 1, .36, 1),
+
+    box-shadow .45s,
+
+    background .45s,
+
+    border-color .45s;
+
 }

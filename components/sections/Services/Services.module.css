@@ -307,3 +307,247 @@
     margin-bottom: 48px;
   }
 }
+
+
+.radialGlow{
+    animation:floatGlow 10s ease-in-out infinite;
+}
+
+@keyframes floatGlow{
+
+0%{
+transform:translateX(-50%) translateY(0);
+opacity:.5;
+}
+
+50%{
+transform:translateX(-50%) translateY(-30px);
+opacity:1;
+}
+
+100%{
+transform:translateX(-50%) translateY(0);
+opacity:.5;
+}
+
+}
+
+.serviceCard{
+
+overflow:hidden;
+
+}
+
+.serviceCard::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-150%;
+
+width:70%;
+
+height:100%;
+
+background:
+
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.7),
+transparent
+);
+
+transform:skewX(-22deg);
+
+transition:1s;
+
+}
+
+.serviceCard:hover::before{
+
+left:170%;
+
+}
+
+.serviceCard::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:0;
+
+width:0;
+
+height:2px;
+
+background:var(--brand-accent);
+
+transition:.45s;
+
+}
+
+.serviceCard:hover::after{
+
+width:100%;
+
+}
+
+.serviceCard:hover .iconWrapper{
+
+animation:iconBounce .6s;
+
+}
+
+@keyframes iconBounce{
+
+0%{
+transform:scale(1);
+}
+
+35%{
+transform:scale(1.18) rotate(-8deg);
+}
+
+70%{
+transform:scale(.95);
+}
+
+100%{
+transform:scale(1.05);
+}
+
+}
+
+.serviceCard:hover{
+
+background:
+
+linear-gradient(
+180deg,
+#ffffff,
+#fbfdff
+);
+
+}
+
+.cardFooterInline{
+
+transition:.35s;
+
+}
+
+.serviceCard:hover .cardFooterInline{
+
+transform:translateX(6px);
+
+}
+.serviceCard:hover .actionArrow{
+
+transform:translateX(5px) rotate(-8deg);
+
+}
+
+.primaryDiscoverBtn{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.primaryDiscoverBtn::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-150%;
+
+width:60%;
+
+height:100%;
+
+background:
+
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.35),
+transparent
+);
+
+transform:skewX(-22deg);
+
+transition:1s;
+
+}
+
+.primaryDiscoverBtn:hover::before{
+
+left:170%;
+
+}
+
+.badgePulse{
+
+animation:pulseDot 2s infinite;
+
+}
+
+@keyframes pulseDot{
+
+0%{
+transform:scale(1);
+box-shadow:0 0 0 0 rgba(37,99,235,.4);
+}
+
+70%{
+transform:scale(1.15);
+box-shadow:0 0 0 10px rgba(37,99,235,0);
+}
+
+100%{
+transform:scale(1);
+box-shadow:0 0 0 0 rgba(37,99,235,0);
+}
+
+}
+
+.gradientText{
+
+background-size:220% auto;
+
+animation:gradientMove 6s linear infinite;
+
+}
+
+@keyframes gradientMove{
+
+0%{
+background-position:0%;
+}
+
+100%{
+background-position:220%;
+}
+
+}
+
+.serviceCard{
+
+transition:
+transform .45s cubic-bezier(.22,1,.36,1),
+box-shadow .45s,
+border-color .45s,
+background .45s;
+
+}
