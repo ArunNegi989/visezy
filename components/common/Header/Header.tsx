@@ -5,7 +5,7 @@ import styles from "./Header.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { HiOutlineMenuAlt3, HiX, HiOutlineSearch, HiOutlinePhone } from "react-icons/hi";
-import { FaFacebookF, FaTwitter, FaPinterestP, FaRegEnvelope } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaRegEnvelope, FaInstagram } from "react-icons/fa";
 import { FiClock } from "react-icons/fi";
 
 export default function Header() {
@@ -29,7 +29,7 @@ export default function Header() {
           <div className={styles.socials}>
             <a href="#" aria-label="Facebook"><FaFacebookF /></a>
             <a href="#" aria-label="Twitter"><FaTwitter /></a>
-            <a href="#" aria-label="Pinterest"><FaPinterestP /></a>
+            <a href="#" aria-label="Pinterest"><FaInstagram /></a>
           </div>
           <div className={styles.divider}></div>
           <div className={styles.infoItem}>
@@ -48,16 +48,16 @@ export default function Header() {
       <div className={styles.container}>
         {/* Dynamic Image Logo Container */}
         <Link href="/" className={styles.logoContainer}>
-         <div className={styles.logoWrapper}>
-  <Image
-  src="/visezy-logo.png"
-  alt="Visezy Insurance Broking Company"
-  width={160}
-  height={50}
-  priority
-  className={styles.logoImage}
-/>
-</div>
+          <div className={styles.logoWrapper}>
+            <Image
+              src="/visezy-logo.png"
+              alt="Visezy Insurance Broking Company"
+              width={160}
+              height={50}
+              priority
+              className={styles.logoImage}
+            />
+          </div>
         </Link>
 
         {/* Desktop Navbar */}
@@ -78,7 +78,7 @@ export default function Header() {
             </div>
             <div className={styles.callMeta}>
               <small>Quick Call</small>
-              <strong>(91) 9634556234</strong>
+              <strong>(91)  7819883898</strong>
             </div>
           </a>
 

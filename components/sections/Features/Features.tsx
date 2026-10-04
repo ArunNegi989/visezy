@@ -9,7 +9,7 @@ import {
   HiOutlineUserGroup,
   HiArrowRight
 } from "react-icons/hi";
-
+import { motion, type Variants } from "framer-motion";
 const features = [
   {
     icon: <HiOutlineCurrencyDollar />,
@@ -38,14 +38,63 @@ const features = [
 ];
 
 export default function Features() {
+
+  const containerVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.15,
+      },
+    },
+  };
+
+  const fadeUp: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const fadeDown: Variants = {
+    hidden: {
+      opacity: 0,
+      y: -40,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
   return (
     <section id="features" className={styles.features} aria-labelledby="features-heading">
       {/* Structural Ambient Mesh Background Layers */}
       <div className={styles.topLightGlow} aria-hidden="true" />
       <div className={styles.gridPattern} aria-hidden="true" />
 
-      <div className={styles.container}>
-        <div className={styles.headerBlock}>
+      <motion.div
+        className={styles.container}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <motion.div
+          className={styles.headerBlock}
+          variants={fadeDown}
+        >
           <div className={styles.badge}>
             <span className={styles.badgePulse} />
             <span className={styles.badgeText}>Platform Capabilities</span>
@@ -59,20 +108,29 @@ export default function Features() {
           <p className={styles.description}>
             Compare, customize, and secure your financial safety net using an automated ecosystem engineered for absolute transparency.
           </p>
-        </div>
-
+        </motion.div>
         {/* Updated Modern 4-Column SaaS Grid */}
-        <div className={styles.grid}>
+        <motion.div
+          className={styles.grid}
+          variants={containerVariants}
+        >
           {features.map((feature, index) => (
-            <div
+            <motion.div
               key={index}
               className={styles.card}
-              style={
-                {
-                  "--card-index": index,
-                } as React.CSSProperties
-              }
-            > {/* Top Accent Line Highlight */}
+              variants={fadeUp}
+              whileHover={{
+                scale: 1.04,
+                rotateX: 4,
+                rotateY: -4,
+                y: -12
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 280,
+                damping: 18
+              }}>
+              {/* Top Accent Line Highlight */}
               <div className={styles.cardBorderAccent} aria-hidden="true" />
 
               <div className={`${styles.iconContainer} ${feature.colorClass}`}>
@@ -90,10 +148,10 @@ export default function Features() {
                   <HiArrowRight className={styles.arrowIcon} />
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

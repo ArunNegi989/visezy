@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { motion, type Variants } from "framer-motion";
 import styles from "./HowItWorks.module.css";
 
 const steps = [
@@ -35,13 +35,65 @@ const steps = [
 ];
 
 export default function HowItWorks() {
+
+  const containerVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.18,
+        delayChildren: 0.15,
+      },
+    },
+  };
+
+  const fadeDown: Variants = {
+    hidden: {
+      opacity: 0,
+      y: -40,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const fadeUp: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 60,
+      scale: 0.96,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.75,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <section id="how-it-works" className={styles.section}>
       <div className={styles.ambientBlur} aria-hidden="true"></div>
 
-      <div className={styles.container}>
+      <motion.div
+        className={styles.container}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
 
-        <div className={styles.headerBlock}>
+        <motion.div
+          className={styles.headerBlock}
+          variants={fadeDown}
+        >
           <div className={styles.badgeLayout}>
             <span className={styles.badgeGlow}></span>
             <span className={styles.badgeDot}></span>
@@ -55,15 +107,44 @@ export default function HowItWorks() {
           <p className={styles.headerDesc}>
             From analysis to active protection—experience a completely streamlined, automated onboarding cycle.
           </p>
-        </div>
+        </motion.div>
 
         {/* Global wrapper with localized relative vector alignments */}
-        <div className={styles.gridContainer}>
+        <motion.div
+          className={styles.gridContainer}
+          variants={containerVariants}
+        >
           {/* Vector path connector for desktop streams */}
           <div className={styles.zigZagVectorLine} aria-hidden="true"></div>
 
           {steps.map((item, idx) => (
-            <div key={idx} className={`${styles.stepColumn} ${item.themeClass}`}>
+            <motion.div
+              key={item.count}
+              className={`${styles.stepColumn} ${item.themeClass}`}
+              initial={{
+                opacity: 0,
+                y: idx % 2 === 0 ? 30 : 90
+              }}
+              whileInView={{
+                opacity: 1,
+                y: idx % 2 === 0 ? -30 : 30
+              }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.7,
+                ease: "easeOut",
+                delay: idx * 0.15
+              }}
+              whileHover={{
+                y: idx % 2 === 0 ? -40 : 20,
+                scale: 1.03,
+                rotateX: 4,
+                rotateY: -4,
+              }}
+              style={{
+                transformStyle: "preserve-3d",
+              }}
+            >
               <div className={styles.ghostCounter}>{item.count}</div>
 
               <div className={styles.stepBadgeWrapper}>
@@ -72,11 +153,11 @@ export default function HowItWorks() {
 
               <h3 className={styles.stepTitle}>{item.title}</h3>
               <p className={styles.stepDesc}>{item.description}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-      </div>
+      </motion.div>
     </section>
   );
 }

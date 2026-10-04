@@ -1112,3 +1112,466 @@
     gap: 20px;
   }
 }
+
+.hero{
+    perspective:1200px;
+}
+
+.badge{
+    overflow:hidden;
+    position:relative;
+}
+
+.badge::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-150%;
+
+    width:70%;
+    height:100%;
+
+    background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.6),
+      transparent
+    );
+
+    transform:skewX(-22deg);
+
+    transition:1s;
+
+}
+
+.badge:hover::after{
+
+    left:170%;
+
+}
+
+.imageInner img{
+
+    transition:
+    transform .9s cubic-bezier(.22,1,.36,1);
+
+}
+
+.heroImageContainer:hover img{
+
+    transform:scale(1.06);
+
+}
+
+.gradientText{
+
+    background-size:220% auto;
+
+    animation:
+    gradientMove 6s linear infinite;
+
+}
+
+@keyframes gradientMove{
+
+    from{
+        background-position:0%;
+    }
+
+    to{
+        background-position:220%;
+    }
+
+}
+
+/* ===================================================
+   IMPORTANCE SECTION PREMIUM ANIMATION
+=================================================== */
+
+.importanceCard {
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.importanceCard::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -160%;
+
+  width: 70%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+
+  transform: skewX(-22deg);
+
+  transition: 1.1s;
+}
+
+.importanceCard:hover::before {
+  left: 170%;
+}
+
+.importanceCard:hover {
+  box-shadow:
+    0 28px 60px rgba(15, 23, 42, 0.08),
+    0 10px 30px rgba(37, 99, 235, 0.08);
+}
+
+.importanceIcon {
+  transition:
+    transform 0.45s cubic-bezier(.22,1,.36,1),
+    background .35s,
+    color .35s;
+}
+
+.importanceCard:hover .importanceIcon {
+  transform:
+    rotate(12deg)
+    scale(1.15);
+}
+
+.sectionTag{
+  transition:.35s;
+}
+
+/* ===== Policy Cards ===== */
+
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -160%;
+
+  width: 70%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.55),
+      transparent
+    );
+
+  transform: skewX(-22deg);
+
+  transition: 1s;
+}
+
+.card:hover::before {
+  left: 170%;
+}
+
+.card:hover {
+  box-shadow:
+    0 28px 60px rgba(15,23,42,.08),
+    0 10px 30px rgba(37,99,235,.08);
+}
+
+.iconBox {
+  transition:
+    transform .4s cubic-bezier(.22,1,.36,1);
+}
+
+.card:hover .iconBox {
+  transform:
+    rotate(10deg)
+    scale(1.15);
+}
+
+/* ===== Insight Card ===== */
+
+.visualCard {
+  overflow: hidden;
+  position: relative;
+}
+
+.visualCard::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -150%;
+
+  width: 70%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.45),
+      transparent
+    );
+
+  transform: skewX(-22deg);
+
+  transition: 1s;
+}
+
+.visualCard:hover::before {
+  left: 170%;
+}
+
+.metricRow {
+  transition: .35s;
+}
+
+.metricRow:hover {
+  transform: translateX(6px);
+}
+
+.insightBullet {
+  transition: .35s;
+}
+
+.insightRow:hover .insightBullet {
+  transform: rotate(18deg) scale(1.15);
+}
+/* ===== Process ===== */
+
+.step{
+    position:relative;
+    overflow:hidden;
+}
+
+.step::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-150%;
+
+    width:70%;
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.55),
+        transparent
+    );
+
+    transform:skewX(-22deg);
+
+    transition:1s;
+}
+
+.step:hover::before{
+    left:170%;
+}
+
+.step:hover{
+
+    box-shadow:
+    0 24px 60px rgba(15,23,42,.08);
+
+}
+
+.stepNumber{
+
+    transition:
+    transform .4s cubic-bezier(.22,1,.36,1);
+
+}
+
+.step:hover .stepNumber{
+
+    transform:
+    rotate(10deg)
+    scale(1.15);
+
+}
+
+/* ===== Benefits ===== */
+
+.benefitCard{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.benefitCard::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-150%;
+
+    width:70%;
+    height:100%;
+
+    background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.55),
+      transparent
+    );
+
+    transform:skewX(-22deg);
+
+    transition:1s;
+
+}
+
+.benefitCard:hover::before{
+
+    left:170%;
+
+}
+
+.benefitCard:hover{
+
+    box-shadow:
+    0 24px 60px rgba(15,23,42,.08);
+
+}
+
+.benefitIcon{
+
+    transition:
+    transform .4s cubic-bezier(.22,1,.36,1);
+
+}
+
+.benefitCard:hover .benefitIcon{
+
+    transform:
+    rotate(15deg)
+    scale(1.18);
+
+}
+
+/* ===== Trust ===== */
+
+.trustImageInner img{
+    transition:.8s cubic-bezier(.22,1,.36,1);
+}
+
+.trustImageContainer:hover img{
+    transform:scale(1.06);
+}
+
+.trustStats>div{
+    transition:.35s;
+}
+
+.trustStats>div:hover{
+    transform:translateY(-6px);
+}
+
+/* ===== FAQ ===== */
+
+.faqCard{
+    overflow:hidden;
+    position:relative;
+}
+
+.faqCard::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-150%;
+
+    width:70%;
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.55),
+        transparent
+    );
+
+    transform:skewX(-22deg);
+
+    transition:1s;
+}
+
+.faqCard:hover::before{
+    left:170%;
+}
+
+.faqIcon{
+    transition:.35s;
+}
+
+.faqCard:hover .faqIcon{
+    transform:rotate(15deg) scale(1.15);
+}
+
+/* ===== CTA ===== */
+
+.ctaBtn{
+    overflow:hidden;
+    position:relative;
+}
+
+.ctaBtn::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-150%;
+
+    width:70%;
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.45),
+        transparent
+    );
+
+    transform:skewX(-22deg);
+
+    transition:1s;
+}
+
+.ctaBtn:hover::before{
+    left:170%;
+}
+
+.ctaImageContainer img{
+    transition:.8s cubic-bezier(.22,1,.36,1);
+}
+
+.ctaImageContainer:hover img{
+    transform:scale(1.05);
+}

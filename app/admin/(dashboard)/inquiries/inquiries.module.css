@@ -196,6 +196,7 @@
 .viewBtn:hover,
 .emailBtn:hover {
   background: #1d4ed8;
+  color: #fff;
   transform: translateY(-2px);
 }
 

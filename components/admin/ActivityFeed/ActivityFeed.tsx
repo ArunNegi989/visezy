@@ -1,50 +1,145 @@
+"use client";
+
+import {
+  FaBlog,
+  FaImage,
+} from "react-icons/fa";
+
+import { MdEmail } from "react-icons/md";
+
 import styles from "./ActivityFeed.module.css";
 
-const activities = [
-  {
-    title: "New lead received",
-    time: "2 min ago",
-  },
-  {
-    title: "Blog published",
-    time: "14 min ago",
-  },
-  {
-    title: "Hero section updated",
-    time: "1 hour ago",
-  },
-  {
-    title: "Footer modified",
-    time: "3 hours ago",
-  },
-  {
-    title: "New user added",
-    time: "Yesterday",
-  },
-];
+interface Activity {
+  type: "blog" | "banner" | "contact";
+  title: string;
+  action: string;
+  createdAt: string;
+}
 
-export default function ActivityFeed() {
+interface Props {
+  activities: Activity[];
+}
+
+function getTimeAgo(date: string) {
+  const seconds = Math.floor(
+    (Date.now() - new Date(date).getTime()) /
+    1000
+  );
+
+  if (seconds < 60)
+    return "Just now";
+
+  const minutes = Math.floor(
+    seconds / 60
+  );
+
+  if (minutes < 60)
+    return `${minutes} min ago`;
+
+  const hours = Math.floor(
+    minutes / 60
+  );
+
+  if (hours < 24)
+    return `${hours} hour ago`;
+
+  const days = Math.floor(
+    hours / 24
+  );
+
+  if (days === 1)
+    return "Yesterday";
+
+  return `${days} days ago`;
+}
+
+export default function ActivityFeed({
+  activities,
+}: Props) {
+  const getIcon = (
+    type: Activity["type"]
+  ) => {
+    switch (type) {
+      case "blog":
+        return (
+          <FaBlog
+            className={styles.blog}
+          />
+        );
+
+      case "banner":
+        return (
+          <FaImage
+            className={
+              styles.banner
+            }
+          />
+        );
+
+      default:
+        return (
+          <MdEmail
+            className={
+              styles.contact
+            }
+          />
+        );
+    }
+  };
+
   return (
     <div className={styles.card}>
       <div className={styles.header}>
         <h3>Recent Activity</h3>
+
         <span>Live</span>
       </div>
 
       <div className={styles.timeline}>
-        {activities.map((activity) => (
-          <div
-            key={activity.title}
-            className={styles.item}
-          >
-            <div className={styles.dot}></div>
+        {activities.map(
+          (activity, index) => (
+            <div
+              key={index}
+              className={
+                styles.item
+              }
+            >
+              <div
+                className={
+                  styles.icon
+                }
+              >
+                {getIcon(
+                  activity.type
+                )}
+              </div>
 
-            <div>
-              <h4>{activity.title}</h4>
-              <p>{activity.time}</p>
+              <div
+                className={
+                  styles.content
+                }
+              >
+                <h4>
+                  {
+                    activity.action
+                  }
+                </h4>
+
+                <p>
+                  {
+                    activity.title
+                  }
+                </p>
+
+                <span>
+                  {getTimeAgo(
+                    activity.createdAt
+                  )}
+                </span>
+              </div>
             </div>
-          </div>
-        ))}
+          )
+        )}
       </div>
     </div>
   );

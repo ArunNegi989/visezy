@@ -116,26 +116,6 @@ const handleLogout = async () => {
           <span>View Site</span>
         </a>
 
-        <div className={styles.search}>
-          <FaSearch />
-
-          <input
-            placeholder="Search pages..."
-          />
-        </div>
-
-        <button className={styles.iconBtn}>
-          <FaMoon />
-        </button>
-
-        <button className={styles.iconBtn}>
-          <FaBell />
-
-          <span className={styles.badge}>
-            3
-          </span>
-        </button>
-
         <div
           className={styles.profileWrapper}
           ref={dropdownRef}

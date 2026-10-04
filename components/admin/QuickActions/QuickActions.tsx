@@ -1,25 +1,37 @@
+"use client";
+
+import Link from "next/link";
+
 import {
   FaBlog,
-  FaUsers,
-  FaLayerGroup,
-  FaPlus,
   FaImage,
-  FaPen,
-  FaGlobe,
-  FaStar,
+  FaList,
+  FaImages,
 } from "react-icons/fa";
 
 import styles from "./QuickActions.module.css";
 
 const actions = [
-  { icon: <FaBlog />, title: "Add Blog" },
-  { icon: <FaUsers />, title: "Add User" },
-  { icon: <FaLayerGroup />, title: "Category" },
-  { icon: <FaPlus />, title: "Policy" },
-  { icon: <FaImage />, title: "Hero" },
-  { icon: <FaPen />, title: "Footer" },
-  { icon: <FaGlobe />, title: "Header" },
-  { icon: <FaStar />, title: "Review" },
+  {
+    icon: <FaBlog />,
+    title: "Add Blog",
+    href: "/admin/blogs/create",
+  },
+  {
+    icon: <FaList />,
+    title: "Manage Blogs",
+    href: "/admin/blogs",
+  },
+  {
+    icon: <FaImage />,
+    title: "Add Banner",
+    href: "/admin/banners/create",
+  },
+  {
+    icon: <FaImages />,
+    title: "Manage Banners",
+    href: "/admin/banners",
+  },
 ];
 
 export default function QuickActions() {
@@ -29,13 +41,15 @@ export default function QuickActions() {
 
       <div className={styles.grid}>
         {actions.map((item) => (
-          <button
+          <Link
             key={item.title}
+            href={item.href}
             className={styles.action}
           >
             {item.icon}
+
             <span>{item.title}</span>
-          </button>
+          </Link>
         ))}
       </div>
     </div>

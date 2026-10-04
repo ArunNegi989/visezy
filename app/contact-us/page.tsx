@@ -298,7 +298,7 @@ export default function Contact() {
                       styles.metaValue
                     }
                   >
-                    +91 96345 56234
+                    +91  78198 83898
                   </span>
                 </div>
               </div>

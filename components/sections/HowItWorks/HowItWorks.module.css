@@ -288,16 +288,7 @@
     gap: 32px;
   }
 
-  /* Resets alternate translation metrics on tablets */
-  .stepColumn:nth-child(odd),
-  .stepColumn:nth-child(even) {
-    transform: none;
-  }
 
-  .stepColumn:nth-child(odd):hover,
-  .stepColumn:nth-child(even):hover {
-    transform: translateY(-6px);
-  }
 
   .headerBlock {
     margin-bottom: 64px;
@@ -317,4 +308,238 @@
   .stepColumn {
     padding: 32px 24px;
   }
+}
+
+.gridContainer {
+
+  perspective: 1400px;
+
+}
+
+.ambientBlur {
+
+  animation: ambientFloat 10s ease-in-out infinite;
+
+}
+
+@keyframes ambientFloat {
+
+  0% {
+    transform: translateY(0);
+    opacity: .4;
+  }
+
+  50% {
+    transform: translateY(-30px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: .4;
+  }
+
+}
+
+.stepColumn {
+
+  overflow: hidden;
+
+}
+
+.stepColumn::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: -160%;
+
+  width: 70%;
+
+  height: 100%;
+
+  background:
+
+    linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, .75),
+      transparent);
+
+  transform: skewX(-25deg);
+
+  transition: 1s;
+
+}
+
+.stepColumn:hover::before {
+
+  left: 170%;
+
+}
+
+.stepColumn::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: 0;
+
+  width: 0;
+
+  height: 3px;
+
+  background:
+
+    rgba(var(--accent-rgb), 1);
+
+  transition: .45s;
+
+}
+
+.stepColumn:hover::after {
+
+  width: 100%;
+
+}
+
+.stepColumn:hover .ghostCounter {
+
+  transform: scale(1.15);
+
+  letter-spacing: 4px;
+
+}
+
+.stepBadge {
+
+  transition: .4s;
+
+}
+
+.stepColumn:hover .stepBadge {
+
+  transform: translateY(-3px);
+
+}
+
+.stepTitle {
+
+  transition: .35s;
+
+}
+
+.stepColumn:hover .stepTitle {
+
+  color: rgba(var(--accent-rgb), 1);
+
+}
+
+.stepDesc {
+
+  transition: .35s;
+
+}
+
+.stepColumn:hover .stepDesc {
+
+  color: #374151;
+
+}
+
+.gradientText {
+
+  background-size: 220% auto;
+
+  animation: gradientMove 6s linear infinite;
+
+}
+
+@keyframes gradientMove {
+
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 220%;
+  }
+
+}
+
+.badgeDot {
+
+  animation: pulseDot 2s infinite;
+
+}
+
+@keyframes pulseDot {
+
+  0% {
+
+    transform: scale(1);
+
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, .4);
+
+  }
+
+  70% {
+
+    transform: scale(1.2);
+
+    box-shadow: 0 0 0 12px rgba(37, 99, 235, 0);
+
+  }
+
+  100% {
+
+    transform: scale(1);
+
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+
+  }
+
+}
+
+.zigZagVectorLine {
+
+  background-size: 24px 4px;
+
+  animation: moveLine 2.5s linear infinite;
+
+}
+
+@keyframes moveLine {
+
+  0% {
+
+    background-position: 0 0;
+
+  }
+
+  100% {
+
+    background-position: 24px 0;
+
+  }
+
+}
+
+.stepColumn {
+
+  transition:
+
+    transform .45s cubic-bezier(.22, 1, .36, 1),
+
+    box-shadow .45s,
+
+    border-color .45s,
+
+    background .45s;
+
 }

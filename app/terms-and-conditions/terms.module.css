@@ -823,3 +823,450 @@
     padding: 32px 24px;
   }
 }
+
+/* Hero */
+
+.hero{
+    perspective:1200px;
+}
+
+.imageInner img{
+    transition:.8s cubic-bezier(.22,1,.36,1);
+}
+
+.heroImageContainer:hover img{
+    transform:scale(1.06);
+}
+
+/* Badge Shine */
+
+.badge{
+
+    overflow:hidden;
+    position:relative;
+
+}
+
+.badge::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-150%;
+
+    width:60%;
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.5),
+        transparent
+    );
+
+    transform:skewX(-20deg);
+
+    transition:1s;
+
+}
+
+.badge:hover::before{
+
+    left:170%;
+
+}
+
+/* Cards */
+
+.card{
+
+    position:relative;
+    overflow:hidden;
+
+}
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-150%;
+
+    width:70%;
+    height:100%;
+
+    background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.55),
+      transparent
+    );
+
+    transform:skewX(-22deg);
+
+    transition:1s;
+
+}
+
+.card:hover::before{
+
+    left:170%;
+
+}
+
+.iconBox{
+
+    transition:.35s;
+
+}
+
+.card:hover .iconBox{
+
+    transform:
+    rotate(15deg)
+    scale(1.15);
+
+}
+/* =========================
+   PROCESS PREMIUM EFFECTS
+========================= */
+
+.step{
+    position:relative;
+    overflow:hidden;
+}
+
+.step::before{
+
+    content:"";
+
+    position:absolute;
+    top:0;
+    left:-160%;
+
+    width:70%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.55),
+            transparent
+        );
+
+    transform:skewX(-22deg);
+
+    transition:1s;
+}
+
+.step:hover::before{
+    left:170%;
+}
+
+.stepNumber{
+    transition:.35s;
+}
+
+.step:hover .stepNumber{
+    transform:rotate(12deg) scale(1.15);
+}
+
+.step:hover{
+    box-shadow:
+        0 26px 60px rgba(15,23,42,.08);
+}
+
+/* =========================
+   RESPONSIBILITIES
+========================= */
+
+.benefit{
+
+    position:relative;
+    overflow:hidden;
+
+}
+
+.benefit::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-160%;
+
+    width:70%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.55),
+            transparent
+        );
+
+    transform:skewX(-22deg);
+
+    transition:1s;
+}
+
+.benefit:hover::before{
+    left:170%;
+}
+
+.benefitIcon{
+    transition:.35s;
+}
+
+.benefit:hover .benefitIcon{
+    transform:
+        rotate(15deg)
+        scale(1.18);
+}
+
+.benefit:hover{
+
+    box-shadow:
+        0 24px 60px rgba(15,23,42,.08);
+
+}
+/* ===========================
+   CLAUSE CARDS
+=========================== */
+
+.clauseItem{
+    position:relative;
+    overflow:hidden;
+}
+
+.clauseItem::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-150%;
+
+    width:70%;
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.55),
+        transparent
+    );
+
+    transform:skewX(-22deg);
+
+    transition:1s;
+}
+
+.clauseItem:hover::before{
+    left:170%;
+}
+
+.clauseIconBox{
+    transition:.35s;
+}
+
+.clauseItem:hover .clauseIconBox{
+    transform:
+    rotate(15deg)
+    scale(1.18);
+}
+
+/* ===========================
+   FAQ
+=========================== */
+
+.faqCard{
+    overflow:hidden;
+    position:relative;
+}
+
+.faqCard::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-150%;
+
+    width:70%;
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.5),
+        transparent
+    );
+
+    transform:skewX(-22deg);
+
+    transition:1s;
+}
+
+.faqCard:hover::before{
+    left:170%;
+}
+
+.faqQuestionIcon{
+    transition:.35s;
+}
+
+.faqCard:hover .faqQuestionIcon{
+    transform:
+    rotate(18deg)
+    scale(1.15);
+}
+
+/* ===========================
+   CTA
+=========================== */
+
+.ctaImageContainer img{
+    transition:
+    .8s cubic-bezier(.22,1,.36,1);
+}
+
+.ctaImageContainer:hover img{
+    transform:scale(1.06);
+}
+
+.ctaBtn{
+    overflow:hidden;
+    position:relative;
+}
+
+.ctaBtn::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-150%;
+
+    width:70%;
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.45),
+        transparent
+    );
+
+    transform:skewX(-22deg);
+
+    transition:1s;
+}
+
+.ctaBtn:hover::before{
+    left:170%;
+}
+/* =========================
+   PROCESS
+========================= */
+
+.step{
+    position:relative;
+    overflow:hidden;
+    transform-style:preserve-3d;
+}
+
+.step::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-160%;
+    width:70%;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.55),
+        transparent
+    );
+    transform:skewX(-22deg);
+    transition:1s;
+}
+
+.step:hover::before{
+    left:170%;
+}
+
+.step:hover{
+    box-shadow:
+        0 28px 60px rgba(15,23,42,.08),
+        0 10px 30px rgba(37,99,235,.08);
+}
+
+.stepNumber{
+    transition:transform .35s;
+}
+
+.step:hover .stepNumber{
+    transform:rotate(12deg) scale(1.15);
+}
+
+/* =========================
+   RESPONSIBILITIES
+========================= */
+
+.benefit{
+    position:relative;
+    overflow:hidden;
+    transform-style:preserve-3d;
+}
+
+.benefit::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-160%;
+    width:70%;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.55),
+        transparent
+    );
+    transform:skewX(-22deg);
+    transition:1s;
+}
+
+.benefit:hover::before{
+    left:170%;
+}
+
+.benefit:hover{
+    box-shadow:
+        0 28px 60px rgba(15,23,42,.08),
+        0 10px 30px rgba(37,99,235,.08);
+}
+
+.benefitIcon{
+    transition:transform .35s;
+}
+
+.benefit:hover .benefitIcon{
+    transform:rotate(18deg) scale(1.18);
+}

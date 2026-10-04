@@ -103,3 +103,61 @@
     font-size: 14px;
   }
 }
+
+/* ================= Skeleton ================= */
+
+.heroSkeleton,
+.statSkeleton,
+.chartSkeleton,
+.activitySkeleton,
+.quickSkeleton {
+  position: relative;
+  overflow: hidden;
+  background: #e2e8f0;
+  border-radius: 22px;
+}
+
+.heroSkeleton::after,
+.statSkeleton::after,
+.chartSkeleton::after,
+.activitySkeleton::after,
+.quickSkeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.75),
+    transparent
+  );
+  animation: shimmer 1.4s infinite;
+}
+
+.heroSkeleton {
+  height: 130px;
+  margin-bottom: 24px;
+}
+
+.statSkeleton {
+  height: 150px;
+}
+
+.chartSkeleton {
+  height: 420px;
+}
+
+.activitySkeleton {
+  height: 420px;
+}
+
+.quickSkeleton {
+  height: 190px;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
