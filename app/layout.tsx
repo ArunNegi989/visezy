@@ -20,6 +20,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Visezy",
   description: "Visezy Website",
+  icons: {
+    icon: "/fevicon.jpeg",
+    shortcut: "/fevicon.jpeg",
+    apple: "/fevicon.jpeg",
+  },
 };
 
 export default function RootLayout({
