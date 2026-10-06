@@ -19,9 +19,9 @@ import {
 } from "react-icons/fi";
 
 export const metadata = {
-  title: "Comprehensive Health Insurance Plans | Visezy",
+  title: "Comprehensive Health Insurance Plans | Vinsure",
   description:
-    "Secure your family's health and financial future with Visezy. Explore customizable health insurance solutions, cashless hospitalization, and critical illness covers.",
+    "Secure your family's health and financial future with Vinsure. Explore customizable health insurance solutions, cashless hospitalization, and critical illness covers.",
 };
 
 const plans = [
@@ -110,7 +110,7 @@ const faqs = [
   {
     question: "How does the cashless hospitalization settlement system operate?",
     answer:
-      "When admitted to an approved network hospital, you present your Visezy digital health card. The hospital TPA desk validates identity, and we clear the treatment costs directly with the medical center billing department.",
+      "When admitted to an approved network hospital, you present your Vinsure digital health card. The hospital TPA desk validates identity, and we clear the treatment costs directly with the medical center billing department.",
   },
   {
     question: "Is there a waiting window for pre-existing medical conditions?",
@@ -337,7 +337,7 @@ export default function HealthInsurancePage() {
           <div className={styles.ctaImage}>
             <Image
               src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1200&q=80"
-              alt="Visezy Strategic Healthcare Support Center"
+              alt="Vinsure Strategic Healthcare Support Center"
               fill
               sizes="(max-width:1200px) 100vw, 40vw"
             />

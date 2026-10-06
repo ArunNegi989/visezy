@@ -19,7 +19,7 @@ const testimonials = [
     name: "Rahul Sharma",
     policy: "Health Insurance",
     review:
-      "Visezy helped me compare multiple plans and saved me nearly ₹12,000 annually. The entire process was transparent and hassle-free.",
+      "Vinsure helped me compare multiple plans and saved me nearly ₹12,000 annually. The entire process was transparent and hassle-free.",
   },
   {
     id: 2,
@@ -54,7 +54,7 @@ export default function CustomerTestimonials() {
           </h2>
 
           <p className={styles.description}>
-            Thousands of customers trust Visezy to find the right insurance
+            Thousands of customers trust Vinsure to find the right insurance
             coverage with transparent pricing, expert guidance, and dedicated
             support.
           </p>

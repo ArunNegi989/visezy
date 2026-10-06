@@ -63,9 +63,7 @@ export const Footer = () => {
             <div className={styles.ctaContent}>
               <span className={styles.ctaSub}>Direct Business Channel</span>
               <h4 className={styles.ctaMainTitle}>Ready to speak with us?</h4>
-              <a href="mailto:sales@visezy.in" className={styles.ctaEmailLink}>
-                sales@visezy.in
-              </a>
+             
             </div>
           </div>
         </div>
@@ -74,34 +72,36 @@ export const Footer = () => {
         <div className={styles.mainGrid}>
 
           {/* Brand Panel */}
-          <div className={styles.brandPanel}>
-            <Image
-              src="/visezy-logo.png"
-              alt="Visezy"
-              width={200}
-              height={70}
-              priority
-              className={styles.logo}
-            />
-            <div className={styles.contactContainer}>
-              <div className={styles.contactRow}>
-                <FaPhoneAlt className={styles.contactIcon} />
-                <a href="tel:+919634556234" className={styles.contactText}>+91  7819883898</a>
-              </div>
-              <div className={styles.contactRow}>
-                <FaMapMarkerAlt className={styles.contactIcon} />
-                <span className={styles.contactText}>
-                  Dehradun, Uttarakhand, India
-                </span>
-              </div>
-              <div className={styles.contactRow}>
-                <FaEnvelopeOpenText className={styles.contactIcon} />
-                <span className={styles.contactText}>
-                  sales@visezy.in<br />
-                  sparsh@visezy.in
-                </span>
-              </div>
-            </div>
+          {/* Brand Panel */}
+<div className={styles.brandPanel}>
+  <div className={styles.brandHeader}>
+    <Image
+      src="/visezy-logo.png"
+      alt="Visezy"
+      width={70}
+      height={70}
+      priority
+      className={styles.logo}
+    />
+
+    <span className={styles.brandName}>VINSURE</span>
+  </div>
+
+  <div className={styles.contactContainer}>
+    <div className={styles.contactRow}>
+      <FaPhoneAlt className={styles.contactIcon} />
+      <a href="tel:+917819883898" className={styles.contactText}>
+        +91 7819883898
+      </a>
+    </div>
+
+    <div className={styles.contactRow}>
+      <FaMapMarkerAlt className={styles.contactIcon} />
+      <span className={styles.contactText}>
+        Dehradun, Uttarakhand, India
+      </span>
+    </div>
+  </div>
           </div>
 
           {/* Help & Support Panel */}
@@ -180,7 +180,6 @@ export const Footer = () => {
               <span className={styles.socialLabel}>Connect With Us</span>
               <div className={styles.socialIcons}>
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><FaTwitter /></a>
                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><FaLinkedin /></a>
                 <a href="https://www.instagram.com/visezy.insurance/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
               </div>
@@ -193,7 +192,7 @@ export const Footer = () => {
         {/* ================= BOTTOM METRICS BAR ================= */}
         <div className={styles.bottomSection}>
           <p className={styles.copyrightText}>
-            © {new Date().getFullYear()} VISEZY | All Rights Reserved
+            © {new Date().getFullYear()} VINSURE | All Rights Reserved
           </p>
         </div>
 

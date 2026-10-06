@@ -258,7 +258,7 @@ export default function PoliciesClientPage() {
                         className={styles.heroDescription}
                         variants={fadeUp}
                     >
-                        Visezy bridges the gap between complicated risk
+                        Vinsure bridges the gap between complicated risk
                         mitigation parameters and practical protection
                         structures. Discover clarity, transparency,
                         and expert-led protection blueprints designed
@@ -558,7 +558,7 @@ export default function PoliciesClientPage() {
 
                         <p>
                             Traditional brokers depend on information gaps to inflate
-                            structural fees. Visezy uses unbiased analysis and verified
+                            structural fees. Vinsure uses unbiased analysis and verified
                             transparency to pass maximum programmatic value directly back
                             to policyholders.
                         </p>
@@ -763,7 +763,7 @@ export default function PoliciesClientPage() {
                     </motion.span>
 
                     <motion.h2 variants={fadeUp}>
-                        The Core Competitive Framework Behind Visezy
+                        The Core Competitive Framework Behind Vinsure
                     </motion.h2>
 
                     <motion.p
@@ -849,7 +849,7 @@ export default function PoliciesClientPage() {
 
                         <p>
                             We are built on absolute fiduciary transparency.
-                            Visezy operates independent of hidden corporate
+                            Vinsure operates independent of hidden corporate
                             incentives or legacy insurer payout networks.
                             Every data model generated, premium calculated,
                             and coverage choice recommended is derived
@@ -960,7 +960,7 @@ export default function PoliciesClientPage() {
                         {
                             icon: <FiFileText />,
                             title: "How are claims processed?",
-                            text: "Claims are submitted digitally through the Visezy portal and instantly routed to our dedicated response specialists.",
+                            text: "Claims are submitted digitally through the Vinsure portal and instantly routed to our dedicated response specialists.",
                         },
                     ].map((faq, index) => (
                         <motion.div

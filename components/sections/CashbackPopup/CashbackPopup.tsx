@@ -86,7 +86,7 @@ export default function CashbackPopup() {
         </h2>
 
         <p className={styles.description}>
-          Purchase any insurance policy through Visezy and unlock guaranteed
+          Purchase any insurance policy through Vinsure and unlock guaranteed
           cashback rewards on every successful insurance purchase.
         </p>
 

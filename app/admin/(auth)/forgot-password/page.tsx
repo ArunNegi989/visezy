@@ -32,7 +32,7 @@ export default function ForgotPasswordPage() {
       <div className={styles.pageWrapper}>
         {/* Left Side Branding */}
         <div className={styles.leftSide}>
-          <h2>Visezy Secure</h2>
+          <h2>Vinsure Secure</h2>
           <p>Protecting your insurance business data with enterprise-grade security.</p>
         </div>
 
@@ -40,7 +40,7 @@ export default function ForgotPasswordPage() {
         <div className={styles.rightSide}>
           <form onSubmit={handleSubmit} className={styles.form}>
             <h1 className={styles.title}>Reset Password</h1>
-            <p className={styles.subtitle}>Enter your email to recover your Visezy access.</p>
+            <p className={styles.subtitle}>Enter your email to recover your Vinsure access.</p>
             
             <div className={styles.field}>
               <label>Email Address</label>
@@ -48,7 +48,7 @@ export default function ForgotPasswordPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@visezy.in"
+                placeholder="abc@def.gh"
                 required
               />
             </div>

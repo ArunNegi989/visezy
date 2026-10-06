@@ -19,7 +19,7 @@ import {
 } from "react-icons/fi";
 
 export const metadata = {
-  title: "Car Insurance | Visezy",
+  title: "Car Insurance | Vinsure",
   description:
     "Explore car insurance solutions with comprehensive coverage, roadside assistance, premium claims support, and maximum protection for your vehicle.",
 };

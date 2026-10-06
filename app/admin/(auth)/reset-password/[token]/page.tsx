@@ -45,7 +45,7 @@ const res = await resetPassword(token, password);
     <GuestRoute>
       <div className={styles.pageWrapper}>
         <div className={styles.leftSide}>
-          <h1>Visezy Secure</h1>
+          <h1>Vinsure Secure</h1>
           <p>Insurance simplified. Reset your password to continue managing your policies and clients with ease.</p>
         </div>
 

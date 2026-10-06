@@ -11,7 +11,7 @@ import {
 
 
 import AuthLoader from "@/components/auth/AuthLoader";
-import { me,logout } from "../lib/auth.Service";
+import { me, logout } from "../lib/auth.Service";
 
 export interface Admin {
     id: string;
@@ -51,21 +51,22 @@ export function AuthProvider({
     const [loading, setLoading] =
         useState(true);
 
-    const checkAuth =
-        async () => {
-            try {
-                const res =
-                    await me();
+    const checkAuth = async () => {
+        // Only Check in Admin Pages
+        if (!window.location.pathname.startsWith("/admin")) {
+            setLoading(false);
+            return;
+        }
 
-                setAdmin(
-                    res.data.admin
-                );
-            } catch {
-                setAdmin(null);
-            } finally {
-                setLoading(false);
-            }
-        };
+        try {
+            const res = await me();
+            setAdmin(res.data.admin);
+        } catch {
+            setAdmin(null);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     useEffect(() => {
         checkAuth();
