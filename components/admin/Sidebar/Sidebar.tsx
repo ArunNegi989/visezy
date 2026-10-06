@@ -83,17 +83,19 @@ export default function Sidebar({
           }`}
       >
         <div className={styles.logoSection}>
-          <div className={styles.logoWrapper}>
-            <Image
-              src="/visezy-logo.png"
-              alt="Vinsure"
-              width={180}
-              height={50}
-              className={styles.logoImage}
-              priority
-            />
-          </div>
-        </div>
+  <div className={styles.logoWrapper}>
+    <Image
+      src="/visezy-logo.png"
+      alt="Vinsure"
+      width={70}
+      height={70}
+      className={styles.logoImage}
+      priority
+    />
+
+    <span className={styles.brandName}>Vinsure</span>
+  </div>
+</div>
 
         <div className={styles.menuWrapper}>
           {menuSections.map((section) => (
