@@ -307,34 +307,6 @@ export default function Contact() {
                 <div
                   className={styles.iconBox}
                 >
-                  <HiOutlineMail />
-                </div>
-
-                <div
-                  className={styles.infoMeta}
-                >
-                  <span
-                    className={
-                      styles.metaLabel
-                    }
-                  >
-                    Enterprise Delivery
-                  </span>
-
-                  <span
-                    className={
-                      styles.metaValue
-                    }
-                  >
-                    sales@visezy.in
-                  </span>
-                </div>
-              </div>
-
-              <div className={styles.infoRow}>
-                <div
-                  className={styles.iconBox}
-                >
                   <HiOutlineLocationMarker />
                 </div>
 

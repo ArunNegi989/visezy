@@ -202,10 +202,27 @@
   flex-direction: column;
 }
 
-.logo {
-  object-fit: contain;
-  margin-left: -6px;
+.brandHeader {
+  display: flex;
+  align-items: center;
+  gap: 0px;
   margin-bottom: 24px;
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.brandName {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1;
+  color: #000000;
+  letter-spacing: -0.5px;
 }
 
 .contactContainer {

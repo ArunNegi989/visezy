@@ -38,27 +38,26 @@ export default function Header() {
           </div>
         </div>
 
-        <a href="mailto:sales@visezy.in" className={styles.emailLink}>
-          <FaRegEnvelope className={styles.infoIcon} />
-          <span>sales@visezy.in</span>
-        </a>
+       
       </div>
 
       {/* Main Navigation Row */}
       <div className={styles.container}>
         {/* Dynamic Image Logo Container */}
-        <Link href="/" className={styles.logoContainer}>
-          <div className={styles.logoWrapper}>
-            <Image
-              src="/visezy-logo.png"
-              alt="Visezy Insurance Broking Company"
-              width={160}
-              height={50}
-              priority
-              className={styles.logoImage}
-            />
-          </div>
-        </Link>
+       <Link href="/" className={styles.logoContainer}>
+  <div className={styles.logoWrapper}>
+    <Image
+      src="/visezy-logo.png"
+      alt="Vinsure"
+      width={50}
+      height={20}
+      priority
+      className={styles.logoImage}
+    />
+
+    <span className={styles.brandName}>VINSURE</span>
+  </div>
+</Link>
 
         {/* Desktop Navbar */}
         <nav className={styles.nav}>

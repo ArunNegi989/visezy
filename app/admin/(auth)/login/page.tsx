@@ -130,7 +130,7 @@ export default function LoginPage() {
             <div className={styles.brandContent}>
               <Image
                 src="/visezy-logo.png"
-                alt="Visezy"
+                alt="Vinsure"
                 width={180}
                 height={60}
               />

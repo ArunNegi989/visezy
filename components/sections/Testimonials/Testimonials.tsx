@@ -107,7 +107,7 @@ export default function Testimonials() {
               <span className={styles.badgePulse}></span>
 
               <span className={styles.badgeText}>
-                ABOUT VISEZY
+                ABOUT Vinsure
               </span>
             </div>
 
@@ -121,13 +121,13 @@ export default function Testimonials() {
             </h2>
 
             <p className={styles.bodyCopy}>
-              Visezy isn't just another insurance broker.
+              Vinsure isn't just another insurance broker.
               We're passionate about empowering people
               like you to navigate the complex world of
               insurance with confidence and ease.
               Founded on the belief that everyone deserves
               access to affordable, high-quality coverage,
-              we built Visezy to simplify your insurance
+              we built Vinsure to simplify your insurance
               journey.
             </p>
 
@@ -236,7 +236,7 @@ export default function Testimonials() {
                 <div className={styles.tokenBar}></div>
 
                 <h3 className={styles.ctaTitle}>
-                  Join the Visezy Community
+                  Join the Vinsure Community
                 </h3>
 
                 <p className={styles.ctaText}>

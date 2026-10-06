@@ -105,7 +105,7 @@ export default function WhyChooseUs() {
         >
           <div className={styles.badge}>
             <span className={styles.badgeDot}></span>
-            <span className={styles.badgeText}>WHY CHOOSE VISEZY</span>
+            <span className={styles.badgeText}>WHY CHOOSE Vinsure</span>
           </div>
 
           <h2 className={styles.title}>
@@ -114,7 +114,7 @@ export default function WhyChooseUs() {
           </h2>
 
           <p className={styles.description}>
-            Tired of insurance complexities and sky-high premiums? At Visezy, we empower you to find unbeatable deals on every policy, all under one roof. Forget the hassle of individual quotes and confusing jargon – our platform makes insurance simple, transparent, and surprisingly affordable.
+            Tired of insurance complexities and sky-high premiums? At Vinsure, we empower you to find unbeatable deals on every policy, all under one roof. Forget the hassle of individual quotes and confusing jargon – our platform makes insurance simple, transparent, and surprisingly affordable.
           </p>
 
           <div className={styles.imageContainer}>

@@ -20,7 +20,7 @@ import {
 } from "react-icons/fi";
 
 export const metadata = {
-  title: "Life Insurance | Visezy",
+  title: "Life Insurance | Vinsure",
   description:
     "Explore elite life insurance solutions engineered to protect your family's future, secure long-term financial milestones, and provide absolute peace of mind.",
 };
@@ -122,7 +122,7 @@ const faqs = [
       "Term Insurance delivers high-volume capital protection over a designated epoch (e.g., 10-30 years) with zero maturity return, optimizing for absolute affordability. Whole Life structures permanent coverage spanning your complete lifespan while concurrently accumulating an investment-backed cash value you can borrow against.",
   },
   {
-    question: "How does Visezy mathematically calculate my ideal sum assured?",
+    question: "How does Vinsure mathematically calculate my ideal sum assured?",
     answer:
       "We utilize a proprietary Human Economic Value (HEV) algorithmic approach. This factors in your current annual expenditure profiles, outstanding liabilities, future educational milestones for dependents, and projected inflation curves to arrive at a multi-million capital baseline.",
   },
@@ -357,10 +357,10 @@ export default function LifeInsurancePage() {
         </div>
       </section>
 
-      {/* WHY VISEZY / THE DISCIPLINE PROCESS */}
+      {/* WHY Vinsure / THE DISCIPLINE PROCESS */}
       <section className={styles.processSection}>
         <div className={styles.heading}>
-          <span className={styles.sectionTag}>THE VISEZY METHODOLOGY</span>
+          <span className={styles.sectionTag}>THE Vinsure METHODOLOGY</span>
           <h2>Precision Onboarding Framework</h2>
         </div>
 

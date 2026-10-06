@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Visezy",
-  description: "Visezy Website",
+  title: "Vinsure",
+  description: "Vinsure Website",
   icons: {
     icon: "/fevicon.jpeg",
     shortcut: "/fevicon.jpeg",

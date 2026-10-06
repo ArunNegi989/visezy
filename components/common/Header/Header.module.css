@@ -111,8 +111,7 @@
   background: transparent;
   border-bottom-color: transparent;
 }
-
-/* Modified Logo Layout Wrapper */
+/* Logo + Brand Name */
 .logoContainer {
   display: flex;
   align-items: center;
@@ -120,23 +119,38 @@
   height: 100%;
   padding: 4px 0;
 }
+
 .logoWrapper {
   position: relative;
-  width: 160px;
+  display: flex;
+  align-items: center;
+  width: auto;
   height: 50px;
 }
 
 .logoImage {
   object-fit: contain;
-  width: auto;
-  height: auto;
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
 }
 
-/* Micro-interaction on hover */
-.logoContainer:hover .logoImage {
-  transform: scale(1.03) translateY(-1px);
-  filter: drop-shadow(0 4px 12px rgba(15, 23, 42, 0.08));
+/* Vinsure Brand Name */
+.brandName {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+  color: #000000;
+  letter-spacing: -0.4px;
+  white-space: nowrap;
 }
+
+
+
+.logoContainer:hover .brandName {
+  color: #000000;
+}
+
 
 /* Mobile responsive scaling adjustment for image */
 @media (max-width: 640px) {

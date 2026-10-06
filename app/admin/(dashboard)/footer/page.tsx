@@ -40,7 +40,7 @@ export default function FooterPage() {
           <div className={styles.field}>
             <label>Company Name</label>
             <input
-              defaultValue="Visezy"
+              defaultValue="Vinsure"
             />
           </div>
 
@@ -70,7 +70,7 @@ export default function FooterPage() {
           <div className={styles.field}>
             <label>Copyright Text</label>
             <input
-              defaultValue="© 2026 Visezy. All Rights Reserved."
+              defaultValue="© 2026 Vinsure. All Rights Reserved."
             />
           </div>
 
@@ -85,7 +85,7 @@ export default function FooterPage() {
 
           <div className={styles.preview}>
             <div>
-              <h2>Visezy</h2>
+              <h2>Vinsure</h2>
 
               <p>
                 Helping users compare and
@@ -127,7 +127,7 @@ export default function FooterPage() {
           </div>
 
           <div className={styles.copyright}>
-            © 2026 Visezy. All Rights Reserved.
+            © 2026 Vinsure. All Rights Reserved.
           </div>
         </div>
       </div>

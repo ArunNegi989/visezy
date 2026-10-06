@@ -140,7 +140,7 @@ export default function SignupPage() {
 
               <p>
                 Securely create your administrator
-                account to manage Visezy services,
+                account to manage Vinsure services,
                 leads, blogs and website content.
               </p>
 
@@ -452,7 +452,7 @@ export default function SignupPage() {
           >
             <Image
               src="/visezy-logo.png"
-              alt="Visezy"
+              alt="Vinsure"
               width={190}
               height={60}
               priority

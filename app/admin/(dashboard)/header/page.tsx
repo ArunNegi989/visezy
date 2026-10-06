@@ -84,7 +84,7 @@ export default function HeaderPage() {
 
           <div className={styles.previewHeader}>
             <div className={styles.logo}>
-              VISEZY
+              VINSURE
             </div>
 
             <div className={styles.nav}>

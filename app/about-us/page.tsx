@@ -162,7 +162,7 @@ export default function AboutUsPage() {
           variants={fadeLeft}
         >
           <div className={styles.badgeWrapper}>
-            <span className={styles.badge}>THE VISEZY ETHOS</span>
+            <span className={styles.badge}>THE VINSURE ETHOS</span>
           </div>
 
           <h1 className={styles.heroTitle}>
@@ -174,7 +174,7 @@ export default function AboutUsPage() {
           </h1>
 
           <p className={styles.heroDescription}>
-            Visezy was built to address a core problem: traditional insurance
+            Vinsure was built to address a core problem: traditional insurance
             systems are often confusing, costly, and misaligned with user
             interests. We combine objective data analytics with seasoned
             consumer advocacy to help you safeguard what matters most with total
@@ -208,7 +208,7 @@ export default function AboutUsPage() {
           <div className={styles.imageInner}>
             <Image
               src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80"
-              alt="Visezy Strategic Leadership Consultation Session"
+              alt="Vinsure Strategic Leadership Consultation Session"
               fill
               priority
               sizes="(max-width:1200px)100vw,50vw"
@@ -283,7 +283,7 @@ export default function AboutUsPage() {
               <div className={styles.imageInner}>
                 <Image
                   src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80"
-                  alt="Collaborative Risk Engineers and Product Developers at Visezy HQ"
+                  alt="Collaborative Risk Engineers and Product Developers at Vinsure HQ"
                   fill
                   sizes="(max-width:1200px)100vw,50vw"
                 />
@@ -306,7 +306,7 @@ export default function AboutUsPage() {
               </h2>
 
               <p className={styles.storyText}>
-                Visezy was founded by an expert
+                Vinsure was founded by an expert
                 group of financial analysts,
                 regulatory lawyers and software
                 engineers who noticed that legacy
@@ -740,19 +740,19 @@ export default function AboutUsPage() {
             {[
               {
                 title:
-                  "How does Visezy keep its advice completely unbiased?",
+                  "How does Vinsure keep its advice completely unbiased?",
                 desc:
-                  "Unlike legacy insurance brokers who are incentivized to sell specific policies for hidden backend commissions, Visezy works under a completely transparent model. Our comparison systems evaluate policies strictly by metrics like pricing advantages, customer claim scores, and historical data matching your specific profile.",
+                  "Unlike legacy insurance brokers who are incentivized to sell specific policies for hidden backend commissions, Vinsure works under a completely transparent model. Our comparison systems evaluate policies strictly by metrics like pricing advantages, customer claim scores, and historical data matching your specific profile.",
               },
               {
                 title:
-                  "Does Visezy provide hands-on help if I need to file an emergency claim?",
+                  "Does Vinsure provide hands-on help if I need to file an emergency claim?",
                 desc:
                   "Absolutely. We don't just point you toward a policy and walk away. Our customer care specialists assist with documentation, claim filing, and communication with the insurer until the process is complete.",
               },
               {
                 title:
-                  "Can I transition my existing insurance policy to Visezy?",
+                  "Can I transition my existing insurance policy to Vinsure?",
                 desc:
                   "Yes. We evaluate your current policy, identify overlaps or unnecessary premiums, and help you transition seamlessly without losing your existing coverage.",
               },
@@ -817,7 +817,7 @@ export default function AboutUsPage() {
                 Stop leaving your personal properties
                 and business ventures exposed to complex,
                 legacy policy architecture. Join
-                thousands of users who depend on Visezy
+                thousands of users who depend on Vinsure
                 for clear, data-driven insurance
                 strategy.
               </p>
