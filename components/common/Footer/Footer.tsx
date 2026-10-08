@@ -179,9 +179,9 @@ export const Footer = () => {
             <div className={styles.socialWrapper}>
               <span className={styles.socialLabel}>Connect With Us</span>
               <div className={styles.socialIcons}>
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><FaLinkedin /></a>
-                <a href="https://www.instagram.com/visezy.insurance/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
+                <a href="https://www.facebook.com/people/Vinsure-Insurance/61595044415315/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>
+                <a href="https://www.linkedin.com/company/vinsure-insurance/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><FaLinkedin /></a>
+                <a href="https://www.instagram.com/vinsureinsurance.in/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
               </div>
             </div>
           </div>

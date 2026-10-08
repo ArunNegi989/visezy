@@ -15,7 +15,8 @@ import {
   FaChartLine,
   FaSearch,
   FaImages,
-  FaHeadset
+  FaHeadset,
+  FaMoneyBillWave
 } from "react-icons/fa";
 
 import styles from "./Sidebar.module.css";
@@ -58,6 +59,11 @@ const menuSections = [
         title: "Inquiries",
         icon: <FaHeadset />,
         href: "/admin/inquiries",
+      },
+       {
+        title: "Cashback Leads",
+        icon: <FaMoneyBillWave />,
+        href: "/admin/cashback-leads",
       },
     ],
   },
