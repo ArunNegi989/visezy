@@ -13,19 +13,19 @@ import styles from "./WhatsAppButton.module.css";
 const socialLinks = [
   {
     icon: <FaInstagram />,
-    url: "https://www.instagram.com/visezy.insurance/",
+    url: "https://www.instagram.com/vinsureinsurance.in/",
     label: "Instagram",
     className: styles.instagram,
   },
   {
     icon: <FaFacebookF />,
-    url: "https://facebook.com/yourprofile",
+    url: "https://www.facebook.com/people/Vinsure-Insurance/61595044415315/",
     label: "Facebook",
     className: styles.facebook,
   },
   {
     icon: <FaLinkedinIn />,
-    url: "https://linkedin.com/company/visezy",
+    url: "https://www.linkedin.com/company/vinsure-insurance/",
     label: "LinkedIn",
     className: styles.linkedin,
   },
